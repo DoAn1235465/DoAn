@@ -1,0 +1,32 @@
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\DoAn.Model.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\DoAn.Model.pdb
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\Newtonsoft.Json.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\System.Net.Http.Formatting.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\System.Web.Cors.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\System.Web.Http.Cors.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\System.Web.Http.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\Newtonsoft.Json.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\System.Net.Http.Formatting.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\System.Web.Http.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\System.Web.Http.Cors.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\obj\Debug\DoAn.Model.csprojResolveAssemblyReference.cache
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\obj\Debug\DoAn.Model.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\obj\Debug\DoAn.Model.pdb
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\DoAn.Entity.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.Model\bin\Debug\DoAn.Entity.pdb
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\DoAn.Model.dll
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\DoAn.Model.pdb
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\DoAn.Entity.dll
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\Newtonsoft.Json.dll
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\System.Net.Http.Formatting.dll
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\System.Web.Cors.dll
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\System.Web.Http.Cors.dll
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\System.Web.Http.dll
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\DoAn.Entity.pdb
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\Newtonsoft.Json.xml
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\System.Net.Http.Formatting.xml
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\System.Web.Http.xml
+E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\System.Web.Http.Cors.xml
+E:\DoAn\New folder\DoAn\DoAn.Model\obj\Debug\DoAn.Model.csprojResolveAssemblyReference.cache
+E:\DoAn\New folder\DoAn\DoAn.Model\obj\Debug\DoAn.Model.dll
+E:\DoAn\New folder\DoAn\DoAn.Model\obj\Debug\DoAn.Model.pdb

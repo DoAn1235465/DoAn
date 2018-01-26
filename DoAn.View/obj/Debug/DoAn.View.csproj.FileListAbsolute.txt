@@ -1,0 +1,186 @@
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\ApplicationInsights.config
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\csc.exe
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\System.Collections.Immutable.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\System.Reflection.Metadata.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\vbc.exe
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\VBCSCompiler.exe
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\roslyn\VBCSCompiler.exe.config
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\DoAn.View.dll.config
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\DoAn.View.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\DoAn.View.pdb
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Antlr3.Runtime.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\EntityFramework.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\EntityFramework.SqlServer.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AI.Agent.Intercept.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AI.DependencyCollector.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AI.Web.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AI.WindowsServer.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.ApplicationInsights.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AspNet.Identity.Core.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.Cookies.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.Facebook.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.Google.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.OAuth.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.Twitter.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Web.Infrastructure.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Newtonsoft.Json.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Owin.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Net.Http.Formatting.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Cors.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Helpers.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Http.Cors.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Http.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Mvc.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Optimization.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Razor.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.WebPages.Deployment.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.WebPages.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.WebPages.Razor.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\WebGrease.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AI.DependencyCollector.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AI.Web.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AI.WindowsServer.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.ApplicationInsights.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Net.Http.Formatting.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Http.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Http.Cors.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Helpers.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Mvc.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Optimization.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.Razor.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.WebPages.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.WebPages.Deployment.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\System.Web.WebPages.Razor.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Antlr3.Runtime.pdb
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Newtonsoft.Json.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\EntityFramework.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\EntityFramework.SqlServer.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AspNet.Identity.Core.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.Facebook.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.Cookies.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.OAuth.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.Google.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.Twitter.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\obj\Debug\DoAn.View.csprojResolveAssemblyReference.cache
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\obj\Debug\DoAn.View.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\obj\Debug\DoAn.View.pdb
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\DoAn.Entity.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\DoAn.Model.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\DoAn.Entity.pdb
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.View\bin\DoAn.Model.pdb
+E:\DoAn\New folder\DoAn\DoAn.View\bin\ApplicationInsights.config
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\csc.exe
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\System.Collections.Immutable.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\System.Reflection.Metadata.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\vbc.exe
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\VBCSCompiler.exe
+E:\DoAn\New folder\DoAn\DoAn.View\bin\roslyn\VBCSCompiler.exe.config
+E:\DoAn\New folder\DoAn\DoAn.View\bin\DoAn.View.dll.config
+E:\DoAn\New folder\DoAn\DoAn.View\bin\DoAn.View.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\DoAn.View.pdb
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Antlr3.Runtime.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\DoAn.Entity.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\DoAn.Model.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\EntityFramework.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\EntityFramework.SqlServer.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AI.Agent.Intercept.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AI.DependencyCollector.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AI.Web.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AI.WindowsServer.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.ApplicationInsights.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AspNet.Identity.Core.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.Cookies.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.Facebook.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.Google.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.OAuth.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.Twitter.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Web.Infrastructure.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Newtonsoft.Json.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Owin.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Net.Http.Formatting.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Cors.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Helpers.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Http.Cors.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Http.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Mvc.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Optimization.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Razor.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.WebPages.Deployment.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.WebPages.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.WebPages.Razor.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\WebGrease.dll
+E:\DoAn\New folder\DoAn\DoAn.View\bin\DoAn.Entity.pdb
+E:\DoAn\New folder\DoAn\DoAn.View\bin\DoAn.Model.pdb
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AI.DependencyCollector.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AI.Web.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AI.WindowsServer.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.ApplicationInsights.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Net.Http.Formatting.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Http.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Http.Cors.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Helpers.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Mvc.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Optimization.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.Razor.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.WebPages.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.WebPages.Deployment.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\System.Web.WebPages.Razor.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Antlr3.Runtime.pdb
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Newtonsoft.Json.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\EntityFramework.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\EntityFramework.SqlServer.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AspNet.Identity.Core.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.Facebook.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.Cookies.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.OAuth.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.Google.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.Twitter.xml
+E:\DoAn\New folder\DoAn\DoAn.View\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\DoAn\New folder\DoAn\DoAn.View\obj\Debug\DoAn.View.csprojResolveAssemblyReference.cache
+E:\DoAn\New folder\DoAn\DoAn.View\obj\Debug\DoAn.View.dll
+E:\DoAn\New folder\DoAn\DoAn.View\obj\Debug\DoAn.View.pdb

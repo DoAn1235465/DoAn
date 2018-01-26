@@ -1,0 +1,96 @@
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\ApplicationInsights.config
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\csc.exe
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\System.Collections.Immutable.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\System.Reflection.Metadata.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\vbc.exe
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\VBCSCompiler.exe
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\roslyn\VBCSCompiler.exe.config
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\DoAn.API.dll.config
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\DoAn.API.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\DoAn.API.pdb
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.AI.Agent.Intercept.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.AI.DependencyCollector.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.AI.Web.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.AI.WindowsServer.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.ApplicationInsights.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Newtonsoft.Json.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\System.Net.Http.Formatting.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\System.Web.Cors.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\System.Web.Http.Cors.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\System.Web.Http.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\System.Web.Http.WebHost.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.AI.DependencyCollector.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.AI.Web.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.AI.WindowsServer.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.ApplicationInsights.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\System.Web.Http.Cors.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\Newtonsoft.Json.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\System.Net.Http.Formatting.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\System.Web.Http.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\System.Web.Http.WebHost.xml
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\obj\Debug\DoAn.API.csprojResolveAssemblyReference.cache
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\obj\Debug\DoAn.API.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\obj\Debug\DoAn.API.pdb
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\DoAn.Entity.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\DoAn.Model.dll
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\DoAn.Entity.pdb
+E:\DoAn\DoAn\DoAn\DoAn.View\DoAn.API\bin\DoAn.Model.pdb
+E:\DoAn\New folder\DoAn\DoAn.API\bin\ApplicationInsights.config
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\csc.exe
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\System.Collections.Immutable.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\System.Reflection.Metadata.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\vbc.exe
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\VBCSCompiler.exe
+E:\DoAn\New folder\DoAn\DoAn.API\bin\roslyn\VBCSCompiler.exe.config
+E:\DoAn\New folder\DoAn\DoAn.API\bin\DoAn.API.dll.config
+E:\DoAn\New folder\DoAn\DoAn.API\bin\DoAn.API.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\DoAn.API.pdb
+E:\DoAn\New folder\DoAn\DoAn.API\bin\DoAn.Entity.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\DoAn.Model.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.AI.Agent.Intercept.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.AI.DependencyCollector.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.AI.Web.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.AI.WindowsServer.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.ApplicationInsights.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Newtonsoft.Json.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\System.Net.Http.Formatting.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\System.Web.Cors.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\System.Web.Http.Cors.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\System.Web.Http.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\System.Web.Http.WebHost.dll
+E:\DoAn\New folder\DoAn\DoAn.API\bin\DoAn.Entity.pdb
+E:\DoAn\New folder\DoAn\DoAn.API\bin\DoAn.Model.pdb
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.AI.DependencyCollector.xml
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.AI.Web.xml
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.AI.WindowsServer.xml
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.ApplicationInsights.xml
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\DoAn\New folder\DoAn\DoAn.API\bin\System.Web.Http.Cors.xml
+E:\DoAn\New folder\DoAn\DoAn.API\bin\Newtonsoft.Json.xml
+E:\DoAn\New folder\DoAn\DoAn.API\bin\System.Net.Http.Formatting.xml
+E:\DoAn\New folder\DoAn\DoAn.API\bin\System.Web.Http.xml
+E:\DoAn\New folder\DoAn\DoAn.API\bin\System.Web.Http.WebHost.xml
+E:\DoAn\New folder\DoAn\DoAn.API\obj\Debug\DoAn.API.csprojResolveAssemblyReference.cache
+E:\DoAn\New folder\DoAn\DoAn.API\obj\Debug\DoAn.API.dll
+E:\DoAn\New folder\DoAn\DoAn.API\obj\Debug\DoAn.API.pdb
