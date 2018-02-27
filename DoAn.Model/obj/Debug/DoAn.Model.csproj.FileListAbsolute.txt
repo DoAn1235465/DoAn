@@ -46,3 +46,8 @@ D:\hoc\T3h asp\DoAn\DoAn\DoAn.Model\bin\Debug\System.Web.Http.Cors.xml
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Model\obj\Debug\DoAn.Model.csprojResolveAssemblyReference.cache
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Model\obj\Debug\DoAn.Model.dll
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Model\obj\Debug\DoAn.Model.pdb
+D:\hoc\T3h asp\DoAn\DoAn\DoAn.Model\bin\Debug\DoAn.Model.dll.config
+D:\hoc\T3h asp\DoAn\DoAn\DoAn.Model\bin\Debug\EntityFramework.dll
+D:\hoc\T3h asp\DoAn\DoAn\DoAn.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\hoc\T3h asp\DoAn\DoAn\DoAn.Model\bin\Debug\EntityFramework.xml
+D:\hoc\T3h asp\DoAn\DoAn\DoAn.Model\bin\Debug\EntityFramework.SqlServer.xml
