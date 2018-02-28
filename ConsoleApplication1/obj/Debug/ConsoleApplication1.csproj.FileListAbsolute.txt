@@ -1,0 +1,14 @@
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\DoAn.Entity.dll
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\DoAn.Model.dll
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.dll
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.dll
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\DoAn.Entity.pdb
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\DoAn.Model.pdb
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.xml
+E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.xml
+E:\DoAn\New folder\DoAn\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+E:\DoAn\New folder\DoAn\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+E:\DoAn\New folder\DoAn\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

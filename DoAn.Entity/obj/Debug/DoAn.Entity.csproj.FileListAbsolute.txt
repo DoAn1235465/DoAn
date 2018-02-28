@@ -23,7 +23,6 @@ E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\Newtonsoft.Json.xml
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Net.Http.Formatting.xml
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Http.xml
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Http.Cors.xml
-E:\DoAn\New folder\DoAn\DoAn.Entity\obj\Debug\DoAn.Entity.csprojResolveAssemblyReference.cache
 E:\DoAn\New folder\DoAn\DoAn.Entity\obj\Debug\DoAn.Entity.dll
 E:\DoAn\New folder\DoAn\DoAn.Entity\obj\Debug\DoAn.Entity.pdb
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Entity\bin\Debug\DoAn.Entity.dll
@@ -45,3 +44,8 @@ D:\hoc\T3h asp\DoAn\DoAn\DoAn.Entity\bin\Debug\EntityFramework.dll
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Entity\bin\Debug\EntityFramework.SqlServer.dll
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Entity\bin\Debug\EntityFramework.xml
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Entity\bin\Debug\EntityFramework.SqlServer.xml
+E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\DoAn.Entity.dll.config
+E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.dll
+E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.SqlServer.dll
+E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.xml
+E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.SqlServer.xml
