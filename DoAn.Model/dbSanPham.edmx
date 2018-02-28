@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBSanPhamDAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HinhAnhSP">
+          <Key>
+            <PropertyRef Name="Id_HA" />
+          </Key>
+          <Property Name="Id_HA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" />
+          <Property Name="DiaChi" Type="text" />
+        </EntityType>
+        <EntityType Name="HoaDon">
+          <Key>
+            <PropertyRef Name="Id_HoaDon" />
+          </Key>
+          <Property Name="Id_HoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DienThoai" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="fax" Type="int" Nullable="false" />
+          <Property Name="Cty" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NgayDat" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HoaDonSanPham">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Id_HoaDon" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_HoaDon" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="int" Nullable="false" />
+          <Property Name="DonGia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LienHe">
+          <Key>
+            <PropertyRef Name="Id_LienHe" />
+          </Key>
+          <Property Name="Id_LienHe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cty" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="DienThoai" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="Fax" Type="int" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="NoiDung" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NgayLienHe" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoaiSanPham">
+          <Key>
+            <PropertyRef Name="Id_Loai" />
+          </Key>
+          <Property Name="Id_Loai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiSp" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Id_Nhom" Type="int" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NhomSanPham">
+          <Key>
+            <PropertyRef Name="Id_Nhom" />
+          </Key>
+          <Property Name="Id_Nhom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenNhom" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ChuThich" Type="text" />
+        </EntityType>
+        <EntityType Name="SanPham">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Loai" Type="int" />
+          <Property Name="TenSp" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="MauMuc" Type="nvarchar" MaxLength="150" />
+          <Property Name="KichThuoc" Type="nvarchar" MaxLength="10" />
+          <Property Name="Gia" Type="int" Nullable="false" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="150" />
+          <Property Name="SoLuongBan" Type="int" />
+          <Property Name="NgayCapNhat" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <Association Name="pk">
+          <End Role="NhomSanPham" Type="Self.NhomSanPham" Multiplicity="0..1" />
+          <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhomSanPham">
+              <PropertyRef Name="Id_Nhom" />
+            </Principal>
+            <Dependent Role="LoaiSanPham">
+              <PropertyRef Name="Id_Nhom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk1">
+          <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1" />
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiSanPham">
+              <PropertyRef Name="Id_Loai" />
+            </Principal>
+            <Dependent Role="SanPham">
+              <PropertyRef Name="Id_Loai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk2">
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+          <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HoaDonSanPham">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk3">
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+          <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HoaDon">
+              <PropertyRef Name="Id_HoaDon" />
+            </Principal>
+            <Dependent Role="HoaDonSanPham">
+              <PropertyRef Name="Id_HoaDon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk4">
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+          <End Role="HinhAnhSP" Type="Self.HinhAnhSP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HinhAnhSP">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBSanPhamDAModelStoreContainer">
+          <EntitySet Name="HinhAnhSP" EntityType="Self.HinhAnhSP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HoaDonSanPham" EntityType="Self.HoaDonSanPham" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LienHe" EntityType="Self.LienHe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiSanPham" EntityType="Self.LoaiSanPham" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhomSanPham" EntityType="Self.NhomSanPham" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="pk" Association="Self.pk">
+            <End Role="NhomSanPham" EntitySet="NhomSanPham" />
+            <End Role="LoaiSanPham" EntitySet="LoaiSanPham" />
+          </AssociationSet>
+          <AssociationSet Name="pk1" Association="Self.pk1">
+            <End Role="LoaiSanPham" EntitySet="LoaiSanPham" />
+            <End Role="SanPham" EntitySet="SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="pk2" Association="Self.pk2">
+            <End Role="SanPham" EntitySet="SanPham" />
+            <End Role="HoaDonSanPham" EntitySet="HoaDonSanPham" />
+          </AssociationSet>
+          <AssociationSet Name="pk3" Association="Self.pk3">
+            <End Role="HoaDon" EntitySet="HoaDon" />
+            <End Role="HoaDonSanPham" EntitySet="HoaDonSanPham" />
+          </AssociationSet>
+          <AssociationSet Name="pk4" Association="Self.pk4">
+            <End Role="SanPham" EntitySet="SanPham" />
+            <End Role="HinhAnhSP" EntitySet="HinhAnhSP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBSanPhamDAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HinhAnhSP">
+          <Key>
+            <PropertyRef Name="Id_HA" />
+          </Key>
+          <Property Name="Id_HA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SanPham" Relationship="Self.pk4" FromRole="HinhAnhSP" ToRole="SanPham" />
+        </EntityType>
+        <EntityType Name="HoaDon">
+          <Key>
+            <PropertyRef Name="Id_HoaDon" />
+          </Key>
+          <Property Name="Id_HoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DienThoai" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fax" Type="Int32" Nullable="false" />
+          <Property Name="Cty" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgayDat" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="HoaDonSanPhams" Relationship="Self.pk3" FromRole="HoaDon" ToRole="HoaDonSanPham" />
+        </EntityType>
+        <EntityType Name="HoaDonSanPham">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Id_HoaDon" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_HoaDon" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" Nullable="false" />
+          <Property Name="DonGia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HoaDon" Relationship="Self.pk3" FromRole="HoaDonSanPham" ToRole="HoaDon" />
+          <NavigationProperty Name="SanPham" Relationship="Self.pk2" FromRole="HoaDonSanPham" ToRole="SanPham" />
+        </EntityType>
+        <EntityType Name="LienHe">
+          <Key>
+            <PropertyRef Name="Id_LienHe" />
+          </Key>
+          <Property Name="Id_LienHe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cty" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DienThoai" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fax" Type="Int32" Nullable="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NoiDung" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgayLienHe" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="LoaiSanPham">
+          <Key>
+            <PropertyRef Name="Id_Loai" />
+          </Key>
+          <Property Name="Id_Loai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiSp" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Nhom" Type="Int32" />
+          <Property Name="GhiChu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NhomSanPham" Relationship="Self.pk" FromRole="LoaiSanPham" ToRole="NhomSanPham" />
+          <NavigationProperty Name="SanPhams" Relationship="Self.pk1" FromRole="LoaiSanPham" ToRole="SanPham" />
+        </EntityType>
+        <EntityType Name="NhomSanPham">
+          <Key>
+            <PropertyRef Name="Id_Nhom" />
+          </Key>
+          <Property Name="Id_Nhom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNhom" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChuThich" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LoaiSanPhams" Relationship="Self.pk" FromRole="NhomSanPham" ToRole="LoaiSanPham" />
+        </EntityType>
+        <EntityType Name="SanPham">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Loai" Type="Int32" />
+          <Property Name="TenSp" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MauMuc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="KichThuoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Gia" Type="Int32" Nullable="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuongBan" Type="Int32" />
+          <Property Name="NgayCapNhat" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="HinhAnhSPs" Relationship="Self.pk4" FromRole="SanPham" ToRole="HinhAnhSP" />
+          <NavigationProperty Name="HoaDonSanPhams" Relationship="Self.pk2" FromRole="SanPham" ToRole="HoaDonSanPham" />
+          <NavigationProperty Name="LoaiSanPham" Relationship="Self.pk1" FromRole="SanPham" ToRole="LoaiSanPham" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="pk4">
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+          <End Role="HinhAnhSP" Type="Self.HinhAnhSP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HinhAnhSP">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk3">
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+          <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HoaDon">
+              <PropertyRef Name="Id_HoaDon" />
+            </Principal>
+            <Dependent Role="HoaDonSanPham">
+              <PropertyRef Name="Id_HoaDon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk2">
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+          <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HoaDonSanPham">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk">
+          <End Role="NhomSanPham" Type="Self.NhomSanPham" Multiplicity="0..1" />
+          <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhomSanPham">
+              <PropertyRef Name="Id_Nhom" />
+            </Principal>
+            <Dependent Role="LoaiSanPham">
+              <PropertyRef Name="Id_Nhom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk1">
+          <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1" />
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiSanPham">
+              <PropertyRef Name="Id_Loai" />
+            </Principal>
+            <Dependent Role="SanPham">
+              <PropertyRef Name="Id_Loai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbSanPhamEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HinhAnhSPs" EntityType="Self.HinhAnhSP" />
+          <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+          <EntitySet Name="HoaDonSanPhams" EntityType="Self.HoaDonSanPham" />
+          <EntitySet Name="LienHes" EntityType="Self.LienHe" />
+          <EntitySet Name="LoaiSanPhams" EntityType="Self.LoaiSanPham" />
+          <EntitySet Name="NhomSanPhams" EntityType="Self.NhomSanPham" />
+          <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+          <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+          <AssociationSet Name="pk4" Association="Self.pk4">
+            <End Role="SanPham" EntitySet="SanPhams" />
+            <End Role="HinhAnhSP" EntitySet="HinhAnhSPs" />
+          </AssociationSet>
+          <AssociationSet Name="pk3" Association="Self.pk3">
+            <End Role="HoaDon" EntitySet="HoaDons" />
+            <End Role="HoaDonSanPham" EntitySet="HoaDonSanPhams" />
+          </AssociationSet>
+          <AssociationSet Name="pk2" Association="Self.pk2">
+            <End Role="SanPham" EntitySet="SanPhams" />
+            <End Role="HoaDonSanPham" EntitySet="HoaDonSanPhams" />
+          </AssociationSet>
+          <AssociationSet Name="pk" Association="Self.pk">
+            <End Role="NhomSanPham" EntitySet="NhomSanPhams" />
+            <End Role="LoaiSanPham" EntitySet="LoaiSanPhams" />
+          </AssociationSet>
+          <AssociationSet Name="pk1" Association="Self.pk1">
+            <End Role="LoaiSanPham" EntitySet="LoaiSanPhams" />
+            <End Role="SanPham" EntitySet="SanPhams" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBSanPhamDAModelStoreContainer" CdmEntityContainer="dbSanPhamEntities">
+          <EntitySetMapping Name="HinhAnhSPs">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.HinhAnhSP">
+              <MappingFragment StoreEntitySet="HinhAnhSP">
+                <ScalarProperty Name="Id_HA" ColumnName="Id_HA" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HoaDons">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.HoaDon">
+              <MappingFragment StoreEntitySet="HoaDon">
+                <ScalarProperty Name="Id_HoaDon" ColumnName="Id_HoaDon" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="Cty" ColumnName="Cty" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HoaDonSanPhams">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.HoaDonSanPham">
+              <MappingFragment StoreEntitySet="HoaDonSanPham">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_HoaDon" ColumnName="Id_HoaDon" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LienHes">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.LienHe">
+              <MappingFragment StoreEntitySet="LienHe">
+                <ScalarProperty Name="Id_LienHe" ColumnName="Id_LienHe" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Cty" ColumnName="Cty" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="NgayLienHe" ColumnName="NgayLienHe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiSanPhams">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.LoaiSanPham">
+              <MappingFragment StoreEntitySet="LoaiSanPham">
+                <ScalarProperty Name="Id_Loai" ColumnName="Id_Loai" />
+                <ScalarProperty Name="TenLoaiSp" ColumnName="TenLoaiSp" />
+                <ScalarProperty Name="Id_Nhom" ColumnName="Id_Nhom" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhomSanPhams">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.NhomSanPham">
+              <MappingFragment StoreEntitySet="NhomSanPham">
+                <ScalarProperty Name="Id_Nhom" ColumnName="Id_Nhom" />
+                <ScalarProperty Name="TenNhom" ColumnName="TenNhom" />
+                <ScalarProperty Name="ChuThich" ColumnName="ChuThich" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SanPhams">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.SanPham">
+              <MappingFragment StoreEntitySet="SanPham">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Loai" ColumnName="Id_Loai" />
+                <ScalarProperty Name="TenSp" ColumnName="TenSp" />
+                <ScalarProperty Name="MauMuc" ColumnName="MauMuc" />
+                <ScalarProperty Name="KichThuoc" ColumnName="KichThuoc" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="SoLuongBan" ColumnName="SoLuongBan" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
