@@ -7,6 +7,7 @@ using System.Web.Http;
 using DoAn.Entity;
 using DoAn.Model;
 using System.Web.Http.Cors;
+using Newtonsoft.Json.Linq;
 
 namespace DoAn.API.Controllers
 {
@@ -14,19 +15,18 @@ namespace DoAn.API.Controllers
 	public class AdminController : ApiController
     {
 		dbSanPhamEntities db = new dbSanPhamEntities();
-		[ActionName("Index")]
-		public IHttpActionResult Get()
+
+		[ActionName("Get")]
+		public JToken Get()
 		{
-			return Ok();
+			return JToken.FromObject(db.TaiKhoans.ToList());
 		}
-
-
 		[ActionName("PostLogin")]
 		public IHttpActionResult PostLogin(TaiKhoan tk)
 		{
 			if (ModelState.IsValid)
 			{
-				var tktt = db.TaiKhoans.Where(x => x.Username == tk.Username).Where(x => x.Password == tk.Password);
+				var tktt = db.TaiKhoans.Where(x => x.Username.ToLower() == tk.Username.ToLower()).Where(x => x.Password.ToLower() == tk.Password.ToLower());
 				if (tktt!=null)
 				{
 					return Ok();
