@@ -50,6 +50,7 @@ D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\Antlr3.Runtime.pdb
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\Newtonsoft.Json.xml
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\obj\Debug\DoAn.Views.dll
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\obj\Debug\DoAn.Views.pdb
+D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\obj\Debug\DoAn.Views.csprojResolveAssemblyReference.cache
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\ApplicationInsights.config
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\roslyn\csc.exe
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -107,4 +108,3 @@ E:\DoAn\New folder\DoAn\DoAn.Views\bin\EntityFramework.SqlServer.dll
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\EntityFramework.xml
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\EntityFramework.SqlServer.xml
 E:\DoAn\New folder\DoAn\DoAn.Views\obj\Debug\DoAn.Views.csprojResolveAssemblyReference.cache
-D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\obj\Debug\DoAn.Views.csprojResolveAssemblyReference.cache

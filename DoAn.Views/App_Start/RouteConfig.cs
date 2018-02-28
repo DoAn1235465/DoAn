@@ -17,7 +17,7 @@ namespace DoAn.Views
 				name: "Default",
 				url: "{controller}/{action}/{id}",
 				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-				namespaces: new string[] { "DoAn.Views.Controllers" }
+				namespaces:new string[] { "DoAn.Views.Controllers" }
 			);
 		}
 	}

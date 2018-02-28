@@ -8,9 +8,10 @@ namespace DoAn.Views.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-		public ActionResult Login()
-		{
-			return View();
-		}
+        // GET: Admin/Home
+        public ActionResult Login()
+        {
+            return View();
+        }
     }
 }
