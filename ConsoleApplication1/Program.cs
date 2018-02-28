@@ -11,8 +11,11 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             DoAn.Model.dbSanPhamEntities db = new DoAn.Model.dbSanPhamEntities();
-            var value = db.SanPhams.Where(x => x.Id == 1);
-            Console.Write(value);
+            var value = db.SanPhams.ToList();
+            foreach (var item in value)
+            {
+                Console.WriteLine(item.TenSp);
+            }
             Console.ReadKey();
         }
     }

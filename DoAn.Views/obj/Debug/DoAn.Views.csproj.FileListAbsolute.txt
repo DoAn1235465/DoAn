@@ -103,7 +103,4 @@ E:\DoAn\New folder\DoAn\DoAn.Views\bin\Antlr3.Runtime.pdb
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\Newtonsoft.Json.xml
 E:\DoAn\New folder\DoAn\DoAn.Views\obj\Debug\DoAn.Views.dll
 E:\DoAn\New folder\DoAn\DoAn.Views\obj\Debug\DoAn.Views.pdb
-E:\DoAn\New folder\DoAn\DoAn.Views\bin\EntityFramework.dll
-E:\DoAn\New folder\DoAn\DoAn.Views\bin\EntityFramework.SqlServer.dll
-E:\DoAn\New folder\DoAn\DoAn.Views\bin\EntityFramework.xml
-E:\DoAn\New folder\DoAn\DoAn.Views\bin\EntityFramework.SqlServer.xml
+E:\DoAn\New folder\DoAn\DoAn.Views\obj\Debug\DoAn.Views.csprojResolveAssemblyReference.cache
