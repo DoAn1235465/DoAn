@@ -1,0 +1,52 @@
+﻿
+@{
+	ViewBag.Title = "Login";
+	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container" id="login">
+	
+	<form class="form-signin">
+		<h2 class="form-signin-heading">Đăng nhập hệ thống</h2>
+		<input type="text" class="input-block-level" placeholder="Tài khoản" id="TaiKhoan">
+		<input type="password" class="input-block-level" placeholder="Mật khẩu" id="MatKhau">
+		<label class="checkbox">
+			<input type="checkbox" value="remember-me"> Nhớ mật khẩu
+		</label>
+		<button class="btn btn-large btn-primary" type="submit">Đăng nhập</button>
+	</form>
+</div> <!-- /container -->
+@section scripts{
+	<script>
+		$('form').submit(function (e) {
+			e.preventDefault();
+			var User = {
+				Username: $('form #TaiKhoan').val(),
+				Password: $('form #MatKhau').val()
+			};
+			//$.ajax({
+			//	contentType: 'application/json; charset=utf-8',
+			//	url: 'http://localhost:52178/admin/PostLogin',
+			//	data: User,
+			//	cache: false,
+			//	type: 'Post',
+			//	success: function (data) {
+			//		console.log(1);
+			//	},
+			//	error: function () { console.log(2) }
+			//});
+			$.ajax({
+				//contentType: 'application/json; charset=utf-8',
+				url: 'http://localhost:52178/admin/index',
+				//data: User,
+				//cache: false,
+				type: 'get',
+				success: function (data) {
+					console.log(1);
+				},
+				error: function () { console.log(2) }
+			});
+		});
+</script>
+	
+}
+

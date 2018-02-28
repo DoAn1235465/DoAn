@@ -12,3 +12,17 @@ E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.
 E:\DoAn\New folder\DoAn\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
 E:\DoAn\New folder\DoAn\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 E:\DoAn\New folder\DoAn\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\DoAn.Entity.dll
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\DoAn.Model.dll
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.dll
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.dll
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\DoAn.Entity.pdb
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\DoAn.Model.pdb
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.xml
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.xml
+D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
