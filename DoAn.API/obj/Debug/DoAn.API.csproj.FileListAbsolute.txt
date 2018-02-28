@@ -148,3 +148,5 @@ E:\DoAn\New folder\DoAn\DoAn.API\bin\EntityFramework.dll
 E:\DoAn\New folder\DoAn\DoAn.API\bin\EntityFramework.xml
 E:\DoAn\New folder\DoAn\DoAn.API\bin\EntityFramework.SqlServer.dll
 E:\DoAn\New folder\DoAn\DoAn.API\bin\EntityFramework.SqlServer.xml
+D:\hoc\T3h asp\DoAn\DoAn\DoAn.API\bin\EntityFramework.SqlServer.dll
+D:\hoc\T3h asp\DoAn\DoAn\DoAn.API\bin\EntityFramework.SqlServer.xml

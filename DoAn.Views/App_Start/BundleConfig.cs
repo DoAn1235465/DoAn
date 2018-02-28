@@ -26,6 +26,9 @@ namespace DoAn.Views
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/bootstrap.css",
 					  "~/Content/site.css"));
+			bundles.Add(new StyleBundle("~/Admin/Content/css").Include(
+					"~/Areas/Admin/Content/styles.css"
+				));
 		}
 	}
 }

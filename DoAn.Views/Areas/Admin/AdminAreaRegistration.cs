@@ -17,7 +17,7 @@ namespace DoAn.Views.Areas.Admin
 			context.MapRoute(
 				"Admin_default",
 				"Admin/{controller}/{action}/{id}",
-				new { controller="HomeAdmin", action = "Index", id = UrlParameter.Optional },
+				new { controller="Home", action = "Login", id = UrlParameter.Optional },
 				new string[] { "DoAn.Views.Areas.Admin.Controllers" }
 			);
 		}
