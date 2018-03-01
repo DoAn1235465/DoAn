@@ -14,17 +14,17 @@ namespace DoAn.Entity
     
     public partial class LoaiSanPham
     {
-        public LoaiSanPham()
-        {
-            this.SanPhams = new HashSet<SanPham>();
-        }
+        //public LoaiSanPham()
+        //{
+        //    this.SanPhams = new HashSet<SanPham>();
+        //}
     
         public int Id_Loai { get; set; }
         public string TenLoaiSp { get; set; }
         public Nullable<int> Id_Nhom { get; set; }
         public string GhiChu { get; set; }
     
-        public virtual NhomSanPham NhomSanPham { get; set; }
+		public virtual NhomSanPham NhomSanPham { get; set; }
         public virtual ICollection<SanPham> SanPhams { get; set; }
     }
 }

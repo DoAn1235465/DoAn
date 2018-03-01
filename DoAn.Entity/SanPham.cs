@@ -14,11 +14,11 @@ namespace DoAn.Entity
     
     public partial class SanPham
     {
-        public SanPham()
-        {
-            this.HinhAnhSPs = new HashSet<HinhAnhSP>();
-            this.HoaDonSanPhams = new HashSet<HoaDonSanPham>();
-        }
+        //public SanPham()
+        //{
+        //    this.HinhAnhSPs = new HashSet<HinhAnhSP>();
+        //    this.HoaDonSanPhams = new HashSet<HoaDonSanPham>();
+        //}
     
         public int Id { get; set; }
         public Nullable<int> Id_Loai { get; set; }
@@ -32,6 +32,6 @@ namespace DoAn.Entity
     
         public virtual ICollection<HinhAnhSP> HinhAnhSPs { get; set; }
         public virtual ICollection<HoaDonSanPham> HoaDonSanPhams { get; set; }
-        public virtual LoaiSanPham LoaiSanPham { get; set; }
+		public virtual LoaiSanPham LoaiSanPham { get; set; }
     }
 }

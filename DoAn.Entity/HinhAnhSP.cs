@@ -17,7 +17,7 @@ namespace DoAn.Entity
         public int Id_HA { get; set; }
         public Nullable<int> Id { get; set; }
         public string DiaChi { get; set; }
-    
+		
         public virtual SanPham SanPham { get; set; }
     }
 }

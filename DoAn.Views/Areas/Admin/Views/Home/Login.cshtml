@@ -17,26 +17,24 @@
 </div> <!-- /container -->
 @section scripts{
 	<script>
-		$.getJSON('http://localhost:52178/api/admin/Get/', {}, function (data) {
-			$.each(data, function (k, v) {
-				console.log(v.Username);
-			});
+		$.getJSON('http://localhost:52178/api/admin/Get/', function (data) {
+			console.log(data);
 		});
-		$('form').submit(function (e) {
-			e.preventDefault();
-			var User = {
-				Username: $('form #TaiKhoan').val(),
-				Password: $('form #MatKhau').val()
-			};
-			console.log(User);
-			$.ajax({
-				url: 'http://localhost:52178/api/admin/PostLogin/',
-				data: User,
-				type: 'Post',
-				dataType: 'Json',
-				//contentType: 'application/json; charset=utf-8',
-			}).done(function () { console.log(1); }).error(function () { console.log(2); });
-		});
+		//$('form').submit(function (e) {
+		//	e.preventDefault();
+		//	var User = {
+		//		Username: $('form #TaiKhoan').val(),
+		//		Password: $('form #MatKhau').val()
+		//	};
+		//	console.log(User);
+		//	$.ajax({
+		//		url: 'http://localhost:52178/api/admin/PostLogin/',
+		//		data: User,
+		//		type: 'Post',
+		//		dataType: 'Json',
+		//		//contentType: 'application/json; charset=utf-8',
+		//	}).done(function () { console.log(1); }).error(function () { console.log(2); });
+		//});
 </script>
 	
 }
