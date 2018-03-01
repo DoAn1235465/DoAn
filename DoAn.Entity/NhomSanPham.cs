@@ -14,10 +14,10 @@ namespace DoAn.Entity
     
     public partial class NhomSanPham
     {
-        public NhomSanPham()
-        {
-            this.LoaiSanPhams = new HashSet<LoaiSanPham>();
-        }
+        //public NhomSanPham()
+        //{
+        //    this.LoaiSanPhams = new HashSet<LoaiSanPham>();
+        //}
     
         public int Id_Nhom { get; set; }
         public string TenNhom { get; set; }

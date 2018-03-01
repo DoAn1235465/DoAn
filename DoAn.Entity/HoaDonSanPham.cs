@@ -18,8 +18,8 @@ namespace DoAn.Entity
         public int Id_HoaDon { get; set; }
         public int SoLuong { get; set; }
         public int DonGia { get; set; }
-    
-        public virtual HoaDon HoaDon { get; set; }
-        public virtual SanPham SanPham { get; set; }
-    }
+
+		public virtual HoaDon HoaDon { get; set; }
+		public virtual SanPham SanPham { get; set; }
+	}
 }

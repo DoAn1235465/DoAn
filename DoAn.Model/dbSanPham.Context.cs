@@ -23,6 +23,7 @@ namespace DoAn.Model
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+			Configuration.ProxyCreationEnabled = false;
             throw new UnintentionalCodeFirstException();
         }
     

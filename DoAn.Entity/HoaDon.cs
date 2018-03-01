@@ -14,10 +14,10 @@ namespace DoAn.Entity
     
     public partial class HoaDon
     {
-        public HoaDon()
-        {
-            this.HoaDonSanPhams = new HashSet<HoaDonSanPham>();
-        }
+        //public HoaDon()
+        //{
+        //    this.HoaDonSanPhams = new HashSet<HoaDonSanPham>();
+        //}
     
         public int Id_HoaDon { get; set; }
         public string HoTen { get; set; }

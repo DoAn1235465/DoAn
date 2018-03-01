@@ -8,7 +8,7 @@ using DoAn.Entity;
 using DoAn.Model;
 using System.Web.Http.Cors;
 using Newtonsoft.Json.Linq;
-
+using Newtonsoft.Json; 
 namespace DoAn.API.Controllers
 {
 	[EnableCors("*", "*", "*")]
@@ -17,9 +17,11 @@ namespace DoAn.API.Controllers
 		dbSanPhamEntities db = new dbSanPhamEntities();
 
 		[ActionName("Get")]
-		public JToken Get()
+		public IHttpActionResult Get()
 		{
-			return JToken.FromObject(db.TaiKhoans.ToList());
+
+			var list = db.SanPhams;
+			return Ok(JsonConvert.SerializeObject(list.ToList()));
 		}
 		[ActionName("PostLogin")]
 		public IHttpActionResult PostLogin(TaiKhoan tk)
