@@ -71,26 +71,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dbSanPham.Context.cs">
+    <Compile Include="dbSanPhamModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbSanPham.Context.tt</DependentUpon>
+      <DependentUpon>dbSanPhamModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="dbSanPham.Designer.cs">
+    <Compile Include="dbSanPhamModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbSanPham.edmx</DependentUpon>
+      <DependentUpon>dbSanPhamModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="dbSanPham.edmx">
+    <EntityDeploy Include="dbSanPhamModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbSanPham.Designer.cs</LastGenOutput>
+      <LastGenOutput>dbSanPhamModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="dbSanPham.edmx.diagram">
-      <DependentUpon>dbSanPham.edmx</DependentUpon>
+    <None Include="dbSanPhamModel.edmx.diagram">
+      <DependentUpon>dbSanPhamModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -101,14 +101,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dbSanPham.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbSanPham.edmx</DependentUpon>
-      <LastGenOutput>dbSanPham.Context.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="dbSanPhamModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbSanPhamModel.edmx</DependentUpon>
+      <LastGenOutput>dbSanPhamModel.Context.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

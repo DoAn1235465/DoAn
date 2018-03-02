@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAn.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,9 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            DoAn.Model.dbSanPhamEntities db = new DoAn.Model.dbSanPhamEntities();
-            var value = db.SanPhams.ToList();
-            foreach (var item in value)
+            DBSanPhamDoAnEntities db = new DBSanPhamDoAnEntities();
+            var list = db.SanPhams;
+            foreach (var item in list)
             {
                 Console.WriteLine(item.TenSp);
             }

@@ -13,17 +13,16 @@ namespace DoAn.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class dbSanPhamEntities : DbContext
+
+    public partial class DBSanPhamDoAnEntities : DbContext
     {
-        public dbSanPhamEntities()
-            : base("name=dbSanPhamEntities")
+        public DBSanPhamDoAnEntities()
+            : base("name=DBSanPhamDoAnEntities")
         {
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-			Configuration.ProxyCreationEnabled = false;
             throw new UnintentionalCodeFirstException();
         }
     
