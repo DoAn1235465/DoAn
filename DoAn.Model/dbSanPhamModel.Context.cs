@@ -14,10 +14,10 @@ namespace DoAn.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
 
-    public partial class DBSanPhamDoAnEntities : DbContext
+    public partial class DBSanPhamDAEntities : DbContext
     {
-        public DBSanPhamDoAnEntities()
-            : base("name=DBSanPhamDoAnEntities")
+        public DBSanPhamDAEntities()
+            : base("name=DBSanPhamDAEntities")
         {
         }
     

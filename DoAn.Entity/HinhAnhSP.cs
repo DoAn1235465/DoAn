@@ -15,8 +15,8 @@ namespace DoAn.Entity
     public partial class HinhAnhSP
     {
         public int Id_HA { get; set; }
+        public Nullable<int> Id { get; set; }
         public string DiaChi { get; set; }
-        public int Id { get; set; }
     
         public virtual SanPham SanPham { get; set; }
     }

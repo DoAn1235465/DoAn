@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DBSanPhamDoAnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DBSanPhamDAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="HinhAnhSP">
     <Key>
       <PropertyRef Name="Id_HA" />
     </Key>
     <Property Name="Id_HA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DiaChi" Type="nvarchar" MaxLength="150" />
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="HoaDon">
     <Key>
@@ -51,7 +51,7 @@
     </Key>
     <Property Name="Id_Loai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenLoaiSp" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="Id_Nhom" Type="int" Nullable="false" />
+    <Property Name="Id_Nhom" Type="int" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="NhomSanPham">
@@ -60,14 +60,14 @@
     </Key>
     <Property Name="Id_Nhom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenNhom" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="ChuThich" Type="nvarchar" MaxLength="255" />
+    <Property Name="ChuThich" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="SanPham">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Id_Loai" Type="int" Nullable="false" />
+    <Property Name="Id_Loai" Type="int" />
     <Property Name="TenSp" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="MauMuc" Type="nvarchar" MaxLength="150" />
     <Property Name="KichThuoc" Type="nvarchar" MaxLength="20" />
@@ -85,9 +85,7 @@
     <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
   </EntityType>
   <Association Name="pk">
-    <End Role="NhomSanPham" Type="Self.NhomSanPham" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="NhomSanPham" Type="Self.NhomSanPham" Multiplicity="0..1" />
     <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="NhomSanPham">
@@ -99,9 +97,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="pk1">
-    <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1" />
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="LoaiSanPham">
@@ -113,9 +109,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="pk2">
-    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
     <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SanPham">
@@ -127,9 +121,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="pk3">
-    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
     <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="HoaDon">
@@ -141,9 +133,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="pk4">
-    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
     <End Role="HinhAnhSP" Type="Self.HinhAnhSP" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SanPham">
@@ -154,7 +144,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DBSanPhamDoAnModelStoreContainer">
+  <EntityContainer Name="DBSanPhamDAModelStoreContainer">
     <EntitySet Name="HinhAnhSP" EntityType="Self.HinhAnhSP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HoaDonSanPham" EntityType="Self.HoaDonSanPham" Schema="dbo" store:Type="Tables" />

@@ -22,7 +22,7 @@ namespace DoAn.Entity
         }
     
         public int Id { get; set; }
-        public int Id_Loai { get; set; }
+        public Nullable<int> Id_Loai { get; set; }
         public string TenSp { get; set; }
         public string MauMuc { get; set; }
         public string KichThuoc { get; set; }
