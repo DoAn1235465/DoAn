@@ -44,11 +44,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -131,11 +131,27 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HinhAnhSPController.cs" />
+    <Compile Include="Controllers\HoaDonSanPhamsController.cs" />
+    <Compile Include="Controllers\HoaDonsController.cs" />
+    <Compile Include="Controllers\LienHesController.cs" />
+    <Compile Include="Controllers\LoaiSanPhamsController.cs" />
+    <Compile Include="Controllers\NhomSanPhamsController.cs" />
+    <Compile Include="Controllers\SanPhamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IDB\Ibase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\HoaDonSP.cs" />
+    <Compile Include="Service\SHinhAnhSP.cs" />
+    <Compile Include="Service\SHoaDon.cs" />
+    <Compile Include="Service\SHoaDonSP.cs" />
+    <Compile Include="Service\SLienHe.cs" />
+    <Compile Include="Service\SLoaiSP.cs" />
+    <Compile Include="Service\SNhomSP.cs" />
+    <Compile Include="Service\SSanPham.cs" />
+    <Compile Include="Service\STaiKhoan.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

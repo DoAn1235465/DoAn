@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBSanPhamDoAnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBSanPhamDAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="HinhAnhSP">
           <Key>
             <PropertyRef Name="Id_HA" />
           </Key>
           <Property Name="Id_HA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="150" />
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="HoaDon">
           <Key>
@@ -56,7 +56,7 @@
           </Key>
           <Property Name="Id_Loai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenLoaiSp" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="Id_Nhom" Type="int" Nullable="false" />
+          <Property Name="Id_Nhom" Type="int" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="NhomSanPham">
@@ -65,14 +65,14 @@
           </Key>
           <Property Name="Id_Nhom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenNhom" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ChuThich" Type="nvarchar" MaxLength="255" />
+          <Property Name="ChuThich" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="SanPham">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Id_Loai" Type="int" Nullable="false" />
+          <Property Name="Id_Loai" Type="int" />
           <Property Name="TenSp" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="MauMuc" Type="nvarchar" MaxLength="150" />
           <Property Name="KichThuoc" Type="nvarchar" MaxLength="20" />
@@ -90,9 +90,7 @@
           <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <Association Name="pk">
-          <End Role="NhomSanPham" Type="Self.NhomSanPham" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="NhomSanPham" Type="Self.NhomSanPham" Multiplicity="0..1" />
           <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhomSanPham">
@@ -104,9 +102,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="pk1">
-          <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1" />
           <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LoaiSanPham">
@@ -118,9 +114,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="pk2">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
           <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SanPham">
@@ -132,9 +126,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="pk3">
-          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
           <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HoaDon">
@@ -146,9 +138,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="pk4">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
           <End Role="HinhAnhSP" Type="Self.HinhAnhSP" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SanPham">
@@ -159,7 +149,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBSanPhamDoAnModelStoreContainer">
+        <EntityContainer Name="DBSanPhamDAModelStoreContainer">
           <EntitySet Name="HinhAnhSP" EntityType="Self.HinhAnhSP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HoaDonSanPham" EntityType="Self.HoaDonSanPham" Schema="dbo" store:Type="Tables" />
@@ -193,14 +183,14 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DBSanPhamDoAnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DBSanPhamDAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="HinhAnhSP">
           <Key>
             <PropertyRef Name="Id_HA" />
           </Key>
           <Property Name="Id_HA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DiaChi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SanPham" Relationship="Self.pk4" FromRole="HinhAnhSP" ToRole="SanPham" />
         </EntityType>
         <EntityType Name="HoaDon">
@@ -249,7 +239,7 @@
           </Key>
           <Property Name="Id_Loai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLoaiSp" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Id_Nhom" Type="Int32" Nullable="false" />
+          <Property Name="Id_Nhom" Type="Int32" />
           <Property Name="GhiChu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NhomSanPham" Relationship="Self.pk" FromRole="LoaiSanPham" ToRole="NhomSanPham" />
           <NavigationProperty Name="SanPhams" Relationship="Self.pk1" FromRole="LoaiSanPham" ToRole="SanPham" />
@@ -260,7 +250,7 @@
           </Key>
           <Property Name="Id_Nhom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenNhom" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ChuThich" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ChuThich" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LoaiSanPhams" Relationship="Self.pk" FromRole="NhomSanPham" ToRole="LoaiSanPham" />
         </EntityType>
         <EntityType Name="SanPham">
@@ -268,7 +258,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Id_Loai" Type="Int32" Nullable="false" />
+          <Property Name="Id_Loai" Type="Int32" />
           <Property Name="TenSp" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MauMuc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="KichThuoc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -289,9 +279,7 @@
           <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <Association Name="pk4">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
           <End Role="HinhAnhSP" Type="Self.HinhAnhSP" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SanPham">
@@ -303,9 +291,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="pk3">
-          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
           <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HoaDon">
@@ -317,9 +303,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="pk2">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
           <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SanPham">
@@ -331,9 +315,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="pk">
-          <End Role="NhomSanPham" Type="Self.NhomSanPham" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="NhomSanPham" Type="Self.NhomSanPham" Multiplicity="0..1" />
           <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhomSanPham">
@@ -345,9 +327,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="pk1">
-          <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1" />
           <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LoaiSanPham">
@@ -358,7 +338,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBSanPhamDoAnEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBSanPhamDAEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="HinhAnhSPs" EntityType="Self.HinhAnhSP" />
           <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
           <EntitySet Name="HoaDonSanPhams" EntityType="Self.HoaDonSanPham" />
@@ -393,18 +373,18 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBSanPhamDoAnModelStoreContainer" CdmEntityContainer="DBSanPhamDoAnEntities">
+        <EntityContainerMapping StorageEntityContainer="DBSanPhamDAModelStoreContainer" CdmEntityContainer="DBSanPhamDAEntities">
           <EntitySetMapping Name="HinhAnhSPs">
-            <EntityTypeMapping TypeName="DBSanPhamDoAnModel.HinhAnhSP">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.HinhAnhSP">
               <MappingFragment StoreEntitySet="HinhAnhSP">
                 <ScalarProperty Name="Id_HA" ColumnName="Id_HA" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HoaDons">
-            <EntityTypeMapping TypeName="DBSanPhamDoAnModel.HoaDon">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.HoaDon">
               <MappingFragment StoreEntitySet="HoaDon">
                 <ScalarProperty Name="Id_HoaDon" ColumnName="Id_HoaDon" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
@@ -418,7 +398,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HoaDonSanPhams">
-            <EntityTypeMapping TypeName="DBSanPhamDoAnModel.HoaDonSanPham">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.HoaDonSanPham">
               <MappingFragment StoreEntitySet="HoaDonSanPham">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Id_HoaDon" ColumnName="Id_HoaDon" />
@@ -428,7 +408,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LienHes">
-            <EntityTypeMapping TypeName="DBSanPhamDoAnModel.LienHe">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.LienHe">
               <MappingFragment StoreEntitySet="LienHe">
                 <ScalarProperty Name="Id_LienHe" ColumnName="Id_LienHe" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
@@ -443,7 +423,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiSanPhams">
-            <EntityTypeMapping TypeName="DBSanPhamDoAnModel.LoaiSanPham">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.LoaiSanPham">
               <MappingFragment StoreEntitySet="LoaiSanPham">
                 <ScalarProperty Name="Id_Loai" ColumnName="Id_Loai" />
                 <ScalarProperty Name="TenLoaiSp" ColumnName="TenLoaiSp" />
@@ -453,7 +433,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NhomSanPhams">
-            <EntityTypeMapping TypeName="DBSanPhamDoAnModel.NhomSanPham">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.NhomSanPham">
               <MappingFragment StoreEntitySet="NhomSanPham">
                 <ScalarProperty Name="Id_Nhom" ColumnName="Id_Nhom" />
                 <ScalarProperty Name="TenNhom" ColumnName="TenNhom" />
@@ -462,7 +442,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SanPhams">
-            <EntityTypeMapping TypeName="DBSanPhamDoAnModel.SanPham">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.SanPham">
               <MappingFragment StoreEntitySet="SanPham">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Id_Loai" ColumnName="Id_Loai" />
@@ -477,7 +457,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TaiKhoans">
-            <EntityTypeMapping TypeName="DBSanPhamDoAnModel.TaiKhoan">
+            <EntityTypeMapping TypeName="DBSanPhamDAModel.TaiKhoan">
               <MappingFragment StoreEntitySet="TaiKhoan">
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
