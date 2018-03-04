@@ -71,6 +71,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\AdminDao.cs" />
+    <Compile Include="Dao\LoaiSanPhamDao.cs" />
+    <Compile Include="Dao\NhomSanPhamDao.cs" />
+    <Compile Include="Dao\SanPhamDao.cs" />
     <Compile Include="dbSanPhamModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,6 +85,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbSanPhamModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="IDB\GetIdList.cs" />
+    <Compile Include="IDB\Pros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +116,7 @@
       <LastGenOutput>dbSanPhamModel.Context.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
