@@ -141,17 +141,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IDB\Ibase.cs" />
+    <Compile Include="IDB\GetIdList.cs" />
+    <Compile Include="IDB\Pros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\HoaDonSP.cs" />
-    <Compile Include="Service\SHinhAnhSP.cs" />
-    <Compile Include="Service\SHoaDon.cs" />
-    <Compile Include="Service\SHoaDonSP.cs" />
-    <Compile Include="Service\SLienHe.cs" />
-    <Compile Include="Service\SLoaiSP.cs" />
-    <Compile Include="Service\SNhomSP.cs" />
-    <Compile Include="Service\SSanPham.cs" />
-    <Compile Include="Service\STaiKhoan.cs" />
+    <Compile Include="Service\sAdmin.cs" />
+    <Compile Include="Service\sLoaiSanPham.cs" />
+    <Compile Include="Service\sNhomSanPham.cs" />
+    <Compile Include="Service\sSanPham.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
