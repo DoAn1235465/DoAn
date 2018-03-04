@@ -9,9 +9,22 @@ namespace DoAn.Views.Controllers
     public class PartialController : Controller
     {
         // GET: Partial
-        public ActionResult Index()
+        public PartialViewResult TopNav()
         {
-            return View();
+            return PartialView();
         }
+		public PartialViewResult ShoppingCart()
+		{
+			return PartialView();
+		}
+
+		public PartialViewResult RightContent()
+		{
+			return PartialView();
+		}
+		public PartialViewResult NivoSlider()
+		{
+			return PartialView();
+		}
     }
 }

@@ -9,16 +9,19 @@
 
 namespace DoAn.Model
 {
-    using Entity;
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
+	using Entity;
+	using System;
+	using System.Data.Entity;
+	using System.Data.Entity.Infrastructure;
+	using System.Runtime.Serialization;
 
+	[DataContract(IsReference = true)]
     public partial class DBSanPhamDAEntities : DbContext
     {
         public DBSanPhamDAEntities()
             : base("name=DBSanPhamDAEntities")
         {
+			Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

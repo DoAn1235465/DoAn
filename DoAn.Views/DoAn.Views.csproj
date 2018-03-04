@@ -150,8 +150,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PartialController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -233,6 +235,8 @@
     <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Partial\TopNav.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -242,6 +246,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js\easing.js" />
+    <Content Include="Scripts\js\IndexJs.js" />
     <Content Include="Scripts\js\jquery.etalage.min.js" />
     <Content Include="Scripts\js\jquery.flexisel.js" />
     <Content Include="Scripts\js\jquery.min.js" />
@@ -267,12 +272,16 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Partial\TopNav.cshtml" />
+    <Content Include="Views\Partial\ShoppingCart.cshtml" />
+    <Content Include="Views\Partial\RightContent.cshtml" />
+    <Content Include="Views\Partial\NivoSlider.cshtml" />
+    <Content Include="Views\SanPham\GetLoaiSP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Partial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

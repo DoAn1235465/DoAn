@@ -10,17 +10,22 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using DoAn.Entity;
 using DoAn.Model;
+using System.Web.Http.Cors;
+using Newtonsoft.Json.Linq;
 
 namespace DoAn.API.Controllers
 {
-    public class LoaiSanPhamsController : ApiController
+	[EnableCors("*", "*", "*")]
+	public class LoaiSanPhamsController : ApiController
     {
         private DBSanPhamDAEntities db = new DBSanPhamDAEntities();
 
         // GET: api/LoaiSanPhams
-        public IQueryable<LoaiSanPham> GetLoaiSanPhams()
+		[ActionName("GetAll")]
+        public JToken GetAll()
         {
-            return db.LoaiSanPhams;
+			var list = db.LoaiSanPhams.Include(x => x.NhomSanPham);
+			return JToken.FromObject(list.ToList());
         }
 
         // GET: api/LoaiSanPhams/5
