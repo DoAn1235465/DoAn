@@ -29,6 +29,7 @@ namespace DoAn.API.Controllers
 
             return JToken.FromObject(value); 
         }
+        //đâsdasdasd
         // GET: api/SanPhams/5
         [ResponseType(typeof(SanPham))]
         public IHttpActionResult GetSanPham(int id)
