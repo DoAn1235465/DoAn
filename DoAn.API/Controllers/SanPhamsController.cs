@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using DoAn.Entity;
 using DoAn.Model;
+using Newtonsoft.Json.Linq;
 
 namespace DoAn.API.Controllers
 {
@@ -18,11 +19,16 @@ namespace DoAn.API.Controllers
         private DBSanPhamDAEntities db = new DBSanPhamDAEntities();
 
         // GET: api/SanPhams
-        public IQueryable<SanPham> GetSanPhams()
+        //public IQueryable<SanPham> GetSanPhams()
+        //{
+        //    return db.SanPhams;
+        //}
+        public JToken Get()
         {
-            return db.SanPhams;
-        }
+            var value = db.SanPhams;
 
+            return JToken.FromObject(value); 
+        }
         // GET: api/SanPhams/5
         [ResponseType(typeof(SanPham))]
         public IHttpActionResult GetSanPham(int id)

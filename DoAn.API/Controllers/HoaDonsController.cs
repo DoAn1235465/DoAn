@@ -18,9 +18,9 @@ namespace DoAn.API.Controllers
         private DBSanPhamDAEntities db = new DBSanPhamDAEntities();
 
         // GET: api/HoaDons
-        public IQueryable<HoaDon> GetHoaDons()
+        public IHttpActionResult GetHoaDons()
         {
-            return db.HoaDons;
+            return Ok(Json(db.HoaDons));
         }
 
         // GET: api/HoaDons/5
