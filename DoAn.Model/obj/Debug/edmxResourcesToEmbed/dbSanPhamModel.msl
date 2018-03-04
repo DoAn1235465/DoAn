@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBSanPhamDoAnModelStoreContainer" CdmEntityContainer="DBSanPhamDoAnEntities">
+  <EntityContainerMapping StorageEntityContainer="DBSanPhamDAModelStoreContainer" CdmEntityContainer="DBSanPhamDAEntities">
     <EntitySetMapping Name="HinhAnhSPs">
-      <EntityTypeMapping TypeName="DBSanPhamDoAnModel.HinhAnhSP">
+      <EntityTypeMapping TypeName="DBSanPhamDAModel.HinhAnhSP">
         <MappingFragment StoreEntitySet="HinhAnhSP">
           <ScalarProperty Name="Id_HA" ColumnName="Id_HA" />
-          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="HoaDons">
-      <EntityTypeMapping TypeName="DBSanPhamDoAnModel.HoaDon">
+      <EntityTypeMapping TypeName="DBSanPhamDAModel.HoaDon">
         <MappingFragment StoreEntitySet="HoaDon">
           <ScalarProperty Name="Id_HoaDon" ColumnName="Id_HoaDon" />
           <ScalarProperty Name="HoTen" ColumnName="HoTen" />
@@ -25,7 +25,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="HoaDonSanPhams">
-      <EntityTypeMapping TypeName="DBSanPhamDoAnModel.HoaDonSanPham">
+      <EntityTypeMapping TypeName="DBSanPhamDAModel.HoaDonSanPham">
         <MappingFragment StoreEntitySet="HoaDonSanPham">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Id_HoaDon" ColumnName="Id_HoaDon" />
@@ -35,7 +35,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LienHes">
-      <EntityTypeMapping TypeName="DBSanPhamDoAnModel.LienHe">
+      <EntityTypeMapping TypeName="DBSanPhamDAModel.LienHe">
         <MappingFragment StoreEntitySet="LienHe">
           <ScalarProperty Name="Id_LienHe" ColumnName="Id_LienHe" />
           <ScalarProperty Name="HoTen" ColumnName="HoTen" />
@@ -50,7 +50,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LoaiSanPhams">
-      <EntityTypeMapping TypeName="DBSanPhamDoAnModel.LoaiSanPham">
+      <EntityTypeMapping TypeName="DBSanPhamDAModel.LoaiSanPham">
         <MappingFragment StoreEntitySet="LoaiSanPham">
           <ScalarProperty Name="Id_Loai" ColumnName="Id_Loai" />
           <ScalarProperty Name="TenLoaiSp" ColumnName="TenLoaiSp" />
@@ -60,7 +60,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NhomSanPhams">
-      <EntityTypeMapping TypeName="DBSanPhamDoAnModel.NhomSanPham">
+      <EntityTypeMapping TypeName="DBSanPhamDAModel.NhomSanPham">
         <MappingFragment StoreEntitySet="NhomSanPham">
           <ScalarProperty Name="Id_Nhom" ColumnName="Id_Nhom" />
           <ScalarProperty Name="TenNhom" ColumnName="TenNhom" />
@@ -69,7 +69,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SanPhams">
-      <EntityTypeMapping TypeName="DBSanPhamDoAnModel.SanPham">
+      <EntityTypeMapping TypeName="DBSanPhamDAModel.SanPham">
         <MappingFragment StoreEntitySet="SanPham">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Id_Loai" ColumnName="Id_Loai" />
@@ -84,7 +84,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TaiKhoans">
-      <EntityTypeMapping TypeName="DBSanPhamDoAnModel.TaiKhoan">
+      <EntityTypeMapping TypeName="DBSanPhamDAModel.TaiKhoan">
         <MappingFragment StoreEntitySet="TaiKhoan">
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
