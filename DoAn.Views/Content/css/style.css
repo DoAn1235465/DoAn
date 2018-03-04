@@ -98,7 +98,8 @@ ul.social-in li  i:hover{
 
 .top-nav{
 	float:left;
-	width: 70%;
+	
+	width: 58%;
 }
 .cssmenu {
 	margin-top: 3px;
@@ -131,7 +132,7 @@ ul.social-in li  i:hover{
 	font-size: 1.5em;
 	color:#000;
 	line-height: 1.8em;
-	text-transform:uppercase;
+	text-transform:uppercase
 	margin-bottom: 4%;
 }
 .h_nav h4.top{
@@ -1337,7 +1338,7 @@ p.footer-class a:hover {
 }
 @media(max-width:1220px){
 .top-nav {
-  width: 70%;
+  width: 62%;
 }
 .contact-top div input[type="text"], .contact-top div textarea {
   width: 83%;
@@ -1384,6 +1385,9 @@ a.create {
 }
 @media(max-width:768px){
 
+.top-nav {
+  width: 35%;
+}
 .page h6 b {
   padding: 0 0.5em;
 }

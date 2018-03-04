@@ -19,7 +19,6 @@ namespace DoAn.Model
         public DBSanPhamDoAnEntities()
             : base("name=DBSanPhamDoAnEntities")
         {
-			Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

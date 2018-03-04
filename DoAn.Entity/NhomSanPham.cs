@@ -9,12 +9,10 @@
 
 namespace DoAn.Entity
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Runtime.Serialization;
-
-	[DataContract(IsReference = true)]
-	public partial class NhomSanPham
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class NhomSanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhomSanPham()

@@ -7,23 +7,18 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using DoAn.Entity;
+using DoAn.Model;
+
 namespace DoAn.API.Controllers
 {
 	[EnableCors("*", "*", "*")]
 	public class AdminController : ApiController
     {
-
-		[ActionName("Login")]
-		[HttpPost]
-        public IHttpActionResult Login(TaiKhoan tk)
+        DBSanPhamDoAnEntities db = new DBSanPhamDoAnEntities();
+        public JToken GetAll()
         {
-			DoAn.Model.Dao.AdminDao dao = new Model.Dao.AdminDao();
-			if (dao.CheckLogin(tk))
-			{
-				return Ok(tk);
-			}
-			return StatusCode(HttpStatusCode.BadRequest);
+            var values = db.TaiKhoans;
+            return JToken.FromObject(values);
         }
     }
 }

@@ -9,12 +9,9 @@
 
 namespace DoAn.Entity
 {
-	using Newtonsoft.Json;
-	using System;
-	using System.Collections.Generic;
-	using System.Runtime.Serialization;
-
-	[DataContract(IsReference =true)]
+    using System;
+    using System.Collections.Generic;
+    
     public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -35,10 +32,8 @@ namespace DoAn.Entity
         public System.DateTime NgayCapNhat { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-		[JsonIgnore]
         public virtual ICollection<HinhAnhSP> HinhAnhSPs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-		[JsonIgnore]
         public virtual ICollection<HoaDonSanPham> HoaDonSanPhams { get; set; }
         public virtual LoaiSanPham LoaiSanPham { get; set; }
     }

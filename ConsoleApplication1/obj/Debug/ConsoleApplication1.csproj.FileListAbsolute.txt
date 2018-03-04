@@ -26,5 +26,3 @@ D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\DoAn.Model.pdb
 D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.xml
 D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.xml
 D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
-D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
-D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\Newtonsoft.Json.xml
