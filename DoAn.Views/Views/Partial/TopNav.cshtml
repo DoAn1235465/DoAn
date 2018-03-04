@@ -1,6 +1,6 @@
 ﻿<ul class="megamenu skyblue">
 	<li class="active grid">
-		<a href="@Url.Action("Index","Home")">Trang chủ</a>
+		<a href="">Trang chủ</a>
 	</li>
 	<li><a class="pink" href="404.html">Giới thiệu</a></li>
 	<li class="grid">
@@ -30,14 +30,13 @@
 			dataType: 'Json',
 			type: 'Get',
 			success: function (data) {
-			
 				$(data).each(function (k, v) {
 					if (v.TenNhom) {
 						chuoi += '<li id="nh' + v.Id_Nhom + '"><a href="">' + v.TenNhom + '</a><ul></ul></li>';
 						MenuDaCap('loaisanphams/GetAll/' + v.Id_Nhom, index + ' li#nh' + v.Id_Nhom + ' ul');
 					} 
 					else if (v.TenLoaiSp) {
-						chuoi += '<li><a href="@Url.Action("GetLoaiSP","SanPham")" onclick="getListSP("' + v.Id_Loai + '")">' + v.TenLoaiSp + '</a></li>';
+						chuoi += '<li><a href="">' + v.TenLoaiSp + '</a></li>';
 					}
 				});
 				$(index).append(chuoi);

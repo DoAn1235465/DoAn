@@ -9,10 +9,11 @@
 
 namespace DoAn.Entity
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class HoaDon
+	using Newtonsoft.Json;
+	using System;
+	using System.Collections.Generic;
+
+	public partial class HoaDon
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HoaDon()
@@ -30,6 +31,7 @@ namespace DoAn.Entity
         public System.DateTime NgayDat { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+		[JsonIgnore]
         public virtual ICollection<HoaDonSanPham> HoaDonSanPhams { get; set; }
     }
 }

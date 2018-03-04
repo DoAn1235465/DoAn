@@ -22,9 +22,9 @@ namespace DoAn.API.Controllers
 
         // GET: api/LoaiSanPhams
 		[ActionName("GetAll")]
-        public JToken GetAll()
+        public JToken GetAll(int id)
         {
-			var list = db.LoaiSanPhams.Include(x => x.NhomSanPham);
+			var list = db.LoaiSanPhams.Include(x => x.NhomSanPham).Where(x=>x.Id_Nhom==id);
 			return JToken.FromObject(list.ToList());
         }
 

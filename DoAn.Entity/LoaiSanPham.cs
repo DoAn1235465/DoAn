@@ -9,10 +9,11 @@
 
 namespace DoAn.Entity
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class LoaiSanPham
+	using Newtonsoft.Json;
+	using System;
+	using System.Collections.Generic;
+
+	public partial class LoaiSanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiSanPham()
@@ -27,6 +28,7 @@ namespace DoAn.Entity
     
         public virtual NhomSanPham NhomSanPham { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+		[JsonIgnore]
         public virtual ICollection<SanPham> SanPhams { get; set; }
     }
 }
