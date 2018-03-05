@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoAn.Entity.IDB
+namespace DoAn.API.IDB
 {
 	interface Pros<T>
 	{

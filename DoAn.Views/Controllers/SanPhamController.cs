@@ -15,9 +15,13 @@ namespace DoAn.Views.Controllers
             return View();
         }
 		[ActionName("GetLoaiSP")]
-		public ActionResult GetLoaiSP(int id)
+		public ActionResult GetLoaiSP()
 		{
-			ViewBag.Id = id;
+			return View();
+		}
+		[ActionName("GetNhomSP")]
+		public ActionResult GetNhomSP()
+		{
 			return View();
 		}
 	}

@@ -3,26 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using DoAn.Entity;
 
-namespace DoAn.Entity.Service
+namespace DoAn.API.Service
 {
-	public class sLoaiSanPham : IDB.GetIdList<IQueryable>
+	public class sLoaiSanPham:IDB.GetIdList<LoaiSanPham>,IDB.Pros<LoaiSanPham>
 	{
 		Model.DBSanPhamDAEntities db;
 		public sLoaiSanPham()
 		{
 			db = new Model.DBSanPhamDAEntities();
 		}
-		public IQueryable Get(int id)
+
+		public long Delete(int id)
 		{
-			var lLSP = from lsp in db.LoaiSanPhams where lsp.Id_Loai==id select new { TenLoaiSp = lsp.TenLoaiSp, Id_Loai = lsp.Id_Loai, Id_Nhom = lsp.Id_Nhom, GhiChu = lsp.GhiChu };
-			return lLSP;
+			throw new NotImplementedException();
 		}
 
-		public IQueryable GetAll(int id=0)
+		public LoaiSanPham Get(int id)
 		{
-			var lLSP = from lsp in db.LoaiSanPhams where id>0?(lsp.Id_Nhom==id):(1==1) select new { TenLoaiSp = lsp.TenLoaiSp, Id_Loai = lsp.Id_Loai, Id_Nhom = lsp.Id_Nhom, GhiChu = lsp.GhiChu };
-			return lLSP;
+			throw new NotImplementedException();
+		}
+		public IEnumerable<LoaiSanPham> GetAll(int id = 0)
+		{
+			var lsp = db.LoaiSanPhams.Include(x => x.NhomSanPham);
+			if (id > 0)
+			{
+				lsp = lsp.Where(x => x.Id_Nhom == id);
+			}
+			return lsp;
+		}
+
+		public long Insert(LoaiSanPham item)
+		{
+			throw new NotImplementedException();
+		}
+
+		public long UpDate(LoaiSanPham item)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
