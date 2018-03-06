@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "GetDonHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+	div.content div.col-md-3,div.content div.shoe{display:none;}
+</style>
+<div class="content">
+	<div class="check-out">
+		<h4 class="title">Shopping cart is empty</h4>
+		<p class="cart-out">You have no items in your shopping cart.<br>Click<a href="index.html"> here</a> to continue shopping</p>
+	</div>
+
+</div>
+<!---->
+<div class="footer">
+	<p class="footer-class">© 2015 Mihstore All Rights Reserved | Template by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+
+	<a href="#home" class="scroll to-Top">  GO TO TOP!</a>
+	<div class="clearfix"> </div>
+</div>
+@section scripts{
+	<script>
+		$('div.content div.col-md-9').removeClass('col-md-9');
+	</script>
+	
+}

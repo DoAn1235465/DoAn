@@ -29,11 +29,11 @@
 			success: function (data) {
 				var chuoi = '';
 				var v;
-				for (var i = 0; i < 6; i++) {
+				for (var i = 0; i < 9; i++) {
 					v = data[i];
 					chuoi += '<div class="col-md-4 shirt"  style="height: 350px;">';
 					chuoi += '<div class="bottom-grid-top">';
-					chuoi += '<a href="single.html">';
+					chuoi += '<a href="@Url.Action("GetDetailsSP", "SanPham")" onclick="DetailsSP(' + v.Id + ')">';
 					chuoi += '<img class="img-responsive" src="' + v.HinhAnhSPs[1].DiaChi + '" alt="">';
 					chuoi += '<div class="pre">';
 					chuoi += '<p style="height:30px;">' + v.TenSp + '</p>';
@@ -47,7 +47,7 @@
 					chuoi += '</div>';
 					chuoi += '</a>';
 					chuoi += '</div>';
-					
+
 					chuoi += '</div>';
 				};
 				$('div.bottom-grid').append(chuoi);
@@ -55,6 +55,13 @@
 		});
 		function ThemGioHang(id) {
 			alert(id);
+		}
+		function DetailsSP(id){
+			if (typeof (Storage) !== 'undefined') {
+				localStorage.setItem("idSP", id);
+			} else {
+				alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
+			}
 		}
 	</script>
 }

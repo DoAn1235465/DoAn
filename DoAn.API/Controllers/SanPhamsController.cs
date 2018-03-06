@@ -35,7 +35,12 @@ namespace DoAn.API.Controllers
 			var request = sp.GetAll(0,id);
 			return JToken.FromObject(request);
 		}
-
+		[ActionName("GetNewSP")]
+		public JToken GetNewSP()
+		{
+			var request = sp.GetNewAllId();
+			return JToken.FromObject(request);
+		}
         // GET: api/SanPhams/5
         //[ResponseType(typeof(SanPham))]
         //public IHttpActionResult GetSanPham(int id)

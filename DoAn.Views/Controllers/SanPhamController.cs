@@ -24,5 +24,15 @@ namespace DoAn.Views.Controllers
 		{
 			return View();
 		}
+		[ActionName("GetDonHang")]
+		public ActionResult GetDonHang()
+		{
+			return View();
+		}
+		[ActionName("GetDetailsSP")]
+		public ActionResult GetDetailsSP()
+		{
+			return View();
+		}
 	}
 }

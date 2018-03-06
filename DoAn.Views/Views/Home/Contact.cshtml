@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+	div.content div.col-md-3, div.content div.shoe {
+		display: none;
+	}
+</style>
+<div class="content">
+	<!---->
+	<div class="contact">
+		<div class="col-md-8 contact-top">
+			<h3>Want to work with me?</h3>
+			<form>
+				<div>
+					<span> Name*</span>
+					<input type="text">
+				</div>
+				<div>
+					<span class="me-at">Email*</span>
+					<input type="text">
+				</div>
+				<div>
+					<span class="word-in">Message*</span>
+					<textarea> </textarea>
+				</div>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<div class="col-md-4 contact-bottom">
+			<h3>TRUNG TÂM ĐÀO TẠO LẬP TRÌNH VIỆT NHẬT</h3>
+			<ul class="social ">
+				<li><span>Địa chỉ: Số 90, ngõ 203, Hoàng Quốc Việt, Cầu Giấy, Hà Nội</span></li>
+				<li><span>01629.137.888</span></li>
+				<li><a href="mailto:info@example.com">tinhocvietnhat@gmail.com</a></li>
+			</ul>
+
+			<div class="map">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37494223.23909492!2d103!3d55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x453c569a896724fb%3A0x1409fdf86611f613!2sRussia!5e0!3m2!1sen!2sin!4v1415776049771"></iframe>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+
+</div>
+@section scripts{
+	<script>
+		$('div.content div.col-md-9').removeClass('col-md-9');
+	</script>
+
+}
+
+

@@ -65,11 +65,10 @@ namespace DoAn.API.Service
 			throw new NotImplementedException();
 		} 
 		//Lấy tất cả sản phẩm mới nhất
-		public IQueryable GetNewAllId(int id)
+		public IQueryable GetNewAllId()
 		{
-			var spn = db.SanPhams.Include(x => x.LoaiSanPham).Take(4).OrderByDescending(x => x.NgayCapNhat);
+			var spn = db.SanPhams.Include(x => x.LoaiSanPham).OrderByDescending(x => x.NgayCapNhat);
 			var hasp = from sp in spn
-					   join ha in db.HinhAnhSPs on sp.Id equals ha.Id
 					   select new
 					   {
 						   Id = sp.Id,
@@ -81,7 +80,7 @@ namespace DoAn.API.Service
 						   GhiChu = sp.GhiChu,
 						   SoLuongBan = sp.SoLuongBan,
 						   NgayCapNhat = sp.NgayCapNhat,
-						   HinhAnhSPs = ha
+						   HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha
 					   };
 			return hasp;
 		}
