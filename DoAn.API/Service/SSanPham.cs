@@ -20,11 +20,41 @@ namespace DoAn.API.Service
 		{
 			throw new NotImplementedException();
 		}
+		/// <summary>
+		/// Lấy 1 sản phẩm
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public IQueryable Get(int id)
+		{
+			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
+			var onesp = from sp in spn
+					   select new
+					   {
+						   Id = sp.Id,
+						   Id_Loai = sp.Id_Loai,
+						   TenSp = sp.TenSp,
+						   MauMuc = sp.MauMuc,
+						   KichThuoc = sp.KichThuoc,
+						   Gia = sp.Gia,
+						   GhiChu = sp.GhiChu,
+						   SoLuongBan = sp.SoLuongBan,
+						   NgayCapNhat = sp.NgayCapNhat,
+						   HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha,
+						   LoaiSanPham = sp.LoaiSanPham
+					   };
+			if (id > 0)
+			{
+				onesp = onesp.Where(x => x.Id == id);
+			}
+			return onesp;
+		}
 
-		public SanPham Get(int id)
+		public IQueryable GetAll(int id = 0)
 		{
 			throw new NotImplementedException();
 		}
+
 		/// <summary>
 		/// Lấy tất cả sản phẩm theo loại sản phẩm hoặc theo nhóm sản phẩm
 		/// </summary>
@@ -67,7 +97,7 @@ namespace DoAn.API.Service
 		//Lấy tất cả sản phẩm mới nhất
 		public IQueryable GetNewAllId()
 		{
-			var spn = db.SanPhams.Include(x => x.LoaiSanPham).OrderByDescending(x => x.NgayCapNhat);
+			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
 			var hasp = from sp in spn
 					   select new
 					   {
@@ -80,16 +110,17 @@ namespace DoAn.API.Service
 						   GhiChu = sp.GhiChu,
 						   SoLuongBan = sp.SoLuongBan,
 						   NgayCapNhat = sp.NgayCapNhat,
-						   HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha
+						   HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha,
+						   LoaiSanPham = sp.LoaiSanPham
 					   };
-			return hasp;
+			return hasp.OrderByDescending(x => x.NgayCapNhat);
 		}
 		/// <summary>
 		/// Sắp xếp tất cả sản phẩm theo điều kiện
 		/// </summary>
 		/// <param name="dk"></param>
 		/// <returns></returns>
-		public IEnumerable<SanPham> GetOrderAll(string dk)
+		public IQueryable GetOrderAll(string dk)
 		{
 			var spo = db.SanPhams.Include(x => x.LoaiSanPham);
 			if (dk == "Ngày cập nhật")
@@ -106,11 +137,6 @@ namespace DoAn.API.Service
 		}
 
 		public long UpDate(SanPham item)
-		{
-			throw new NotImplementedException();
-		}
-
-		IEnumerable<SanPham> GetIdList<SanPham>.GetAll(int id)
 		{
 			throw new NotImplementedException();
 		}

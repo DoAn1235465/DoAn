@@ -5,8 +5,9 @@
 }
 
 <div class="content-bottom">
-	<h3>Featured products</h3>
+	<h3></h3>
 	<div class="bottom-grid">
+	
 	</div>
 </div>
 <div class="clearfix"> </div>
@@ -29,7 +30,8 @@
 			success: function (data) {
 				var chuoi = '';
 				var v;
-				for (var i = 0; i < 9; i++) {
+				var end = 6 < data.length ? 6 : data.length;
+				for (var i = 0; i < end; i++) {
 					v = data[i];
 					chuoi += '<div class="col-md-4 shirt"  style="height: 350px;">';
 					chuoi += '<div class="bottom-grid-top">';
@@ -41,7 +43,7 @@
 					chuoi += '<div class="clearfix"> </div>';
 					chuoi += '</div>';
 					chuoi += '</a>';
-					chuoi += '<a href="javascript:void(0);" onclick="ThemGioHang(' + v.Id + ')"';
+					chuoi += '<a href="javascript:void(0);" onclick="ThemVaoGioHang(' + v + ')"';
 					chuoi += '<div class="five">';
 					chuoi += '<h6><img src="@Url.Content("~/HinhAnh/GioHang.png")" style="height: 35px;"/></h6>';
 					chuoi += '</div>';
@@ -51,6 +53,8 @@
 					chuoi += '</div>';
 				};
 				$('div.bottom-grid').append(chuoi);
+				var titel = v.LoaiSanPham.TenLoaiSp;
+				$('div.content-bottom h3').append(titel);
 			}
 		});
 		function ThemGioHang(id) {

@@ -8,7 +8,7 @@ using DoAn.Entity;
 
 namespace DoAn.API.Service
 {
-	public class sNhomSanPham: IDB.GetIdList<NhomSanPham>,IDB.Pros<SanPham>
+	public class sNhomSanPham: IDB.GetIElist<NhomSanPham>,IDB.Pros<SanPham>
 	{
 
 		Model.DBSanPhamDAEntities db;
