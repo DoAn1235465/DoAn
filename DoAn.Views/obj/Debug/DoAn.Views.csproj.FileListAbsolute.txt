@@ -108,3 +108,7 @@ D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\DoAn.Entity.dll
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\DoAn.Entity.pdb
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\System.Net.Http.Formatting.dll
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\System.Net.Http.Formatting.xml
+E:\DoAn\New folder\DoAn\DoAn.Views\bin\DoAn.Entity.dll
+E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Net.Http.Formatting.dll
+E:\DoAn\New folder\DoAn\DoAn.Views\bin\DoAn.Entity.pdb
+E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Net.Http.Formatting.xml
