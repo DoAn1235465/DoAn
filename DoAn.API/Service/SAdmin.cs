@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DoAn.Entity;
 namespace DoAn.Entity.Service
 {
-	public class sAdmin
+	public class sAdmin: API.IDB.GetIdList<TaiKhoan>, API.IDB.Pros<TaiKhoan>
 	{
 		Model.DBSanPhamDAEntities db;
 		public sAdmin()
@@ -21,5 +21,35 @@ namespace DoAn.Entity.Service
 				return true;
 			return false;
 		}
-	}
+
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public TaiKhoan Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<TaiKhoan> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<TaiKhoan> GetAll(int id = 0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Insert(TaiKhoan item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpDate(TaiKhoan item)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

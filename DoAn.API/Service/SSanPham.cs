@@ -9,14 +9,14 @@ using DoAn.API.IDB;
 
 namespace DoAn.API.Service
 {
-	public class sSanPham : IDB.GetIdList<SanPham>, IDB.Pros<SanPham>
-	{
+	public class sSanPham : IDB.GetIdList<SanPham>, Pros<SanPham>
+    {
 		Model.DBSanPhamDAEntities db;
 		public sSanPham()
 		{
 			db = new Model.DBSanPhamDAEntities();
 		}
-		public long Delete(int id)
+		public bool Delete(int id)
 		{
 			throw new NotImplementedException();
 		}
@@ -55,6 +55,7 @@ namespace DoAn.API.Service
 			throw new NotImplementedException();
 		}
 
+<<<<<<< HEAD
 		/// <summary>
 		/// Lấy tất cả sản phẩm theo loại sản phẩm hoặc theo nhóm sản phẩm
 		/// </summary>
@@ -62,6 +63,21 @@ namespace DoAn.API.Service
 		/// <param name="id1">Mã nhóm sản phẩm</param>
 		/// <returns></returns>
 		public IQueryable GetAll(int id = 0,int id1=0)
+=======
+        public IEnumerable<SanPham> GetAll()
+        {
+            var value = db.SanPhams;
+            return value;
+        }
+
+        /// <summary>
+        /// Lấy tất cả sản phẩm theo loại sản phẩm hoặc theo nhóm sản phẩm
+        /// </summary>
+        /// <param name="id">Mã loại sản phẩm</param>
+        /// <param name="id1">Mã nhóm sản phẩm</param>
+        /// <returns></returns>
+        public IQueryable GetAll(int id = 0,int id1=0)
+>>>>>>> master
 		{
 
 			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
@@ -131,14 +147,20 @@ namespace DoAn.API.Service
 				spo = spo.OrderBy(x => x.Gia);
 			return spo;
 		}
-		public long Insert(SanPham item)
+		public bool Insert(SanPham item)
 		{
 			throw new NotImplementedException();
 		}
 
-		public long UpDate(SanPham item)
+		public bool UpDate(SanPham item)
 		{
 			throw new NotImplementedException();
 		}
+<<<<<<< HEAD
 	}
+=======
+
+		
+    }
+>>>>>>> master
 }
