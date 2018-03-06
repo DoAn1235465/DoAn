@@ -25,7 +25,6 @@
 			dataType: 'json',
 			url: urlRoot + 'SanPhams/GetNewSP/',
 			success: function (data) {
-				console.log(data);
 				var chuoi = '';
 				var v;
 				for (var i = 0; i < 9; i++) {
@@ -40,7 +39,7 @@
 					chuoi += '<div class="clearfix"> </div>';
 					chuoi += '</div>';
 					chuoi += '</a>';
-					chuoi += '<a href="javascript:void(0);" onclick="ThemVaoGioHang(' + v.Id + ')"';
+					chuoi += '<a href="javascript:void(0);" onclick="ThemVaoGioHang(' + v.Id + ');">';
 					chuoi += '<div class="five">';
 					chuoi += '<h6><img src="@Url.Content("~/HinhAnh/GioHang.png")" style="height: 35px;"/></h6>';
 					chuoi += '</div>';
@@ -52,15 +51,12 @@
 				$('div.bottom-grid').append(chuoi);
 			}
 		});
-		function ThemGioHang(id) {
-			alert(id);
-		}
-		function DetailsSP(id){
+		function DetailsSP(id) {
 			if (typeof (Storage) !== 'undefined') {
 				localStorage.setItem("idSP", id);
 			} else {
 				alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
 			}
-		}
+		};
 	</script>
 }
