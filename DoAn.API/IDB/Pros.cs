@@ -8,8 +8,8 @@ namespace DoAn.API.IDB
 {
 	interface Pros<T>
 	{
-		long Insert(T item);
-		long UpDate(T item);
-		long Delete(int id);
+		bool Insert(T item);
+		bool UpDate(T item);
+		bool Delete(int id);
 	}
 }

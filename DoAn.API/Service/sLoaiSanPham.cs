@@ -17,16 +17,36 @@ namespace DoAn.API.Service
 			db = new Model.DBSanPhamDAEntities();
 		}
 
-		public long Delete(int id)
+		public bool Delete(int id)
 		{
-			throw new NotImplementedException();
+            if(!(id >= 0))
+            {
+                return false;
+            }
+            db.Entry(db.LoaiSanPhams).State = EntityState.Modified;
+            db.LoaiSanPhams.Remove(db.LoaiSanPhams.Find(id));
+            db.SaveChanges();
+            return true;
 		}
 
 		public LoaiSanPham Get(int id)
 		{
-			throw new NotImplementedException();
+            if (!(id >= 0))
+            {
+                var value = db.LoaiSanPhams.Find(id);
+                return value;
+            }
+            return null;
 		}
-		public IEnumerable<LoaiSanPham> GetAll(int id = 0)
+
+        public IEnumerable<LoaiSanPham> GetAll()
+        {
+
+            var value = db.LoaiSanPhams;
+            return value;
+        }
+
+        public IEnumerable<LoaiSanPham> GetAll(int id = 0)
 		{
 			var lsp = db.LoaiSanPhams.Include(x => x.NhomSanPham);
 			if (id > 0)
@@ -36,14 +56,28 @@ namespace DoAn.API.Service
 			return lsp;
 		}
 
-		public long Insert(LoaiSanPham item)
+		public bool Insert(LoaiSanPham item)
 		{
-			throw new NotImplementedException();
+			if(item != null)
+            {
+                db.Entry(db.LoaiSanPhams).State = EntityState.Added;
+                db.LoaiSanPhams.Add(item);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
 		}
 
-		public long UpDate(LoaiSanPham item)
+		public bool UpDate(LoaiSanPham item)
 		{
-			throw new NotImplementedException();
+			if(item != null)
+            {
+                db.Entry(db.LoaiSanPhams).State = EntityState.Modified;
+                db.LoaiSanPhams.Add(item);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
 		}
 	}
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using DoAn.Entity;
+using DoAn.API.IDB;
 
 namespace DoAn.API.Service
 {
@@ -17,30 +18,39 @@ namespace DoAn.API.Service
 			db = new Model.DBSanPhamDAEntities();
 		}
 
-		public long Delete(int id)
-		{
-			throw new NotImplementedException();
-		}
+
 
 		public NhomSanPham Get(int id)
 		{
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable<NhomSanPham> GetAll(int id = 0)
+		public IEnumerable<NhomSanPham> GetAll()
 		{
 			var lNSP = db.NhomSanPhams;
 			return lNSP;
 		}
 
-		public long Insert(SanPham item)
+		public bool Insert(SanPham item)
+		{
+			if(item != null)
+            {
+                db.Entry(db.SanPhams).State = EntityState.Modified;
+                db.SanPhams.Add(item);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+		}
+
+		public bool UpDate(SanPham item)
 		{
 			throw new NotImplementedException();
 		}
 
-		public long UpDate(SanPham item)
-		{
-			throw new NotImplementedException();
-		}
-	}
+        bool Pros<SanPham>.Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
