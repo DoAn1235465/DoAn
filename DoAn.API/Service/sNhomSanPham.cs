@@ -31,7 +31,12 @@ namespace DoAn.API.Service
 			return lNSP;
 		}
 
-		public bool Insert(SanPham item)
+        public IEnumerable<NhomSanPham> GetAll(int id = 0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Insert(SanPham item)
 		{
 			if(item != null)
             {

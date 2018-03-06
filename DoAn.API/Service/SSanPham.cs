@@ -9,7 +9,7 @@ using DoAn.API.IDB;
 
 namespace DoAn.API.Service
 {
-	public class sSanPham : IDB.GetIdList<SanPham>, Pros<SanPham>
+	public class sSanPham : GetIdList<SanPham>, Pros<SanPham>
     {
 		Model.DBSanPhamDAEntities db;
 		public sSanPham()
@@ -50,24 +50,23 @@ namespace DoAn.API.Service
 			return onesp;
 		}
 
-		public IQueryable GetAll(int id = 0)
-		{
-			throw new NotImplementedException();
-		}
 
-<<<<<<< HEAD
 		/// <summary>
 		/// Lấy tất cả sản phẩm theo loại sản phẩm hoặc theo nhóm sản phẩm
 		/// </summary>
 		/// <param name="id">Mã loại sản phẩm</param>
 		/// <param name="id1">Mã nhóm sản phẩm</param>
 		/// <returns></returns>
-		public IQueryable GetAll(int id = 0,int id1=0)
-=======
+
         public IEnumerable<SanPham> GetAll()
         {
             var value = db.SanPhams;
             return value;
+        }
+
+        public IQueryable GetAll(int id = 0)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -77,7 +76,6 @@ namespace DoAn.API.Service
         /// <param name="id1">Mã nhóm sản phẩm</param>
         /// <returns></returns>
         public IQueryable GetAll(int id = 0,int id1=0)
->>>>>>> master
 		{
 
 			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
@@ -156,11 +154,16 @@ namespace DoAn.API.Service
 		{
 			throw new NotImplementedException();
 		}
-<<<<<<< HEAD
-	}
-=======
 
+        //void GetIdList<SanPham>.Get(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //SanPham GetIdList<SanPham>.Get(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
+    }
 		
     }
->>>>>>> master
-}

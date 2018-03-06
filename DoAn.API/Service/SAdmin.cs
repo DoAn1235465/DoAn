@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DoAn.API.IDB;
 using DoAn.Entity;
 namespace DoAn.Entity.Service
 {
@@ -48,6 +49,16 @@ namespace DoAn.Entity.Service
         }
 
         public bool UpDate(TaiKhoan item)
+        {
+            throw new NotImplementedException();
+        }
+
+        IQueryable GetIdList<TaiKhoan>.Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        IQueryable GetIdList<TaiKhoan>.GetAll(int id)
         {
             throw new NotImplementedException();
         }

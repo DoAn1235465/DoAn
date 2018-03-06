@@ -8,12 +8,9 @@ namespace DoAn.API.IDB
 {
 	interface GetIdList<T>
 	{
-<<<<<<< HEAD
 		IQueryable Get(int id);
 		IQueryable GetAll(int id=0);
-=======
-		T Get(int id);
+		//T Get(int id);
 		IEnumerable<T> GetAll();
->>>>>>> master
 	}
 }
