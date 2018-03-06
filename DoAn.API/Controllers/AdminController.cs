@@ -7,13 +7,18 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-
+using DoAn.Model;
 
 namespace DoAn.API.Controllers
 {
 	[EnableCors("*", "*", "*")]
 	public class AdminController : ApiController
     {
-       
+        private DBSanPhamDAEntities db = new DBSanPhamDAEntities();
+
+        public JToken GetAll()
+        {
+            return JToken.FromObject(db.TaiKhoans);
+        }
     }
 }
