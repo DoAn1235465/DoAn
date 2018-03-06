@@ -131,7 +131,6 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\HinhAnhSPController.cs" />
     <Compile Include="Controllers\HoaDonSanPhamsController.cs" />
     <Compile Include="Controllers\HoaDonsController.cs" />
     <Compile Include="Controllers\LienHesController.cs" />

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoAn.Entity.IDB
+namespace DoAn.API.IDB
 {
 	interface GetIdList<T>
 	{
 		T Get(int id);
-		T GetAll(int id=0);
+		IEnumerable<T> GetAll(int id=0);
 	}
 }

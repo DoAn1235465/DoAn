@@ -1,0 +1,58 @@
+﻿
+<ul class="megamenu skyblue">
+	<li class="active grid">
+		<a href="@Url.Action("Index","Home")">Trang chủ</a>
+	</li>
+	<li><a class="pink" href="404.html">Giới thiệu</a></li>
+	<li class="grid">
+		<a href="#">Sản phẩm</a>
+		<div class="megapanel">
+			<ul></ul>
+		</div>
+	</li>
+	<li><a class="pink" href="gifts.html">Tin Tức</a></li>
+	<li class="grid">
+		<a href="#">Liên hệ</a>
+	</li>
+</ul>
+<script>
+		$(document).ready(function () {
+			MenuDaCap('nhomsanphams/GetAll', '.grid .megapanel ul');
+		});
+
+		function MenuDaCap(urlLink, index) {
+			var chuoi = '';
+			$.ajax({
+				url: urlRoot + urlLink,
+				dataType: 'Json',
+				type: 'Get',
+				success: function (data) {
+					$(data).each(function (k, v) {
+						if (v.TenNhom) {
+							chuoi += '<li id="nh' + v.Id_Nhom + '"><a href="@Url.Action("GetNhomSP", "SanPham")" onclick="LayIdNhom(' + v.Id_Nhom + ')">' + v.TenNhom + '</a><ul></ul></li>';
+							MenuDaCap('loaisanphams/GetAll/' + v.Id_Nhom, index + ' li#nh' + v.Id_Nhom + ' ul');
+						}
+						else if (v.TenLoaiSp) {
+							chuoi += '<li><a href="@Url.Action("GetLoaiSP","SanPham")" onclick="LayIdLoai(' + v.Id_Loai + ')">' + v.TenLoaiSp + '</a></li>';
+						}
+					});
+					$(index).append(chuoi);
+				}
+			});
+		};
+		function LayIdLoai(id) {
+			if (typeof (Storage) !== 'undefined') {
+				localStorage.setItem("idLoaiSanPham", id);
+			} else {
+				alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
+			}
+		};
+		function LayIdNhom(id) {
+			if (typeof (Storage) !== 'undefined') {
+				localStorage.setItem("idNhomSanPham", id);
+			} else {
+				alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
+			}
+		};
+
+	</script>

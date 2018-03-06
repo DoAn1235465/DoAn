@@ -12,6 +12,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700' rel='stylesheet' type='text/css'>
 	<link href="~/Content/css/style.css" rel="stylesheet" />
 	<script>
+		var urlRoot = 'http://localhost:52178/api/';
 $(document).ready(function(c) {
 	$('.alert-close').on('click', function(c){
 		$('.message').fadeOut('slow', function(c){
@@ -70,8 +71,7 @@ $(document).ready(function(c) {
 		</div>
 		<div class="header-bottom">
 			<div class="top-nav">
-				@Html.Partial("~/Views/Partial/TopNav.cshtml")
-				
+				@Html.Action("TopMenu","Partial")
 			</div>
 			@Html.Partial("~/Views/Partial/ShoppingCart.cshtml")
 

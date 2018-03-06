@@ -19,6 +19,7 @@ namespace ConsoleApplication1
                 Console.WriteLine(item.TenSp);
             }
             Console.ReadKey();
+			// cách púh
         }
     }
 }

@@ -9,15 +9,13 @@
 
 namespace DoAn.Entity
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class HinhAnhSP
+	using Newtonsoft.Json;
+	using System;
+	public partial class HinhAnhSP
     {
         public int Id_HA { get; set; }
         public Nullable<int> Id { get; set; }
         public string DiaChi { get; set; }
-    
-        public virtual SanPham SanPham { get; set; }
+		public virtual SanPham SanPham { get; set; }
     }
 }

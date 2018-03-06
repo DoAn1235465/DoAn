@@ -503,8 +503,8 @@ text-decoration:underline;
 }
 .five{
 	position:absolute;
-	top:39%;
-	left:6%;
+	top:60%;
+	left:73%;
 }
 .five h6{
 	color: #fff;
@@ -522,6 +522,7 @@ text-decoration:underline;
 }
 .bottom-grid-top img{
 	margin:0 auto;
+	height: 265px;
 }
 .five h6.one{
   background: #f02b63;

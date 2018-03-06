@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using DoAn.Entity;
 
-namespace DoAn.Entity.Service
+namespace DoAn.API.Service
 {
-	public class sNhomSanPham : IDB.GetIdList<IQueryable>
+	public class sNhomSanPham: IDB.GetIdList<NhomSanPham>,IDB.Pros<SanPham>
 	{
 
 		Model.DBSanPhamDAEntities db;
@@ -15,15 +17,30 @@ namespace DoAn.Entity.Service
 			db = new Model.DBSanPhamDAEntities();
 		}
 
-		public IQueryable Get(int id)
+		public long Delete(int id)
 		{
-			var nhomSanPham = from nsp in db.NhomSanPhams where nsp.Id_Nhom == id join lsp in db.LoaiSanPhams on nsp.Id_Nhom equals lsp.Id_Nhom join sp in db.SanPhams on lsp.Id_Loai equals sp.Id_Loai select new { Id_Nhom = nsp.Id_Nhom, TenNhom = nsp.TenNhom, LoaiSanPhams = new { TenLoaiSp = lsp.TenLoaiSp, Id_Loai = lsp.Id_Loai } };
-			return nhomSanPham;
+			throw new NotImplementedException();
 		}
-		public IQueryable GetAll(int id=0)
+
+		public NhomSanPham Get(int id)
 		{
-			var nhomSanPham = from nsp in db.NhomSanPhams select new { Id_Nhom = nsp.Id_Nhom, TenNhom = nsp.TenNhom };
-			return nhomSanPham;
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<NhomSanPham> GetAll(int id = 0)
+		{
+			var lNSP = db.NhomSanPhams;
+			return lNSP;
+		}
+
+		public long Insert(SanPham item)
+		{
+			throw new NotImplementedException();
+		}
+
+		public long UpDate(SanPham item)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

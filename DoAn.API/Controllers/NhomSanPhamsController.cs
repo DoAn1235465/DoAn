@@ -12,113 +12,114 @@ using DoAn.Entity;
 using DoAn.Model;
 using System.Web.Http.Cors;
 using Newtonsoft.Json.Linq;
+using DoAn.Entity.Service;
+using DoAn.API.Service;
 
 namespace DoAn.API.Controllers
 {
 	[EnableCors("*","*","*")]
     public class NhomSanPhamsController : ApiController
     {
-        private DBSanPhamDAEntities db = new DBSanPhamDAEntities();
-
+		sNhomSanPham nsp = new sNhomSanPham();
         // GET: api/NhomSanPhams
 		[ActionName("GetAll")]
         public JToken GetAll()
         {
-			var list = db.NhomSanPhams;
-			return JToken.FromObject(list.ToList());
+			var request = nsp.GetAll();
+			return JToken.FromObject(request);
         }
 
-        // GET: api/NhomSanPhams/5
-        [ResponseType(typeof(NhomSanPham))]
-        public IHttpActionResult GetNhomSanPham(int id)
-        {
-            NhomSanPham nhomSanPham = db.NhomSanPhams.Find(id);
-            if (nhomSanPham == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/NhomSanPhams/5
+        //[ResponseType(typeof(NhomSanPham))]
+        //public IHttpActionResult GetNhomSanPham(int id)
+        //{
+        //    NhomSanPham nhomSanPham = db.NhomSanPhams.Find(id);
+        //    if (nhomSanPham == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(nhomSanPham);
-        }
+        //    return Ok(nhomSanPham);
+        //}
 
-        // PUT: api/NhomSanPhams/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutNhomSanPham(int id, NhomSanPham nhomSanPham)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/NhomSanPhams/5
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutNhomSanPham(int id, NhomSanPham nhomSanPham)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != nhomSanPham.Id_Nhom)
-            {
-                return BadRequest();
-            }
+        //    if (id != nhomSanPham.Id_Nhom)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(nhomSanPham).State = EntityState.Modified;
+        //    db.Entry(nhomSanPham).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!NhomSanPhamExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!NhomSanPhamExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST: api/NhomSanPhams
-        [ResponseType(typeof(NhomSanPham))]
-        public IHttpActionResult PostNhomSanPham(NhomSanPham nhomSanPham)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/NhomSanPhams
+        //[ResponseType(typeof(NhomSanPham))]
+        //public IHttpActionResult PostNhomSanPham(NhomSanPham nhomSanPham)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.NhomSanPhams.Add(nhomSanPham);
-            db.SaveChanges();
+        //    db.NhomSanPhams.Add(nhomSanPham);
+        //    db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = nhomSanPham.Id_Nhom }, nhomSanPham);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = nhomSanPham.Id_Nhom }, nhomSanPham);
+        //}
 
-        // DELETE: api/NhomSanPhams/5
-        [ResponseType(typeof(NhomSanPham))]
-        public IHttpActionResult DeleteNhomSanPham(int id)
-        {
-            NhomSanPham nhomSanPham = db.NhomSanPhams.Find(id);
-            if (nhomSanPham == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/NhomSanPhams/5
+        //[ResponseType(typeof(NhomSanPham))]
+        //public IHttpActionResult DeleteNhomSanPham(int id)
+        //{
+        //    NhomSanPham nhomSanPham = db.NhomSanPhams.Find(id);
+        //    if (nhomSanPham == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.NhomSanPhams.Remove(nhomSanPham);
-            db.SaveChanges();
+        //    db.NhomSanPhams.Remove(nhomSanPham);
+        //    db.SaveChanges();
 
-            return Ok(nhomSanPham);
-        }
+        //    return Ok(nhomSanPham);
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
-        private bool NhomSanPhamExists(int id)
-        {
-            return db.NhomSanPhams.Count(e => e.Id_Nhom == id) > 0;
-        }
+        //private bool NhomSanPhamExists(int id)
+        //{
+        //    return db.NhomSanPhams.Count(e => e.Id_Nhom == id) > 0;
+        //}
     }
 }
