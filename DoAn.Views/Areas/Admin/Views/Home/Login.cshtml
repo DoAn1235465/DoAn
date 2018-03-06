@@ -1,7 +1,7 @@
 ﻿
 @{
 	ViewBag.Title = "Login";
-	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+	Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
 }
     <div class="container">
         <div class="row">
@@ -33,27 +33,4 @@
             </div>
         </div>
     </div>
-@section scripts{
-	<script>
-		$('form').submit(function (e) {
-			e.preventDefault();
-			var User = {
-				Username: $('form #TaiKhoan').val(),
-				Password: $('form #MatKhau').val()
-			};
-			console.log(User);
-			$.ajax({
-				url: 'http://localhost:52178/api/admin/Login/',
-				data: User,
-				type: 'Post',
-				dataType: 'Json',
-				success: function (data) {
-					window.location = "@Url.Action("Index","Home",new {Area="Admin" })";
-				}
-				//contentType: 'application/json; charset=utf-8',
-			}).error(function () { alert("Đăng nhập thất bại"); })
-		});
-</script>
-	
-}
 
