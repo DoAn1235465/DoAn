@@ -4,170 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="content-bottom">
-					<h3>Sản phẩm mới nhất</h3>
-					<div class="bottom-grid">
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html">
-									<img class="img-responsive" src="~/images/sh.png" alt="">
-									<div class="five">
-										@*<h6>-50%</h6>*@
-									</div>
-									<div class="pre">
-										<p>Pure Slim Xe</p>
-										<span>$60.00</span>
-										<div class="clearfix"> </div>
-									</div>
-								</a>
-
-
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html">
-									<img class="img-responsive" src="~/images/sh2.png" alt="">
-									<div class="five">
-										<h6 class="one">-50%</h6>
-									</div>
-									<div class="pre">
-										<p>Pure Slim Xe</p>
-										<span>$60.00</span>
-										<div class="clearfix"> </div>
-									</div>
-								</a>
-
-
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html">
-									<img class="img-responsive" src="~/images/sh1.png" alt="">
-									<div class="five">
-										<h6 class="one1">-50%</h6>
-									</div>
-									<div class="pre">
-										<p>Pure Slim Xe</p>
-										<span>$60.00</span>
-										<div class="clearfix"> </div>
-									</div>
-								</a>
-
-
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="bottom-grid">
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html">
-									<img class="img-responsive" src="~/images/sh2.png" alt="">
-									<div class="five">
-										<h6 class="one">-50%</h6>
-									</div>
-									<div class="pre">
-										<p>Pure Slim Xe</p>
-										<span>$60.00</span>
-										<div class="clearfix"> </div>
-									</div>
-								</a>
-
-
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html">
-									<img class="img-responsive" src="~/images/sh3.png" alt="">
-									<div class="five">
-										<h6 class="one1">-50%</h6>
-									</div>
-									<div class="pre">
-										<p>Pure Slim Xe</p>
-										<span>$60.00</span>
-										<div class="clearfix"> </div>
-									</div>
-								</a>
-
-
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html">
-									<img class="img-responsive" src="~/images/sh4.png" alt="">
-									<div class="five">
-										<h6>-50%</h6>
-									</div>
-									<div class="pre">
-										<p>Pure Slim Xe</p>
-										<span>$60.00</span>
-										<div class="clearfix"> </div>
-									</div>
-								</a>
-
-
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="bottom-grid">
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html">
-									<img class="img-responsive" src="~/images/sh5.png" alt="">
-									<div class="five">
-										<h6 class="one1">-50%</h6>
-									</div>
-									<div class="pre">
-										<p>Pure Slim Xe</p>
-										<span>$60.00</span>
-										<div class="clearfix"> </div>
-									</div>
-								</a>
-
-
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html">
-									<img class="img-responsive" src="~/images/sh.png" alt="">
-									<div class="five">
-										<h6>-50%</h6>
-									</div>
-									<div class="pre">
-										<p>Pure Slim Xe</p>
-										<span>$60.00</span>
-										<div class="clearfix"> </div>
-									</div>
-								</a>
-
-
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html">
-									<img class="img-responsive" src="~/images/sh2.png" alt="">
-									<div class="five">
-										<h6 class="one">-50%</h6>
-									</div>
-									<div class="pre">
-										<p>Pure Slim Xe</p>
-										<span>$60.00</span>
-										<div class="clearfix"> </div>
-									</div>
-								</a>
-
-
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
+	<h3>Featured products</h3>
+	<div class="bottom-grid">
+	</div>
+</div>
+<div class="clearfix"> </div>
 <ul class="start">
 	<li><span>1</span></li>
 	<li class="arrow"><a href="#">2</a></li>
@@ -178,4 +19,48 @@
 </ul>
 
 @section scripts{
+	<script>
+		$.ajax({
+			type: 'Get',
+			dataType: 'json',
+			url: urlRoot + 'SanPhams/GetNewSP/',
+			success: function (data) {
+				console.log(data);
+				var chuoi = '';
+				var v;
+				for (var i = 0; i < 9; i++) {
+					v = data[i];
+					chuoi += '<div class="col-md-4 shirt"  style="height: 350px;">';
+					chuoi += '<div class="bottom-grid-top">';
+					chuoi += '<a href="@Url.Action("GetDetailsSP", "SanPham")" onclick="DetailsSP(' + v.Id + ')">';
+					chuoi += '<img class="img-responsive" src="' + v.HinhAnhSPs[1].DiaChi + '" alt="">';
+					chuoi += '<div class="pre">';
+					chuoi += '<p style="height:30px;">' + v.TenSp + '</p>';
+					chuoi += '<span style="clear:both">' + v.Gia + '</span>';
+					chuoi += '<div class="clearfix"> </div>';
+					chuoi += '</div>';
+					chuoi += '</a>';
+					chuoi += '<a href="javascript:void(0);" onclick="ThemVaoGioHang(' + v.Id + ')"';
+					chuoi += '<div class="five">';
+					chuoi += '<h6><img src="@Url.Content("~/HinhAnh/GioHang.png")" style="height: 35px;"/></h6>';
+					chuoi += '</div>';
+					chuoi += '</a>';
+					chuoi += '</div>';
+
+					chuoi += '</div>';
+				};
+				$('div.bottom-grid').append(chuoi);
+			}
+		});
+		function ThemGioHang(id) {
+			alert(id);
+		}
+		function DetailsSP(id){
+			if (typeof (Storage) !== 'undefined') {
+				localStorage.setItem("idSP", id);
+			} else {
+				alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
+			}
+		}
+	</script>
 }

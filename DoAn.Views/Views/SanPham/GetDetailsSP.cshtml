@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "GetDetailsSP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+	.floatRight{float:right;}
+	div.content div.shoe {
+		display: none;
+	}
+</style>
+<link href="~/Content/css/etalage.css" rel="stylesheet" />
+
+
+@section scripts{
+
+<script src="~/Scripts/js/jquery.flexisel.js"></script>
+<script src="~/Scripts/js/jquery.etalage.min.js"></script>
+<script src="~/Scripts/js/move-top.js"></script>
+<script src="~/Scripts/js/easing.js"></script>
+	<script>
+		$('div.content div.col-md-3').addClass('floatRight');
+	</script>
+<script>
+		var id = localStorage.getItem("idSP");
+		$.ajax({
+			type: 'Get',
+			dataType: 'json',
+			url: urlRoot + 'SanPhams/GetDetails/' + id,
+			success: function (data) {
+				var v = data[0];
+				var chuoiha = '';
+				var chuoitt = '<h4>'+v.TenSp+'</h4>';
+				chuoitt += '<div class="para-grid">';
+				chuoitt += '	<span class="add-to">Giá: ' + v.Gia + '</span></br></br>';
+				chuoitt += '	<span class="add-to">Kích Thước: ' + v.KichThuoc + '</span></br></br>';
+				chuoitt += '	<span class="add-to">Màu mực: ' + v.MauMuc + '</span>';
+				chuoitt += '	<a href="#" class=" cart-to">Add to Cart</a>';
+				chuoitt += '	<div class="clearfix"></div>';
+				chuoitt += '</div>';
+				chuoitt += '<h5>'+v.SoLuongBan+' items in stock</h5>';
+				chuoitt += '<li>';
+				chuoitt += '<a href="optionallink.html">';
+				chuoitt += '<img class="etalage_thumb_image img-responsive" src="' + v.HinhAnhSPs[0].DiaChi + '" alt="" >';
+				chuoitt += '<img class="etalage_source_image img-responsive" src="' + v.HinhAnhSPs[0].DiaChi + '" alt="" >';
+				chuoitt += '</a>';
+				chuoitt += '</li>';
+				$('div.content div.single-para').append(chuoitt);
+				for (var i = 1; i < v.HinhAnhSPs.length; i++) {
+
+					chuoiha += '<li>';
+					chuoiha += '	<img class="etalage_thumb_image img-responsive" src="' + v.HinhAnhSPs[i].DiaChi + '" alt="">';
+					chuoiha += '	<img class="etalage_source_image img-responsive" src="' + v.HinhAnhSPs[i].DiaChi + '" alt="">';
+					chuoiha += '</li>';
+				};
+				$('div.content ul#etalage').append(chuoiha);
+				LoadSPCungLoai(v.Id_Loai);
+				loadform();
+			}
+		});
+		function LoadSPCungLoai(id) {
+			var id = localStorage.getItem("idLoaiSanPham");
+			$.ajax({
+				type: 'Get',
+				dataType: 'json',
+				url: urlRoot + 'SanPhams/GetLoaiSP/' + id,
+				success: function (data) {
+					var chuoi = '';
+					var end = 9 < data.length ? 9 : data.length;
+					for (var i = 3; i < end; i++) {
+						chuoi += '<li><img src="' + data[i].HinhAnhSPs[0].DiaChi + '" width="100" height="100"/><div class="grid-flex" style="height:50px;"><a href="@Url.Action("GetDetailsSP", "SanPham")" onclick="DetailsSP(' + data[i].Id + ');">' + data[i].TenSp + '</a><p>' + data[i].Gia + '</p></div></li>';
+					};
+					$('div.content ul#flexiselDemo1').append(chuoi);
+				}
+			});
+		};
+		function DetailsSP(id) {
+			if (typeof (Storage) !== 'undefined') {
+				localStorage.setItem("idSP", id);
+			} else {
+				alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
+			}
+		}
+		function loadform() {
+			jQuery(document).ready(function ($) {
+
+				$('#etalage').etalage({
+					thumb_image_width: 300,
+					thumb_image_height: 400,
+					source_image_width: 900,
+					source_image_height: 1200,
+					show_hint: true,
+					click_callback: function (image_anchor, instance_id) {
+						alert('Callback example:\nYou clicked on an image with the anchor: "' + image_anchor + '"\n(in Etalage instance: "' + instance_id + '")');
+					}
+				});
+
+			});
+		}
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+			});
+		});
+		$(window).load(function () {
+			$("#flexiselDemo1").flexisel({
+				visibleItems: 5,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: {
+					portrait: {
+						changePoint: 480,
+						visibleItems: 1
+					},
+					landscape: {
+						changePoint: 640,
+						visibleItems: 2
+					},
+					tablet: {
+						changePoint: 768,
+						visibleItems: 3
+					}
+				}
+			});
+
+		});
+</script>
+}
+
+<div class="content">
+
+	<div class="col-md-12" style="float:left;">
+		<div class="col-md-5 single-top">
+			<ul id="etalage">
+			</ul>
+
+		</div>
+		<div class="col-md-7 single-top-in">
+			<div class="single-para">
+				
+			</div>
+			<div style="margin-top:50px;"></div>
+			<a href="#" class="cart-an ">More details</a>
+		</div>
+		
+		<div class="clearfix"> </div>
+		<ul id="flexiselDemo1">
+		</ul>
+		<!---->
+		<!---->
+	</div>
+	<div class="clearfix"> </div>
+</div>

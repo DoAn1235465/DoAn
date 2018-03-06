@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using DoAn.Entity;
+using DoAn.API.IDB;
 
 namespace DoAn.API.Service
 {
-	public class sLoaiSanPham:IDB.GetIdList<LoaiSanPham>,IDB.Pros<LoaiSanPham>
+	public class sLoaiSanPham:GetIElist<LoaiSanPham>,Pros<LoaiSanPham>
 	{
 		Model.DBSanPhamDAEntities db;
 		public sLoaiSanPham()

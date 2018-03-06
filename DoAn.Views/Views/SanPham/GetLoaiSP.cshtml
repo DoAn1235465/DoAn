@@ -5,8 +5,9 @@
 }
 
 <div class="content-bottom">
-	<h3>Featured products</h3>
+	<h3></h3>
 	<div class="bottom-grid">
+	
 	</div>
 </div>
 <div class="clearfix"> </div>
@@ -29,11 +30,12 @@
 			success: function (data) {
 				var chuoi = '';
 				var v;
-				for (var i = 0; i < 6; i++) {
+				var end = 6 < data.length ? 6 : data.length;
+				for (var i = 0; i < end; i++) {
 					v = data[i];
 					chuoi += '<div class="col-md-4 shirt"  style="height: 350px;">';
 					chuoi += '<div class="bottom-grid-top">';
-					chuoi += '<a href="single.html">';
+					chuoi += '<a href="@Url.Action("GetDetailsSP", "SanPham")" onclick="DetailsSP(' + v.Id + ')">';
 					chuoi += '<img class="img-responsive" src="' + v.HinhAnhSPs[1].DiaChi + '" alt="">';
 					chuoi += '<div class="pre">';
 					chuoi += '<p style="height:30px;">' + v.TenSp + '</p>';
@@ -41,20 +43,29 @@
 					chuoi += '<div class="clearfix"> </div>';
 					chuoi += '</div>';
 					chuoi += '</a>';
-					chuoi += '<a href="javascript:void(0);" onclick="ThemGioHang(' + v.Id + ')"';
+					chuoi += '<a href="javascript:void(0);" onclick="ThemVaoGioHang(' + v + ')"';
 					chuoi += '<div class="five">';
 					chuoi += '<h6><img src="@Url.Content("~/HinhAnh/GioHang.png")" style="height: 35px;"/></h6>';
 					chuoi += '</div>';
 					chuoi += '</a>';
 					chuoi += '</div>';
-					
+
 					chuoi += '</div>';
 				};
 				$('div.bottom-grid').append(chuoi);
+				var titel = v.LoaiSanPham.TenLoaiSp;
+				$('div.content-bottom h3').append(titel);
 			}
 		});
 		function ThemGioHang(id) {
 			alert(id);
+		}
+		function DetailsSP(id){
+			if (typeof (Storage) !== 'undefined') {
+				localStorage.setItem("idSP", id);
+			} else {
+				alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
+			}
 		}
 	</script>
 }
