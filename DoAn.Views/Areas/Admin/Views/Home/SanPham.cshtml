@@ -22,24 +22,7 @@
     <script>
         $(document).ready(function () {
             countData();
-          //  BindData();
-           
          });
-         function BindData() {
-             $.ajax({
-                 type: "GET",
-                 url: urlRoot + "SanPhams/GetAll",
-                 data: { pageNo: 1 },
-                 contentType: 'text',
-                 success: function (data) {
-                     Load(data);
-                    // console.log(data);
-                         },
-                     error: function (result) {
-                         //alert("Error login"
-                     }
-               });
-         }
          function Load(data) {
              if (data.length > 0) {
                  for (var i = 0; i < data.length; i++)

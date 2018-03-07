@@ -72,5 +72,18 @@ namespace DoAn.API.Service
             }
             return false;
 		}
-	}
+        //Sử dụng làm pagelist
+        public IEnumerable<LoaiSanPham> select()
+        {
+
+            var value = db.LoaiSanPhams;
+            return value;
+        }
+        public IQueryable GetAllSP(int pageNo, int PageSize)
+        {
+            int skip = (pageNo - 1) * PageSize;
+            var value = db.LoaiSanPhams.OrderBy(c => c.Id_Loai).Skip(skip).Take(PageSize);
+            return value;
+        }
+    }
 }

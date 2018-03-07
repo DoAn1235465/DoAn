@@ -47,5 +47,18 @@ namespace DoAn.Entity.Service
         {
             throw new NotImplementedException();
         }
+        //Sử dụng làm pagelist
+        public IEnumerable<TaiKhoan> select()
+        {
+
+            var value = db.TaiKhoans;
+            return value;
+        }
+        public IQueryable GetAllSP(int pageNo, int PageSize)
+        {
+            int skip = (pageNo - 1) * PageSize;
+            var value = db.TaiKhoans.OrderBy(c => c.Name).Skip(skip).Take(PageSize);
+            return value;
+        }
     }
 }

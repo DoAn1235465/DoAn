@@ -53,25 +53,31 @@ namespace DoAn.API.Service
         /// Lấy tất cả sản phẩm theo loại sản phẩm hoặc theo nhóm sản phẩm
         /// </summary>
         /// <param name="id">Mã loại sản phẩm</param>
-        /// <param name="id1">Mã nhóm sản phẩm</param>
+        /// <param name="id1">Mã nhóm sản phẩm</param>GetAll
         /// <returns></returns>
-       
 
-    
-		
+
+
+
         public IEnumerable<SanPham> select()
         {
            
             var value = db.SanPhams;
             return value;
         }
+        public IQueryable GetAllSP(int pageNo, int PageSize)
+        {
+            int skip = (pageNo - 1) * PageSize;
+            var value = db.SanPhams.OrderBy(c => c.Id).Skip(skip).Take(PageSize);
+            return value;
+        }
 
-       
-		/// <summary>
-		/// Lấy tất cả sản phẩm mới nhất
-		/// </summary>
-		/// <returns></returns>
-		public IQueryable GetNewAllId()
+
+        /// <summary>
+        /// Lấy tất cả sản phẩm mới nhất
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable GetNewAllId()
 		{
 			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
 			var hasp = from sp in spn
@@ -132,12 +138,7 @@ namespace DoAn.API.Service
         {
             throw new NotImplementedException();
         }
-        public IQueryable GetAllSP(int pageNo, int PageSize)
-        {
-            int skip = (pageNo - 1) * PageSize;
-            var value = db.SanPhams.OrderBy(c => c.Id).Skip(skip).Take(PageSize);
-            return value;
-        }
+      
     }
 
 }

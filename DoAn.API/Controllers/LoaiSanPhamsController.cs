@@ -29,5 +29,20 @@ namespace DoAn.API.Controllers
 			var request = lsp.GetAll();
 			return JToken.FromObject(request.ToList());
         }
-	}
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult GetAll(int pageNo)
+        {
+            int pageSize = 10;
+            var value = lsp.GetAllSP(pageNo, pageSize);
+            return Ok(value);
+        }
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult count()
+        {
+            var value = lsp.select();
+            return Ok(value);
+        }
+    }
 }
