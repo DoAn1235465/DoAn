@@ -15,8 +15,8 @@ namespace DoAn.Model
 	using System.Data.Entity.Infrastructure;
 	using System.Runtime.Serialization;
 
-	[DataContract(IsReference = true)]
-    public partial class DBSanPhamDAEntities : DbContext
+	[DataContract(IsReference =true)]
+	public partial class DBSanPhamDAEntities : DbContext
     {
         public DBSanPhamDAEntities()
             : base("name=DBSanPhamDAEntities")
@@ -36,6 +36,7 @@ namespace DoAn.Model
         public virtual DbSet<LoaiSanPham> LoaiSanPhams { get; set; }
         public virtual DbSet<NhomSanPham> NhomSanPhams { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
     }
 }

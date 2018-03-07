@@ -11,6 +11,8 @@ namespace DoAn.Entity
 {
 	using Newtonsoft.Json;
 	using System;
+	using System.Collections.Generic;
+
 	public partial class HinhAnhSP
     {
         public int Id_HA { get; set; }
