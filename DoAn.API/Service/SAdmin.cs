@@ -7,7 +7,7 @@ using DoAn.API.IDB;
 using DoAn.Entity;
 namespace DoAn.Entity.Service
 {
-	public class sAdmin: API.IDB.GetIdList<TaiKhoan>, API.IDB.Pros<TaiKhoan>
+	public class sAdmin:  API.IDB.Pros<TaiKhoan>
 	{
 		Model.DBSanPhamDAEntities db;
 		public sAdmin()
@@ -33,11 +33,6 @@ namespace DoAn.Entity.Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TaiKhoan> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<TaiKhoan> GetAll(int id = 0)
         {
             throw new NotImplementedException();
@@ -49,16 +44,6 @@ namespace DoAn.Entity.Service
         }
 
         public bool UpDate(TaiKhoan item)
-        {
-            throw new NotImplementedException();
-        }
-
-        IQueryable GetIdList<TaiKhoan>.Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        IQueryable GetIdList<TaiKhoan>.GetAll(int id)
         {
             throw new NotImplementedException();
         }

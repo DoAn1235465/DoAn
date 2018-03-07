@@ -8,7 +8,9 @@ namespace DoAn.API.IDB
 {
 	interface Pros<T>
 	{
-		bool Insert(T item);
+        T Get(int id);
+        IEnumerable<T> GetAll(int id = 0);
+        bool Insert(T item);
 		bool UpDate(T item);
 		bool Delete(int id);
 	}

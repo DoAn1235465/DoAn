@@ -9,7 +9,7 @@ using DoAn.API.IDB;
 
 namespace DoAn.API.Service
 {
-	public class sNhomSanPham: IDB.GetIElist<NhomSanPham>,IDB.Pros<SanPham>
+	public class sNhomSanPham: IDB.Pros<SanPham>
 	{
 
 		Model.DBSanPhamDAEntities db;
@@ -18,20 +18,23 @@ namespace DoAn.API.Service
 			db = new Model.DBSanPhamDAEntities();
 		}
 
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
 
+        public SanPham Get(int id)
+        {
+            throw new NotImplementedException();
+        }
 
-		public NhomSanPham Get(int id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<NhomSanPham> GetAll()
+        public IEnumerable<NhomSanPham> GetAll()
 		{
 			var lNSP = db.NhomSanPhams;
 			return lNSP;
 		}
 
-        public IEnumerable<NhomSanPham> GetAll(int id = 0)
+        public IEnumerable<SanPham> GetAll(int id = 0)
         {
             throw new NotImplementedException();
         }
@@ -48,12 +51,7 @@ namespace DoAn.API.Service
             return false;
 		}
 
-		public bool UpDate(SanPham item)
-		{
-			throw new NotImplementedException();
-		}
-
-        bool Pros<SanPham>.Delete(int id)
+        public bool UpDate(SanPham item)
         {
             throw new NotImplementedException();
         }

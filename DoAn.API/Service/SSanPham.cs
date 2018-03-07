@@ -9,7 +9,7 @@ using DoAn.API.IDB;
 
 namespace DoAn.API.Service
 {
-	public class sSanPham : GetIdList<SanPham>, Pros<SanPham>
+	public class sSanPham : Pros<SanPham>
     {
 		Model.DBSanPhamDAEntities db;
 		public sSanPham()
@@ -155,15 +155,16 @@ namespace DoAn.API.Service
 			throw new NotImplementedException();
 		}
 
-        //void GetIdList<SanPham>.Get(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        SanPham Pros<SanPham>.Get(int id)
+        {
+            throw new NotImplementedException();
+        }
 
-        //SanPham GetIdList<SanPham>.Get(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        IEnumerable<SanPham> Pros<SanPham>.GetAll(int id)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 		
     }

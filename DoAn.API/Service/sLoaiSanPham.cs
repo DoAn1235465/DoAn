@@ -9,7 +9,7 @@ using DoAn.API.IDB;
 
 namespace DoAn.API.Service
 {
-	public class sLoaiSanPham:GetIElist<LoaiSanPham>,Pros<LoaiSanPham>
+	public class sLoaiSanPham:Pros<LoaiSanPham>
 	{
 		Model.DBSanPhamDAEntities db;
 		public sLoaiSanPham()

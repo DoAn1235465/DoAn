@@ -49,3 +49,4 @@ E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.SqlServer.dll
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.xml
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.SqlServer.xml
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Entity\obj\Debug\DoAn.Entity.csprojResolveAssemblyReference.cache
+E:\DoAn\New folder\DoAn\DoAn.Entity\obj\Debug\DoAn.Entity.csprojResolveAssemblyReference.cache
