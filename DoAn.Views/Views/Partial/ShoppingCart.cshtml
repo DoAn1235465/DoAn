@@ -6,19 +6,6 @@
 		<li>
 			<a href="#" class="round"> </a>
 			<ul class="sub-icon1 list">
-			
-					
-							
-							
-							
-								
-
-							
-							
-						
-						
-					
-				
 				<div class="check_button"><a href="@Url.Action("GetDonHang","SanPham")">View Cart</a></div>
 				<div class="clearfix"></div>
 			</ul>
@@ -27,8 +14,9 @@
 
 </div>
 <script>
-	var chuoi=''
+	var chuoi = '';
 	var arr = JSON.parse(localStorage.getItem("GioHang"), []);
+	console.log(arr);
 	if (arr) {
 		chuoi += '<h3>Số lượng sản phẩm(' + arr.length + ')</h3>';
 		chuoi += '<div class="shopping_cart">';
