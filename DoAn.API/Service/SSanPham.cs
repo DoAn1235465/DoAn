@@ -9,7 +9,7 @@ using DoAn.API.IDB;
 
 namespace DoAn.API.Service
 {
-	public class sSanPham : IDB.GetIdList<SanPham>, Pros<SanPham>
+	public class sSanPham :  Pros<SanPham>
     {
 		Model.DBSanPhamDAEntities db;
 		public sSanPham()
@@ -47,23 +47,7 @@ namespace DoAn.API.Service
 			return onesp;
 		}
 
-		public IQueryable GetAll(int id = 0)
-		{
-			throw new NotImplementedException();
-		}
 
-<<<<<<< HEAD
-		/// <summary>
-		/// Lấy tất cả sản phẩm
-		/// </summary>
-		/// <returns></returns>
-		public IQueryable GetAll(int id = 0,int id1=0)
-=======
-        public IEnumerable<SanPham> GetAll()
-        {
-            var value = db.SanPhams;
-            return value;
-        }
 
         /// <summary>
         /// Lấy tất cả sản phẩm theo loại sản phẩm hoặc theo nhóm sản phẩm
@@ -71,36 +55,10 @@ namespace DoAn.API.Service
         /// <param name="id">Mã loại sản phẩm</param>
         /// <param name="id1">Mã nhóm sản phẩm</param>
         /// <returns></returns>
-        public IQueryable GetAll(int id = 0,int id1=0)
->>>>>>> master
-		{
+       
 
-			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
-			var hasp = from sp in spn
-					   select new
-					   {
-						   Id = sp.Id,
-						   Id_Loai = sp.Id_Loai,
-						   TenSp = sp.TenSp,
-						   MauMuc = sp.MauMuc,
-						   KichThuoc = sp.KichThuoc,
-						   Gia = sp.Gia,
-						   GhiChu = sp.GhiChu,
-						   SoLuongBan = sp.SoLuongBan,
-						   NgayCapNhat = sp.NgayCapNhat,
-						   HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha,
-						   LoaiSanPham = sp.LoaiSanPham
-					   };
-			if (id > 0)
-			{
-				hasp = hasp.Where(x => x.Id_Loai == id);
-			}
-			else if (id1 > 0)
-			{
-				hasp = hasp.Where(x => x.LoaiSanPham.Id_Nhom == id1);
-			}
-			return hasp;
-		}
+    
+		
         public IEnumerable<SanPham> select()
         {
            
@@ -108,10 +66,7 @@ namespace DoAn.API.Service
             return value;
         }
 
-        public IEnumerable<SanPham> GetNewAll(int id)
-		{
-			throw new NotImplementedException();
-		}
+       
 		/// <summary>
 		/// Lấy tất cả sản phẩm mới nhất
 		/// </summary>
@@ -152,25 +107,37 @@ namespace DoAn.API.Service
 				spo = spo.OrderBy(x => x.Gia);
 			return spo;
 		}
-		public bool Delete(int id)
-		{
-			throw new NotImplementedException();
-		}
 
-		public bool Insert(SanPham item)
-		{
-			throw new NotImplementedException();
-		}
+        SanPham Pros<SanPham>.Get(int id)
+        {
+            throw new NotImplementedException();
+        }
 
-		public bool UpDate(SanPham item)
-		{
-			throw new NotImplementedException();
-		}
-<<<<<<< HEAD
-	}
-=======
+        public IEnumerable<SanPham> GetAll(int id = 0)
+        {
+            throw new NotImplementedException();
+        }
 
-		
+        public bool Insert(SanPham item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpDate(SanPham item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+        public IQueryable GetAllSP(int pageNo, int PageSize)
+        {
+            int skip = (pageNo - 1) * PageSize;
+            var value = db.SanPhams.OrderBy(c => c.Id).Skip(skip).Take(PageSize);
+            return value;
+        }
     }
->>>>>>> master
+
 }

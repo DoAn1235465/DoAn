@@ -7,13 +7,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Description;
 using DoAn.Entity;
 using DoAn.Model;
 using Newtonsoft.Json.Linq;
 using DoAn.Entity.Service;
-using System.Web.Http.Cors;
 using DoAn.API.Service;
+using System.Web.Http.Cors;
 
 namespace DoAn.API.Controllers
 {
@@ -23,18 +22,18 @@ namespace DoAn.API.Controllers
         sSanPham sp = new sSanPham();
 
         // GET: api/SanPhams/
-        [ActionName("GetLoaiSP")]
-        public JToken GetLoaiSP(int id)
-        {
-            var request = sp.GetAll(id, 0);
-            return JToken.FromObject(request);
-        }
-		[ActionName("GetNhomSP")]
-		public JToken GetNhomSP(int id)
-		{
-			var request = sp.GetAll(0,id);
-			return JToken.FromObject(request);
-		}
+     //   [ActionName("GetLoaiSP")]
+  //      public JToken GetLoaiSP(int id)
+  //      {
+  //          var request = sp.GetAll(id, 0);
+  //          return JToken.FromObject(request);
+  //      }
+		//[ActionName("GetNhomSP")]
+		//public JToken GetNhomSP(int id)
+		//{
+		//	var request = sp.GetAll(0,id);
+		//	return JToken.FromObject(request);
+		//}
 		[ActionName("GetNewSP")]
 		public JToken GetNewSP()
 		{
@@ -62,7 +61,7 @@ namespace DoAn.API.Controllers
         public IHttpActionResult GetAll(int pageNo)
         {
             int pageSize = 10;
-            var value = sp.GetAllSP(pageNo,pageSize);
+            var value = sp.GetAllSP(pageNo, pageSize);
             return Ok(value);
         }
         [EnableCors("*", "*", "*")]
@@ -73,5 +72,4 @@ namespace DoAn.API.Controllers
             return Ok(value);
         }
     }
->>>>>>> master
 }

@@ -112,3 +112,8 @@ E:\DoAn\New folder\DoAn\DoAn.Views\bin\DoAn.Entity.dll
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Net.Http.Formatting.dll
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\DoAn.Entity.pdb
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Net.Http.Formatting.xml
+E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Web.Cors.dll
+E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Web.Http.Cors.dll
+E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Web.Http.dll
+E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Web.Http.xml
+E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Web.Http.Cors.xml
