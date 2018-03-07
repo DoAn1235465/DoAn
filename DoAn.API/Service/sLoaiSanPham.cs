@@ -39,13 +39,6 @@ namespace DoAn.API.Service
             return null;
 		}
 
-        public IEnumerable<LoaiSanPham> GetAll()
-        {
-
-            var value = db.LoaiSanPhams;
-            return value;
-        }
-
         public IEnumerable<LoaiSanPham> GetAll(int id = 0)
 		{
 			var lsp = db.LoaiSanPhams.Include(x => x.NhomSanPham);

@@ -29,25 +29,33 @@ namespace DoAn.API.Controllers
             var request = sp.GetAll(id, 0);
             return JToken.FromObject(request);
         }
-        [ActionName("GetNhomSP")]
-        public JToken GetNhomSP(int id)
-        {
-            var request = sp.GetAll(0, id);
-            return JToken.FromObject(request);
-        }
-
-        [ActionName("GetNewSP")]
-        public JToken GetNewSP()
-        {
-            var request = sp.GetNewAllId();
-            return JToken.FromObject(request);
-        }
-        [ActionName("GetDetails")]
-        public JToken GetDetails(int id)
-        {
-            var request = sp.Get(id);
-            return JToken.FromObject(request);
-        }
+		[ActionName("GetNhomSP")]
+		public JToken GetNhomSP(int id)
+		{
+			var request = sp.GetAll(0,id);
+			return JToken.FromObject(request);
+		}
+		[ActionName("GetNewSP")]
+		public JToken GetNewSP()
+		{
+			var request = sp.GetNewAllId();
+			return JToken.FromObject(request);
+		}
+		[ActionName("GetDetails")]
+		public JToken GetDetails(int id)
+		{
+			var request = sp.Get(id);
+			return JToken.FromObject(request);
+		}
+		// GET: api/SanPhams/5
+		//[ResponseType(typeof(SanPham))]
+		//public IHttpActionResult GetSanPham(int id)
+		//{
+		//    SanPham sanPham = db.SanPhams.Find(id);
+		//    if (sanPham == null)
+		//    {
+		//        return NotFound();
+		//    }
 
         [EnableCors("*", "*", "*")]
         [HttpGet]
@@ -65,5 +73,5 @@ namespace DoAn.API.Controllers
             return Ok(value);
         }
     }
-
+>>>>>>> master
 }

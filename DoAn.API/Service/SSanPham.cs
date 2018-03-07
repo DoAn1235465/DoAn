@@ -9,17 +9,14 @@ using DoAn.API.IDB;
 
 namespace DoAn.API.Service
 {
-	public class sSanPham : Pros<SanPham>
+	public class sSanPham : IDB.GetIdList<SanPham>, Pros<SanPham>
     {
 		Model.DBSanPhamDAEntities db;
 		public sSanPham()
 		{
 			db = new Model.DBSanPhamDAEntities();
 		}
-		public bool Delete(int id)
-		{
-			throw new NotImplementedException();
-		}
+		
 		/// <summary>
 		/// Lấy 1 sản phẩm
 		/// </summary>
@@ -29,20 +26,20 @@ namespace DoAn.API.Service
 		{
 			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
 			var onesp = from sp in spn
-					   select new
-					   {
-						   Id = sp.Id,
-						   Id_Loai = sp.Id_Loai,
-						   TenSp = sp.TenSp,
-						   MauMuc = sp.MauMuc,
-						   KichThuoc = sp.KichThuoc,
-						   Gia = sp.Gia,
-						   GhiChu = sp.GhiChu,
-						   SoLuongBan = sp.SoLuongBan,
-						   NgayCapNhat = sp.NgayCapNhat,
-						   HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha,
-						   LoaiSanPham = sp.LoaiSanPham
-					   };
+						select new
+						{
+							Id = sp.Id,
+							Id_Loai = sp.Id_Loai,
+							TenSp = sp.TenSp,
+							MauMuc = sp.MauMuc,
+							KichThuoc = sp.KichThuoc,
+							Gia = sp.Gia,
+							GhiChu = sp.GhiChu,
+							SoLuongBan = sp.SoLuongBan,
+							NgayCapNhat = sp.NgayCapNhat,
+							HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha,
+							LoaiSanPham = sp.LoaiSanPham
+						};
 			if (id > 0)
 			{
 				onesp = onesp.Where(x => x.Id == id);
@@ -50,24 +47,22 @@ namespace DoAn.API.Service
 			return onesp;
 		}
 
+		public IQueryable GetAll(int id = 0)
+		{
+			throw new NotImplementedException();
+		}
 
+<<<<<<< HEAD
 		/// <summary>
-		/// Lấy tất cả sản phẩm theo loại sản phẩm hoặc theo nhóm sản phẩm
+		/// Lấy tất cả sản phẩm
 		/// </summary>
-		/// <param name="id">Mã loại sản phẩm</param>
-		/// <param name="id1">Mã nhóm sản phẩm</param>
 		/// <returns></returns>
-
-        public IEnumerable<SanPham> GetAllSP(int pageNo, int pageSize)
+		public IQueryable GetAll(int id = 0,int id1=0)
+=======
+        public IEnumerable<SanPham> GetAll()
         {
-            int skip = (pageNo - 1) * pageSize;
-            var value = db.SanPhams.OrderBy(c=>c.Id).Skip(skip).Take(pageSize);
+            var value = db.SanPhams;
             return value;
-        }
-
-        public IQueryable GetAll(int id = 0)
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -77,6 +72,7 @@ namespace DoAn.API.Service
         /// <param name="id1">Mã nhóm sản phẩm</param>
         /// <returns></returns>
         public IQueryable GetAll(int id = 0,int id1=0)
+>>>>>>> master
 		{
 
 			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
@@ -92,7 +88,7 @@ namespace DoAn.API.Service
 						   GhiChu = sp.GhiChu,
 						   SoLuongBan = sp.SoLuongBan,
 						   NgayCapNhat = sp.NgayCapNhat,
-						   HinhAnhSPs = from  ha in db.HinhAnhSPs where ha.Id == sp.Id select ha,
+						   HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha,
 						   LoaiSanPham = sp.LoaiSanPham
 					   };
 			if (id > 0)
@@ -115,8 +111,11 @@ namespace DoAn.API.Service
         public IEnumerable<SanPham> GetNewAll(int id)
 		{
 			throw new NotImplementedException();
-		} 
-		//Lấy tất cả sản phẩm mới nhất
+		}
+		/// <summary>
+		/// Lấy tất cả sản phẩm mới nhất
+		/// </summary>
+		/// <returns></returns>
 		public IQueryable GetNewAllId()
 		{
 			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
@@ -153,6 +152,11 @@ namespace DoAn.API.Service
 				spo = spo.OrderBy(x => x.Gia);
 			return spo;
 		}
+		public bool Delete(int id)
+		{
+			throw new NotImplementedException();
+		}
+
 		public bool Insert(SanPham item)
 		{
 			throw new NotImplementedException();
@@ -162,17 +166,11 @@ namespace DoAn.API.Service
 		{
 			throw new NotImplementedException();
 		}
+<<<<<<< HEAD
+	}
+=======
 
-        SanPham Pros<SanPham>.Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<SanPham> Pros<SanPham>.GetAll(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-    }
 		
     }
+>>>>>>> master
+}
