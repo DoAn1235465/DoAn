@@ -35,7 +35,6 @@ namespace DoAn.API.Controllers
 			var request = sp.GetAll(0,id);
 			return JToken.FromObject(request);
 		}
-<<<<<<< HEAD
 		[ActionName("GetNewSP")]
 		public JToken GetNewSP()
 		{
@@ -140,9 +139,6 @@ namespace DoAn.API.Controllers
 		//{
 		//    return db.SanPhams.Count(e => e.Id == id) > 0;
 		//}
-	}
-=======
-
 
         public JToken GetAll()
         {
@@ -150,5 +146,4 @@ namespace DoAn.API.Controllers
             return JToken.FromObject(value);
         }
     }
->>>>>>> master
 }

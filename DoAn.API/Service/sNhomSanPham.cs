@@ -9,7 +9,7 @@ using DoAn.API.IDB;
 
 namespace DoAn.API.Service
 {
-	public class sNhomSanPham: IDB.GetIElist<NhomSanPham>,IDB.Pros<SanPham>
+	public class sNhomSanPham: GetIElist<NhomSanPham>,Pros<SanPham>
 	{
 
 		Model.DBSanPhamDAEntities db;
@@ -29,6 +29,11 @@ namespace DoAn.API.Service
 		{
 			var lNSP = db.NhomSanPhams;
 			return lNSP;
+		}
+
+		public IEnumerable<NhomSanPham> GetAll(int id = 0)
+		{
+			throw new NotImplementedException();
 		}
 
 		public bool Insert(SanPham item)
