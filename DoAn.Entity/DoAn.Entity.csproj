@@ -103,6 +103,9 @@
     <Compile Include="SanPham.cs">
       <DependentUpon>dbSanPhamModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>dbSanPhamModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TaiKhoan.cs">
       <DependentUpon>dbSanPhamModel.tt</DependentUpon>
     </Compile>

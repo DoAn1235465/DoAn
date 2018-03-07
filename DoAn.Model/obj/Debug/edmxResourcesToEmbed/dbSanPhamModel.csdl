@@ -32,6 +32,8 @@
     <Property Name="Id_HoaDon" Type="Int32" Nullable="false" />
     <Property Name="SoLuong" Type="Int32" Nullable="false" />
     <Property Name="DonGia" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="HoaDon" Relationship="Self.pk3" FromRole="HoaDonSanPham" ToRole="HoaDon" />
     <NavigationProperty Name="SanPham" Relationship="Self.pk2" FromRole="HoaDonSanPham" ToRole="SanPham" />
   </EntityType>
@@ -86,6 +88,16 @@
     <NavigationProperty Name="HoaDonSanPhams" Relationship="Self.pk2" FromRole="SanPham" ToRole="HoaDonSanPham" />
     <NavigationProperty Name="LoaiSanPham" Relationship="Self.pk1" FromRole="SanPham" ToRole="LoaiSanPham" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="TaiKhoan">
     <Key>
       <PropertyRef Name="Username" />
@@ -93,6 +105,11 @@
     <Property Name="Username" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quyen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GioiTinh" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <Association Name="pk4">
     <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
@@ -162,6 +179,7 @@
     <EntitySet Name="LoaiSanPhams" EntityType="Self.LoaiSanPham" />
     <EntitySet Name="NhomSanPhams" EntityType="Self.NhomSanPham" />
     <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
     <AssociationSet Name="pk4" Association="Self.pk4">
       <End Role="SanPham" EntitySet="SanPhams" />

@@ -29,9 +29,8 @@ namespace DoAn.Entity
         public int fax { get; set; }
         public string Cty { get; set; }
         public System.DateTime NgayDat { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 		[JsonIgnore]
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDonSanPham> HoaDonSanPhams { get; set; }
     }
 }

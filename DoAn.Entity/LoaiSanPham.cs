@@ -25,10 +25,10 @@ namespace DoAn.Entity
         public string TenLoaiSp { get; set; }
         public Nullable<int> Id_Nhom { get; set; }
         public string GhiChu { get; set; }
-    
-        public virtual NhomSanPham NhomSanPham { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+	
+		public virtual NhomSanPham NhomSanPham { get; set; }
 		[JsonIgnore]
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }
     }
 }

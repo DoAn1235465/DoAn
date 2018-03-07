@@ -24,9 +24,8 @@ namespace DoAn.Entity
         public int Id_Nhom { get; set; }
         public string TenNhom { get; set; }
         public string ChuThich { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 		[JsonIgnore]
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LoaiSanPham> LoaiSanPhams { get; set; }
     }
 }
