@@ -58,9 +58,10 @@ namespace DoAn.API.Service
 		/// <param name="id1">Mã nhóm sản phẩm</param>
 		/// <returns></returns>
 
-        public IEnumerable<SanPham> GetAll()
+        public IEnumerable<SanPham> GetAllSP(int pageNo, int pageSize)
         {
-            var value = db.SanPhams;
+            int skip = (pageNo - 1) * pageSize;
+            var value = db.SanPhams.OrderBy(c=>c.Id).Skip(skip).Take(pageSize);
             return value;
         }
 
@@ -104,7 +105,14 @@ namespace DoAn.API.Service
 			}
 			return hasp;
 		}
-		public IEnumerable<SanPham> GetNewAll(int id)
+        public IEnumerable<SanPham> select()
+        {
+           
+            var value = db.SanPhams;
+            return value;
+        }
+
+        public IEnumerable<SanPham> GetNewAll(int id)
 		{
 			throw new NotImplementedException();
 		} 

@@ -49,10 +49,20 @@ namespace DoAn.API.Controllers
             return JToken.FromObject(request);
         }
 
-        public JToken GetAll()
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult GetAll(int pageNo)
         {
-            var value = sp.GetAll();
-            return JToken.FromObject(value);
+            int pageSize = 10;
+            var value = sp.GetAllSP(pageNo,pageSize);
+            return Ok(value);
+        }
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult count()
+        {
+            var value = sp.select();
+            return Ok(value);
         }
     }
 

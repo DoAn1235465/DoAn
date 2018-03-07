@@ -20,5 +20,18 @@ namespace DoAn.Views.Areas.Admin.Controllers
 		{
 			return View();
 		}
+        public ActionResult TaiKhoan()
+        {
+            return View();
+        }
+
+        public ActionResult SanPham()
+        {
+            return View();
+        }
+        public ActionResult LoaiSanPham()
+        {
+            return View();
+        }
     }
 }

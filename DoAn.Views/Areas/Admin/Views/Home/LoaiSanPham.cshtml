@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "LoaiSanPham";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin loại sản phẩm</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Loại sản phẩm</th>
+        </tr>
+    </thead>
+    <tbody id="grdDemo"></tbody>
+</table>
+
+@section  script{
+    <script>
+         $(document).ready(function () {
+             BindData();
+         });
+         function BindData() {
+             $.ajax({
+                 type: "GET",
+                 url: urlRoot + "LoaiSanPhams/GetAll",
+                 success: function (data) {
+                     console.log(data);
+                     if (data.length > 0) {
+                         for (var i = 0; i < data.length; i++)
+                             $("#grdDemo").append("<tr><td>" +
+                             (i + 1) + "</td> <td>" +
+                             data[i].TenLoaiSp + "</td> <tr>");
+                             }
+                         },
+                     error: function (result) {
+                         //alert("Error login");
+
+                     }
+               });
+         }
+    </script>
+}
+
+
+
+
