@@ -10,125 +10,137 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using DoAn.Entity;
 using DoAn.Model;
+using System.Web.Http.Cors;
+using Newtonsoft.Json.Linq;
+using DoAn.API.Service;
 
 namespace DoAn.API.Controllers
 {
+	[EnableCors("*","*","*")]
     public class HoaDonSanPhamsController : ApiController
     {
-        private DBSanPhamDAEntities db = new DBSanPhamDAEntities();
+	
+	//	[EnableCors("*", "*", "*")]
+		[ActionName("GetSanPham")]
+		public JToken GetSanPham(int id)
+		{
+			sSanPham sp = new sSanPham();
+			var sanpham = sp.GetOne(id);
+			return JToken.FromObject(sanpham);
+		}
 
-        // GET: api/HoaDonSanPhams
-        public IQueryable<HoaDonSanPham> GetHoaDonSanPhams()
-        {
-            return db.HoaDonSanPhams;
-        }
 
-        // GET: api/HoaDonSanPhams/5
-        [ResponseType(typeof(HoaDonSanPham))]
-        public IHttpActionResult GetHoaDonSanPham(int id)
-        {
-            HoaDonSanPham hoaDonSanPham = db.HoaDonSanPhams.Find(id);
-            if (hoaDonSanPham == null)
-            {
-                return NotFound();
-            }
+		//public IQueryable<HoaDonSanPham> GetHoaDonSanPhams()
+		//{
 
-            return Ok(hoaDonSanPham);
-        }
+		//}
 
-        // PUT: api/HoaDonSanPhams/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutHoaDonSanPham(int id, HoaDonSanPham hoaDonSanPham)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+		//// GET: api/HoaDonSanPhams/5
+		//[ResponseType(typeof(HoaDonSanPham))]
+		//public IHttpActionResult GetHoaDonSanPham(int id)
+		//{
+		//    HoaDonSanPham hoaDonSanPham = db.HoaDonSanPhams.Find(id);
+		//    if (hoaDonSanPham == null)
+		//    {
+		//        return NotFound();
+		//    }
 
-            if (id != hoaDonSanPham.Id)
-            {
-                return BadRequest();
-            }
+		//    return Ok(hoaDonSanPham);
+		//}
 
-            db.Entry(hoaDonSanPham).State = EntityState.Modified;
+		//// PUT: api/HoaDonSanPhams/5
+		//[ResponseType(typeof(void))]
+		//public IHttpActionResult PutHoaDonSanPham(int id, HoaDonSanPham hoaDonSanPham)
+		//{
+		//    if (!ModelState.IsValid)
+		//    {
+		//        return BadRequest(ModelState);
+		//    }
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!HoaDonSanPhamExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+		//    if (id != hoaDonSanPham.Id)
+		//    {
+		//        return BadRequest();
+		//    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+		//    db.Entry(hoaDonSanPham).State = EntityState.Modified;
 
-        // POST: api/HoaDonSanPhams
-        [ResponseType(typeof(HoaDonSanPham))]
-        public IHttpActionResult PostHoaDonSanPham(HoaDonSanPham hoaDonSanPham)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+		//    try
+		//    {
+		//        db.SaveChanges();
+		//    }
+		//    catch (DbUpdateConcurrencyException)
+		//    {
+		//        if (!HoaDonSanPhamExists(id))
+		//        {
+		//            return NotFound();
+		//        }
+		//        else
+		//        {
+		//            throw;
+		//        }
+		//    }
 
-            db.HoaDonSanPhams.Add(hoaDonSanPham);
+		//    return StatusCode(HttpStatusCode.NoContent);
+		//}
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (HoaDonSanPhamExists(hoaDonSanPham.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+		//// POST: api/HoaDonSanPhams
+		//[ResponseType(typeof(HoaDonSanPham))]
+		//public IHttpActionResult PostHoaDonSanPham(HoaDonSanPham hoaDonSanPham)
+		//{
+		//    if (!ModelState.IsValid)
+		//    {
+		//        return BadRequest(ModelState);
+		//    }
 
-            return CreatedAtRoute("DefaultApi", new { id = hoaDonSanPham.Id }, hoaDonSanPham);
-        }
+		//    db.HoaDonSanPhams.Add(hoaDonSanPham);
 
-        // DELETE: api/HoaDonSanPhams/5
-        [ResponseType(typeof(HoaDonSanPham))]
-        public IHttpActionResult DeleteHoaDonSanPham(int id)
-        {
-            HoaDonSanPham hoaDonSanPham = db.HoaDonSanPhams.Find(id);
-            if (hoaDonSanPham == null)
-            {
-                return NotFound();
-            }
+		//    try
+		//    {
+		//        db.SaveChanges();
+		//    }
+		//    catch (DbUpdateException)
+		//    {
+		//        if (HoaDonSanPhamExists(hoaDonSanPham.Id))
+		//        {
+		//            return Conflict();
+		//        }
+		//        else
+		//        {
+		//            throw;
+		//        }
+		//    }
 
-            db.HoaDonSanPhams.Remove(hoaDonSanPham);
-            db.SaveChanges();
+		//    return CreatedAtRoute("DefaultApi", new { id = hoaDonSanPham.Id }, hoaDonSanPham);
+		//}
 
-            return Ok(hoaDonSanPham);
-        }
+		//// DELETE: api/HoaDonSanPhams/5
+		//[ResponseType(typeof(HoaDonSanPham))]
+		//public IHttpActionResult DeleteHoaDonSanPham(int id)
+		//{
+		//    HoaDonSanPham hoaDonSanPham = db.HoaDonSanPhams.Find(id);
+		//    if (hoaDonSanPham == null)
+		//    {
+		//        return NotFound();
+		//    }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		//    db.HoaDonSanPhams.Remove(hoaDonSanPham);
+		//    db.SaveChanges();
 
-        private bool HoaDonSanPhamExists(int id)
-        {
-            return db.HoaDonSanPhams.Count(e => e.Id == id) > 0;
-        }
-    }
+		//    return Ok(hoaDonSanPham);
+		//}
+
+		//protected override void Dispose(bool disposing)
+		//{
+		//    if (disposing)
+		//    {
+		//        db.Dispose();
+		//    }
+		//    base.Dispose(disposing);
+		//}
+
+		//private bool HoaDonSanPhamExists(int id)
+		//{
+		//    return db.HoaDonSanPhams.Count(e => e.Id == id) > 0;
+		//}
+	}
 }
