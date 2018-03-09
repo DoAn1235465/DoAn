@@ -14,11 +14,9 @@
         <EntityTypeShape EntityType="DBSanPhamDAModel.SanPham" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBSanPhamDAModel.sysdiagram" Width="1.5" PointX="7.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBSanPhamDAModel.TaiKhoan" Width="1.5" PointX="3.125" PointY="7.375" IsExpanded="true" />
-        <AssociationConnector Association="DBSanPhamDAModel.pk4" ManuallyRouted="false" />
-        <AssociationConnector Association="DBSanPhamDAModel.pk3" ManuallyRouted="false" />
-        <AssociationConnector Association="DBSanPhamDAModel.pk2" ManuallyRouted="false" />
         <AssociationConnector Association="DBSanPhamDAModel.pk" ManuallyRouted="false" />
-        <AssociationConnector Association="DBSanPhamDAModel.pk1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBSanPhamDAModel.pk4" />
+        <AssociationConnector Association="DBSanPhamDAModel.pk3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

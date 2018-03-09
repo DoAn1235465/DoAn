@@ -61,14 +61,13 @@ namespace DoAn.API.Service
 
         public IEnumerable<SanPham> select()
         {
-           
             var value = db.SanPhams;
             return value;
         }
         public IQueryable GetAllSP(int pageNo, int PageSize)
         {
             int skip = (pageNo - 1) * PageSize;
-            var value = db.SanPhams.OrderBy(c => c.Id).Skip(skip).Take(PageSize);
+            var value = db.SanPhams.OrderBy(c => c.Id).Skip(skip).Take(PageSize) ;
             return value;
         }
 

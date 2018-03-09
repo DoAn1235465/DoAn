@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using DoAn.Model;
 using System.Web.Http;
 using DoAn.Entity.Service;
+using DoAn.Entity;
 
 namespace DoAn.API.Controllers
 {
@@ -34,7 +35,26 @@ namespace DoAn.API.Controllers
         public IHttpActionResult count()
         {
             var value = sa.select();
-            return Ok(value);
+                return Ok(value);
+        }
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult Delete(string username)
+        {
+           // return Ok(username);
+            if (sa.Delete(username)) return Ok(true);
+            return Ok(false);
+        }
+        [EnableCors("*", "*", "*")]
+        [HttpPost]
+        public IHttpActionResult Insert(TaiKhoan tk)
+        {
+            return Ok(tk);
+            //if(tk != null)
+            //{
+            //    if (sa.Insert(tk)) return Ok(true);
+            //}
+            //return NotFound();
         }
     }
 }

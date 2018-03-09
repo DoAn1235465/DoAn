@@ -2,6 +2,9 @@
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu" style="margin-top:19px;">
             <li style="border-top:1px solid #eee">
+                @Html.ActionLink( "Trang chủ", "TrangChu", "Home", new { target = "_blank" })
+            </li>
+            <li>
                 @Html.ActionLink("Tài khoản", "TaiKhoan", "Home")
             </li>
             <li>
@@ -9,6 +12,12 @@
             </li>
             <li>
                @Html.ActionLink("Loại sản phẩm","LoaiSanPham","Home")
+            </li>
+            <li>
+                @Html.ActionLink("Nhóm sản phẩm", "NhomSanPham", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Hóa đơn", "HoaDon", "Home")
             </li>
         </ul>
     </div>

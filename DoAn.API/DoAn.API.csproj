@@ -203,6 +203,7 @@
     <Compile Include="IDB\Pros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\sAdmin.cs" />
+    <Compile Include="Service\sHoaDon.cs" />
     <Compile Include="Service\sLoaiSanPham.cs" />
     <Compile Include="Service\sNhomSanPham.cs" />
     <Compile Include="Service\sSanPham.cs" />

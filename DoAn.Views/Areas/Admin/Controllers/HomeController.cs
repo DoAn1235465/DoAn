@@ -33,5 +33,17 @@ namespace DoAn.Views.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult NhomSanPham()
+        {
+            return View();
+        }
+        public ActionResult HoaDon()
+        {
+            return View();
+        }
+        public ActionResult TrangChu()
+        {
+            return RedirectToAction("Index", "Home", new { Area = "" });
+        }
     }
 }

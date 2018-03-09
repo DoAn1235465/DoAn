@@ -3,8 +3,77 @@
     ViewBag.Title = "SanPham";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
+@section style{
+<style>
+    .btn-info {
+        margin-right: 5px;
+    }
+</style>
+}
 <h2>Thông tin sản phẩm</h2>
-<table class="table table-bordered">
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" style="margin-bottom:15px;">Add</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Thông tin</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email<span style="color:red;">*</span></label>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Password<span style="color:red;">*</span></label>
+                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">User Name<span style="color:red;">*</span></label>
+                            <input type="text" class="form-control" placeholder="User Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Tên</label>
+                            <input type="text" class="form-control" placeholder="Tên">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Địa chỉ</label>
+                            <input type="text" class="form-control" placeholder="Địa chỉ">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Số điện thoại<span style="color:red;">*</span></label>
+                            <input type="text" pattern="[0][0-9]{9}" class="form-control" placeholder="Số điện thoại">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Quyền hạn<span style="color:red;">*</span></label>
+                            <input type="text" class="form-control" placeholder="Quyền hạn">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Giới tính<span style="color:red;">*</span></label>
+                            <select class="form-control">
+                                <option>Nam</option>
+                                <option>Nữ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>STT</th>
@@ -12,6 +81,7 @@
             <th>Giá</th>
             <th>Số lượng bán</th>
             <th>Ngày cập nhật</th>
+            <th>Chức năng</th>
         </tr>
     </thead>
     <tbody id="grdDemo"></tbody>
@@ -26,12 +96,34 @@
          function Load(data) {
              if (data.length > 0) {
                  for (var i = 0; i < data.length; i++)
-                     $("#grdDemo").append("<tr><td>" + (i + 1) + "</td><td>" +
-                     data[i].TenSp + "</td><td>" +
-                     data[i].Gia + "</td><td>" +
-                     data[i].SoLuongBan + "</td><td>" +
-                     data[i].NgayCapNhat + "</td></tr>");
+                     $("#grdDemo").append("<tr><td data-user=" + data[i].Id + ">" + (i + 1) + "</td><td>" +
+                     (data[i].TenSp != null ? data[i].TenSp : "") + "</td><td>" +
+                     (data[i].Gia != null ? data[i].Gia : "") + "</td><td>" +
+                     (data[i].SoLuongBan != null ? data[i].SoLuongBan : "") + "</td><td>" +
+                     (data[i].NgayCapNhat != null ? data[i].NgayCapNhat : "") + "</td><td><button type='button' class='btn btn-info btn-sm btn-update' data-id=" + data[i].Id + ">Update</button><button type='button' class='btn btn-danger btn-sm btn-update' data-id=" + data[i].Id + ">Delete</button></td></tr>");
              }
+             $('.btn-delete').click(function () {
+                 var value = $('.btn-update').attr("data-id");
+                 DeleteData(value);
+             });
+             $('.btn-update').click(function () {
+                 var value = $('.btn-update').attr("data-id");
+
+             });
+         }
+         function DeleteData(value) {
+             $.ajax({
+                 type: "GET",
+                 url: urlRoot + "SanPhams/Delete",
+                 data: { id: value },
+                 contentType: 'text',
+                 success: function (data) {
+                     $('tr[data-user = "' + value + '"]').remove();
+                 },
+                 error: function (result) {
+                     //alert("Error login"
+                 }
+             });
          }
          function countData() {
              var count = 0;
@@ -48,7 +140,7 @@
          }
          function dem(data) {
              $('#pagination-demo').twbsPagination({
-                 totalPages: Math.ceil(data.length/10),
+                 totalPages:data.length != 0 ? Math.ceil(data.length / 10) : 1 ,
                  visiblePages: 7,
                  onPageClick: function (event, page) {
                      $("#grdDemo").html("");

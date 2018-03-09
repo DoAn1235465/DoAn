@@ -10,13 +10,15 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using DoAn.Entity;
 using DoAn.Model;
+using System.Web.Http.Cors;
+using DoAn.API.Service;
 
 namespace DoAn.API.Controllers
 {
     public class HoaDonSanPhamsController : ApiController
     {
         private DBSanPhamDAEntities db = new DBSanPhamDAEntities();
-
+        private sHoaDon hd = new sHoaDon();
         // GET: api/HoaDonSanPhams
         public IQueryable<HoaDonSanPham> GetHoaDonSanPhams()
         {
@@ -129,6 +131,21 @@ namespace DoAn.API.Controllers
         private bool HoaDonSanPhamExists(int id)
         {
             return db.HoaDonSanPhams.Count(e => e.Id == id) > 0;
+        }
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult GetAll(int pageNo)
+        {
+            int pageSize = 10;
+            var value = hd.GetAllSP(pageNo, pageSize);
+            return Ok(value);
+        }
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult count()
+        {
+            var value = hd.select();
+            return Ok(value);
         }
     }
 }

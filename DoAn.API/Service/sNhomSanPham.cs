@@ -20,7 +20,12 @@ namespace DoAn.API.Service
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            if (id == null)
+                return false;
+            //  db.Entry(db.TaiKhoans).State = System.Data.Entity.EntityState.Deleted;
+            db.NhomSanPhams.Remove(db.NhomSanPhams.Find(id));
+            db.SaveChanges();
+            return true;
         }
 
 

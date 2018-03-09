@@ -71,5 +71,13 @@ namespace DoAn.API.Controllers
             var value = sp.select();
             return Ok(value);
         }
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult Delete(int id)
+        {
+            // return Ok(username);
+            if (sp.Delete(id)) return Ok(true);
+            return Ok(false);
+        }
     }
 }

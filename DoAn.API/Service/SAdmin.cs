@@ -27,6 +27,15 @@ namespace DoAn.Entity.Service
         {
             throw new NotImplementedException();
         }
+        public bool Delete(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return false;
+          //  db.Entry(db.TaiKhoans).State = System.Data.Entity.EntityState.Deleted;
+            db.TaiKhoans.Remove(db.TaiKhoans.Find(id));
+            db.SaveChanges();
+            return true;
+        }
 
         public TaiKhoan Get(int id)
         {
@@ -40,7 +49,10 @@ namespace DoAn.Entity.Service
 
         public bool Insert(TaiKhoan item)
         {
-            throw new NotImplementedException();
+            if (item == null) return false;
+            db.TaiKhoans.Add(item);
+            db.SaveChanges();
+            return true;
         }
 
         public bool UpDate(TaiKhoan item)
@@ -49,8 +61,7 @@ namespace DoAn.Entity.Service
         }
         //Sử dụng làm pagelist
         public IEnumerable<TaiKhoan> select()
-        {
-
+        { 
             var value = db.TaiKhoans;
             return value;
         }

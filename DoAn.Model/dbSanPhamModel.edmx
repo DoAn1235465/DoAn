@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBSanPhamDAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBSanPhamDAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="HinhAnhSP">
           <Key>
             <PropertyRef Name="Id_HA" />
@@ -118,30 +118,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="pk1">
-          <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1" />
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LoaiSanPham">
-              <PropertyRef Name="Id_Loai" />
-            </Principal>
-            <Dependent Role="SanPham">
-              <PropertyRef Name="Id_Loai" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pk2">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
-          <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SanPham">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HoaDonSanPham">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="pk3">
           <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
           <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
@@ -166,6 +142,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DBSanPhamDAModelStoreContainer">
           <EntitySet Name="HinhAnhSP" EntityType="Self.HinhAnhSP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
@@ -180,14 +187,6 @@
             <End Role="NhomSanPham" EntitySet="NhomSanPham" />
             <End Role="LoaiSanPham" EntitySet="LoaiSanPham" />
           </AssociationSet>
-          <AssociationSet Name="pk1" Association="Self.pk1">
-            <End Role="LoaiSanPham" EntitySet="LoaiSanPham" />
-            <End Role="SanPham" EntitySet="SanPham" />
-          </AssociationSet>
-          <AssociationSet Name="pk2" Association="Self.pk2">
-            <End Role="SanPham" EntitySet="SanPham" />
-            <End Role="HoaDonSanPham" EntitySet="HoaDonSanPham" />
-          </AssociationSet>
           <AssociationSet Name="pk3" Association="Self.pk3">
             <End Role="HoaDon" EntitySet="HoaDon" />
             <End Role="HoaDonSanPham" EntitySet="HoaDonSanPham" />
@@ -197,8 +196,7 @@
             <End Role="HinhAnhSP" EntitySet="HinhAnhSP" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBSanPhamDAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -209,7 +207,7 @@
           <Property Name="Id_HA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id" Type="Int32" />
           <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SanPham" Relationship="Self.pk4" FromRole="HinhAnhSP" ToRole="SanPham" />
+          <NavigationProperty Name="SanPham" Relationship="DBSanPhamDAModel.pk4" FromRole="HinhAnhSP" ToRole="SanPham" />
         </EntityType>
         <EntityType Name="HoaDon">
           <Key>
@@ -223,7 +221,7 @@
           <Property Name="fax" Type="Int32" Nullable="false" />
           <Property Name="Cty" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NgayDat" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="HoaDonSanPhams" Relationship="Self.pk3" FromRole="HoaDon" ToRole="HoaDonSanPham" />
+          <NavigationProperty Name="HoaDonSanPhams" Relationship="DBSanPhamDAModel.pk3" FromRole="HoaDon" ToRole="HoaDonSanPham" />
         </EntityType>
         <EntityType Name="HoaDonSanPham">
           <Key>
@@ -236,8 +234,7 @@
           <Property Name="DonGia" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="HoaDon" Relationship="Self.pk3" FromRole="HoaDonSanPham" ToRole="HoaDon" />
-          <NavigationProperty Name="SanPham" Relationship="Self.pk2" FromRole="HoaDonSanPham" ToRole="SanPham" />
+          <NavigationProperty Name="HoaDon" Relationship="DBSanPhamDAModel.pk3" FromRole="HoaDonSanPham" ToRole="HoaDon" />
         </EntityType>
         <EntityType Name="LienHe">
           <Key>
@@ -262,7 +259,6 @@
           <Property Name="Id_Nhom" Type="Int32" />
           <Property Name="GhiChu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NhomSanPham" Relationship="Self.pk" FromRole="LoaiSanPham" ToRole="NhomSanPham" />
-          <NavigationProperty Name="SanPhams" Relationship="Self.pk1" FromRole="LoaiSanPham" ToRole="SanPham" />
         </EntityType>
         <EntityType Name="NhomSanPham">
           <Key>
@@ -286,9 +282,7 @@
           <Property Name="GhiChu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="SoLuongBan" Type="Int32" />
           <Property Name="NgayCapNhat" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="HinhAnhSPs" Relationship="Self.pk4" FromRole="SanPham" ToRole="HinhAnhSP" />
-          <NavigationProperty Name="HoaDonSanPhams" Relationship="Self.pk2" FromRole="SanPham" ToRole="HoaDonSanPham" />
-          <NavigationProperty Name="LoaiSanPham" Relationship="Self.pk1" FromRole="SanPham" ToRole="LoaiSanPham" />
+          <NavigationProperty Name="HinhAnhSPs" Relationship="DBSanPhamDAModel.pk4" FromRole="SanPham" ToRole="HinhAnhSP" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -313,42 +307,6 @@
           <Property Name="GioiTinh" Type="Int32" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <Association Name="pk4">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
-          <End Role="HinhAnhSP" Type="Self.HinhAnhSP" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SanPham">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HinhAnhSP">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pk3">
-          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
-          <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HoaDon">
-              <PropertyRef Name="Id_HoaDon" />
-            </Principal>
-            <Dependent Role="HoaDonSanPham">
-              <PropertyRef Name="Id_HoaDon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pk2">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
-          <End Role="HoaDonSanPham" Type="Self.HoaDonSanPham" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SanPham">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HoaDonSanPham">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="pk">
           <End Role="NhomSanPham" Type="Self.NhomSanPham" Multiplicity="0..1" />
           <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="*" />
@@ -358,18 +316,6 @@
             </Principal>
             <Dependent Role="LoaiSanPham">
               <PropertyRef Name="Id_Nhom" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="pk1">
-          <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1" />
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LoaiSanPham">
-              <PropertyRef Name="Id_Loai" />
-            </Principal>
-            <Dependent Role="SanPham">
-              <PropertyRef Name="Id_Loai" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -383,27 +329,84 @@
           <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
-          <AssociationSet Name="pk4" Association="Self.pk4">
-            <End Role="SanPham" EntitySet="SanPhams" />
-            <End Role="HinhAnhSP" EntitySet="HinhAnhSPs" />
-          </AssociationSet>
-          <AssociationSet Name="pk3" Association="Self.pk3">
-            <End Role="HoaDon" EntitySet="HoaDons" />
-            <End Role="HoaDonSanPham" EntitySet="HoaDonSanPhams" />
-          </AssociationSet>
-          <AssociationSet Name="pk2" Association="Self.pk2">
-            <End Role="SanPham" EntitySet="SanPhams" />
-            <End Role="HoaDonSanPham" EntitySet="HoaDonSanPhams" />
-          </AssociationSet>
           <AssociationSet Name="pk" Association="Self.pk">
             <End Role="NhomSanPham" EntitySet="NhomSanPhams" />
             <End Role="LoaiSanPham" EntitySet="LoaiSanPhams" />
           </AssociationSet>
-          <AssociationSet Name="pk1" Association="Self.pk1">
-            <End Role="LoaiSanPham" EntitySet="LoaiSanPhams" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DBSanPhamDAModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DBSanPhamDAModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <AssociationSet Name="pk4" Association="DBSanPhamDAModel.pk4">
             <End Role="SanPham" EntitySet="SanPhams" />
+            <End Role="HinhAnhSP" EntitySet="HinhAnhSPs" />
+          </AssociationSet>
+          <AssociationSet Name="pk3" Association="DBSanPhamDAModel.pk3">
+            <End Role="HoaDon" EntitySet="HoaDons" />
+            <End Role="HoaDonSanPham" EntitySet="HoaDonSanPhams" />
           </AssociationSet>
         </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <Association Name="pk4">
+          <End Type="DBSanPhamDAModel.SanPham" Role="SanPham" Multiplicity="0..1" />
+          <End Type="DBSanPhamDAModel.HinhAnhSP" Role="HinhAnhSP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HinhAnhSP">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pk3">
+          <End Type="DBSanPhamDAModel.HoaDon" Role="HoaDon" Multiplicity="1" />
+          <End Type="DBSanPhamDAModel.HoaDonSanPham" Role="HoaDonSanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HoaDon">
+              <PropertyRef Name="Id_HoaDon" />
+            </Principal>
+            <Dependent Role="HoaDonSanPham">
+              <PropertyRef Name="Id_HoaDon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -519,6 +522,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DBSanPhamDAModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DBSanPhamDAModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DBSanPhamDAModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DBSanPhamDAModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBSanPhamDAModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DBSanPhamDAModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBSanPhamDAModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DBSanPhamDAModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DBSanPhamDAModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
