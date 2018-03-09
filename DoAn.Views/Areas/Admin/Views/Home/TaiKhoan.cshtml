@@ -1,0 +1,204 @@
+﻿
+@{
+    ViewBag.Title = "TaiKhoan";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section style{
+    <style>
+        .btn-info {
+            margin-right: 5px;
+        }
+    </style>
+}
+<h2>Thông tin tài khoản</h2>
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" style="margin-bottom:15px;">Add</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Thông tin</h4>
+            </div>
+            <div class="modal-body">
+                <form id="info">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Email<span style="color:red;">*</span></label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="Email" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Password<span style="color:red;">*</span></label>
+                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="">User Name<span style="color:red;">*</span></label>
+                            <input type="text" class="form-control" placeholder="User Name" id="Username" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="inputPassword4">Tên</label>
+                            <input type="text" class="form-control" placeholder="Tên" id="Name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Địa chỉ</label>
+                            <input type="text" class="form-control" placeholder="Địa chỉ" id="Address">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Số điện thoại<span style="color:red;">*</span></label>
+                            <input type="text" pattern="[0][0-9]{9}" class="form-control" placeholder="Số điện thoại" id="SDT" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label>Quyền hạn<span style="color:red;">*</span></label>
+                            <input type="text" class="form-control" placeholder="Quyền hạn" id="Quyen" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Giới tính<span style="color:red;">*</span></label>
+                            <select class="form-control" id="GioiTinh">
+                                <option>Nam</option>
+                                <option>Nữ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên khách hàng</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Quyền</th>
+            <th>Email</th>
+            <th>SDT</th>
+            <th>Giới tính</th>
+            <th>Địa chỉ</th>
+            <th>Chức năng</th>
+        </tr>
+    </thead>
+    <tbody id="grdDemo"></tbody>
+</table>
+<ul id="pagination-demo" class="pagination-sm"></ul>
+
+@section  script{
+    <script>
+        $(document).ready(function () {
+            countData();
+        });
+        $('#submit').click(function () {
+
+            var Username = 'vghvhgh';
+            var mydata = {
+                Username:'đâsdasd',
+                //Password: $('#inputPassword4').val(),
+                //Name: $('#Name').val(),
+                //Quyen: $('#Quyen').val(),
+                //Email: $('#inputEmail4').val(),
+                //SDT: $('#SDT').val(),
+                //GioiTinh: $('#GioiTinh').val() == "Nam" ? 1 : 0,
+                //Address: $('#Address').val(),
+            };
+            //var value = JSON.stringify(tk);
+            //console.log(value);
+            $.ajax({
+                type: "POST",
+                url: urlRoot + "Admin/Insert",
+                data: mydata,
+                //dataType: "json",
+              //  contentType: "Text",
+                success: function (dulieu) {
+                    console.log(dulieu);
+                },
+                error: function (result) {
+                    //alert("Error login"
+                }
+            });
+        });
+        function Load(data) {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++)
+                    $("#grdDemo").append("<tr data-user=" + data[i].Username + "><td>" + (i + 1) + "</td><td>" +
+                    (data[i].Name != null ? data[i].Name : "") + "</td><td>" +
+                    (data[i].Username != null ? data[i].Username : "") + "</td><td>" +
+                    (data[i].Password != null ? data[i].Password : "") + "</td><td>" +
+                    (data[i].Quyen != null ? data[i].Quyen : "") + "</td><td>" +
+                    (data[i].Email != null ? data[i].Email : "") + "</td><td>" +
+                    (data[i].SDT != null ? data[i].SDT : "") + "</td><td>" +
+                    (data[i].GioiTinh != null ? data[i].GioiTinh : "") + "</td><td>" +
+                    (data[i].Address != null ? data[i].Address : "") + "</td><td><button type='button' class='btn btn-info btn-sm btn-update' data-id=" + data[i].Username + ">Update</button><button type='button' class='btn btn-danger btn-sm btn-delete' data-id=" + data[i].Username + ">Delete</button></td></tr>");
+            }
+            $('.btn-delete').click(function () {
+                var value = $('.btn-update').attr("data-id");
+                DeleteData(value);
+            });
+            $('.btn-update').click(function () {
+                var value = $('.btn-update').attr("data-id");
+
+            });
+        }
+        function update(data) {
+
+        }
+        function DeleteData(value) {
+            $.ajax({
+                type: "GET",
+                url: urlRoot + "Admin/Delete",
+                data: { username: value },
+                contentType: 'text',
+                success: function (data) {
+                    $('tr[data-user = "' + value + '"]').remove();
+                },
+                error: function (result) {
+                    //alert("Error login"
+                }
+            });
+        }
+        function countData() {
+            $.ajax({
+                type: "GET",
+                url: urlRoot + "Admin/count",
+                success: function (data) {
+                    dem(data);
+                },
+                error: function (result) {
+                    //alert("Error login"
+                }
+            });
+        }
+        function dem(data) {
+            $('#pagination-demo').twbsPagination({
+                totalPages: data.length != 0 ? Math.ceil(data.length / 10) : 1,
+                visiblePages: 7,
+                onPageClick: function (event, page) {
+                    $("#grdDemo").html("");
+                    $.ajax({
+                        type: "GET",
+                        url: urlRoot + "Admin/GetAll",
+                        data: { pageNo: page },
+                        contentType: 'text',
+                        success: function (data) {
+                            Load(data);
+                            // console.log(data);
+                        },
+                        error: function (result) {
+                            //alert("Error login"
+                        }
+                    });
+                }
+            });
+        }
+
+    </script>
+}

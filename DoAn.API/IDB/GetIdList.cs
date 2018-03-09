@@ -10,7 +10,5 @@ namespace DoAn.API.IDB
 	{
 		IQueryable Get(int id);
 		IQueryable GetAll(int id=0);
-		//T Get(int id);
-		IEnumerable<T> GetAll();
 	}
 }

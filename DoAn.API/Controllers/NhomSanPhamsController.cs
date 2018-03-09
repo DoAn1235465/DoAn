@@ -28,5 +28,28 @@ namespace DoAn.API.Controllers
             var request = nsp.GetAll();
             return JToken.FromObject(request);
         }
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult GetAll(int pageNo)
+        {
+            int pageSize = 10;
+            var value = nsp.GetAllSP(pageNo, pageSize);
+            return Ok(value);
+        }
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult count()
+        {
+            var value = nsp.select();
+            return Ok(value);
+        }
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        public IHttpActionResult Delete(string id)
+        {
+            // return Ok(username);
+            if (nsp.Delete(int.Parse(id))) return Ok(true);
+            return Ok(false);
+        }
     }
 }

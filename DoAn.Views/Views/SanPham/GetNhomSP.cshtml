@@ -10,54 +10,76 @@
 	</div>
 </div>
 <div class="clearfix"> </div>
-<ul class="start">
-	<li><span>1</span></li>
+<ul id="pagination-demo" class="start pagination-sm">
+	@*<li><span>1</span></li>
 	<li class="arrow"><a href="#">2</a></li>
 	<li class="arrow"><a href="#">3</a></li>
 	<li class="arrow"><a href="#">4</a></li>
 	<li class="arrow"><a href="#">5</a></li>
-	<li class="arrow"><a href="#">6</a></li>
+	<li class="arrow"><a href="#">6</a></li>*@
 </ul>
 
 @section scripts{
 	<script>
 		var id = localStorage.getItem("idNhomSanPham");
-		var show_item = 6;
-		var number_item;
 		$.ajax({
-			type: 'Get',
-			dataType: 'json',
-			url: urlRoot + 'SanPhams/GetNhomSP/' + id,
+			type: "GET",
+			url: urlRoot + "SanPhams/GetCountNhomSP/"+id,
 			success: function (data) {
-				var chuoi = '';
-				var v;
-				for (var i = 0; i < 9; i++) {
-					v = data[i];
-					chuoi += '<div class="col-md-4 shirt"  style="height: 350px;">';
-					chuoi += '<div class="bottom-grid-top">';
-					chuoi += '<a href="@Url.Action("GetDetailsSP","SanPham")" onclick="DetailsSP(' + v.Id + ')">';
-					chuoi += '<img class="img-responsive" src="' + v.HinhAnhSPs[1].DiaChi + '" alt="">';
-					chuoi += '<div class="pre">';
-					chuoi += '<p style="height:30px;">' + v.TenSp + '</p>';
-					chuoi += '<span style="clear:both">' + v.Gia + '</span>';
-					chuoi += '<div class="clearfix"> </div>';
-					chuoi += '</div>';
-					chuoi += '</a>';
-					chuoi += '<a href="javascript:void(0);" onclick="ThemVaoGioHang(' + v + ')"';
-					chuoi += '<div class="five">';
-					chuoi += '<h6><img src="@Url.Content("~/HinhAnh/GioHang.png")" style="height: 35px;"/></h6>';
-					chuoi += '</div>';
-					chuoi += '</a>';
-					chuoi += '</div>';
-
-					chuoi += '</div>';
-				};
-				$('div.bottom-grid').append(chuoi);
+				$('ul#pagination-demo').show();
+				Dem(data);
+				if (data.length <= 6) {
+					$('ul#pagination-demo').hide();
+				}
+			},
+			error: function (result) {
+				//alert("Error login"
 			}
 		});
-		function ThemGioHang(id) {
-			alert(id);
-		}
+		function Dem(data) {
+			$('#pagination-demo').twbsPagination({
+				totalPages: Math.ceil(data.length / 6),
+				visiblePages: 7,
+				onPageClick: function (event, page) {
+					$("div.content-bottom div.bottom-grid").html("");
+					$.ajax({
+						type: 'Get',
+						dataType: 'json',
+						url: urlRoot + 'SanPhams/GetNhomSP/' + id,
+						data: { page: page },
+						success: function (datasp) {
+							var chuoi = '';
+							var v;
+							for (var i = 0; i < datasp.length; i++) {
+								v = datasp[i];
+								console.log(v);
+								chuoi += '<div class="col-md-4 shirt"  style="height: 350px;">';
+								chuoi += '<div class="bottom-grid-top">';
+								chuoi += '<a href="@Url.Action("GetDetailsSP","SanPham")" onclick="DetailsSP(' + v.Id + ')">';
+								chuoi += '<img class="img-responsive" src="' + v.HinhAnhSPs[0].DiaChi + '" alt="">';
+								chuoi += '<div class="pre">';
+								chuoi += '<p style="height:30px;">' + v.TenSp + '</p>';
+								chuoi += '<span style="clear:both">' + v.Gia + '</span>';
+								chuoi += '<div class="clearfix"> </div>';
+								chuoi += '</div>';
+								chuoi += '</a>';
+								chuoi += '<a href="javascript:void(0);" onclick="ThemVaoGioHang(' + v.Id + ')"';
+								chuoi += '<div class="five">';
+								chuoi += '<h6><img src="@Url.Content("~/HinhAnh/GioHang.png")" style="height: 35px;"/></h6>';
+								chuoi += '</div>';
+								chuoi += '</a>';
+								chuoi += '</div>';
+
+								chuoi += '</div>';
+							};
+							$('div.bottom-grid').append(chuoi);
+							var titel = v.TenNhom;
+							$('div.content-bottom h3').html(titel);
+						}
+					});
+				}
+			});
+		};
 		function DetailsSP(id){
 			if (typeof (Storage) !== 'undefined') {
 				localStorage.setItem("idSP", id);

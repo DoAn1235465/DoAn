@@ -16,13 +16,8 @@ E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\DoAn.Entity.dll
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\DoAn.Entity.pdb
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\Newtonsoft.Json.dll
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Net.Http.Formatting.dll
-E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Cors.dll
-E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Http.Cors.dll
-E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Http.dll
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\Newtonsoft.Json.xml
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Net.Http.Formatting.xml
-E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Http.xml
-E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Http.Cors.xml
 E:\DoAn\New folder\DoAn\DoAn.Entity\obj\Debug\DoAn.Entity.dll
 E:\DoAn\New folder\DoAn\DoAn.Entity\obj\Debug\DoAn.Entity.pdb
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Entity\bin\Debug\DoAn.Entity.dll
@@ -48,4 +43,19 @@ E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.dll
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.SqlServer.dll
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.xml
 E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\EntityFramework.SqlServer.xml
+<<<<<<< HEAD
+<<<<<<< HEAD
+E:\DoAn\New folder\DoAn\DoAn.Entity\obj\Debug\DoAn.Entity.csprojResolveAssemblyReference.cache
+=======
 D:\hoc\T3h asp\DoAn\DoAn\DoAn.Entity\obj\Debug\DoAn.Entity.csprojResolveAssemblyReference.cache
+>>>>>>> da623581d5281f737042d7b7466bccc4b584ab4e
+=======
+D:\hoc\T3h asp\DoAn\DoAn\DoAn.Entity\obj\Debug\DoAn.Entity.csprojResolveAssemblyReference.cache
+E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Cors.dll
+E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Http.Cors.dll
+E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Http.dll
+E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Http.xml
+E:\DoAn\New folder\DoAn\DoAn.Entity\bin\Debug\System.Web.Http.Cors.xml
+=======
+>>>>>>> Duong
+>>>>>>> parent of 7a088bb... Merge pull request #13 from DoAn1235465/Duong
