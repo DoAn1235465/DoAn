@@ -30,7 +30,7 @@
 					$(data).each(function (k, v) {
 						if (v.TenNhom) {
 							chuoi += '<li id="nh' + v.Id_Nhom + '"><a href="@Url.Action("GetNhomSP", "SanPham")" onclick="LayIdNhom(' + v.Id_Nhom + ')">' + v.TenNhom + '</a><ul></ul></li>';
-							MenuDaCap('loaisanphams/GetAll/' + v.Id_Nhom, index + ' li#nh' + v.Id_Nhom + ' ul');
+							MenuDaCap('loaisanphams/GetByNSP/' + v.Id_Nhom, index + ' li#nh' + v.Id_Nhom + ' ul');
 						}
 						else if (v.TenLoaiSp) {
 							chuoi += '<li><a href="@Url.Action("GetLoaiSP","SanPham")" onclick="LayIdLoai(' + v.Id_Loai + ')">' + v.TenLoaiSp + '</a></li>';
