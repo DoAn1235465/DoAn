@@ -56,3 +56,24 @@ E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\EntityFramework.dll
 E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\EntityFramework.SqlServer.dll
 E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\EntityFramework.xml
 E:\DoAn\New folder\DoAn\DoAn.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\DoAn.Model.dll.config
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\DoAn.Model.dll
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\DoAn.Model.pdb
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\DoAn.Entity.dll
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\EntityFramework.dll
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\System.Web.Cors.dll
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\System.Web.Http.dll
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\DoAn.Entity.pdb
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\EntityFramework.xml
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\System.Web.Http.xml
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\bin\Debug\System.Web.Http.Cors.xml
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\obj\Debug\DoAn.Model.csprojResolveAssemblyReference.cache
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\obj\Debug\DoAn.Model.dll
+C:\Users\Duy-Duong\Desktop\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn-da623581d5281f737042d7b7466bccc4b584ab4e\DoAn.Model\obj\Debug\DoAn.Model.pdb

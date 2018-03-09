@@ -10,110 +10,103 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using DoAn.Entity;
 using DoAn.Model;
+using DoAn.API.Service;
 
 namespace DoAn.API.Controllers
 {
     public class HoaDonsController : ApiController
     {
-        private DBSanPhamDAEntities db = new DBSanPhamDAEntities();
-
+		sHoaDon hd = new sHoaDon();
         // GET: api/HoaDons
-        public IHttpActionResult GetHoaDons()
+		[ActionName("GetHoaDons")]
+        public IHttpActionResult GetHoaDons(string email,int id)
         {
-            return Ok(Json(db.HoaDons));
+			var hoadon = hd.GetOneAll(email, id);
+            return Ok(Json(hoadon));
         }
 
         // GET: api/HoaDons/5
-        [ResponseType(typeof(HoaDon))]
-        public IHttpActionResult GetHoaDon(int id)
-        {
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(hoaDon);
-        }
 
         // PUT: api/HoaDons/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutHoaDon(int id, HoaDon hoaDon)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutHoaDon(int id, HoaDon hoaDon)
+        //{
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
-            if (id != hoaDon.Id_HoaDon)
-            {
-                return BadRequest();
-            }
+            //if (id != hoaDon.Id_HoaDon)
+            //{
+            //    return BadRequest();
+            //}
 
-            db.Entry(hoaDon).State = EntityState.Modified;
+            //db.Entry(hoaDon).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!HoaDonExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            //try
+            //{
+            //    db.SaveChanges();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!HoaDonExists(id))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+            //return StatusCode(HttpStatusCode.NoContent);
+        //}
 
         // POST: api/HoaDons
-        [ResponseType(typeof(HoaDon))]
-        public IHttpActionResult PostHoaDon(HoaDon hoaDon)
+        [ActionName("PostHoaDon")]
+        public IHttpActionResult PostHoaDon(HoaDonSanPham[] giohang,HoaDon hoaDon)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.HoaDons.Add(hoaDon);
-            db.SaveChanges();
+			if (hd.Insert(giohang, hoaDon))
+			{
+
+			}
 
             return CreatedAtRoute("DefaultApi", new { id = hoaDon.Id_HoaDon }, hoaDon);
         }
 
-        // DELETE: api/HoaDons/5
-        [ResponseType(typeof(HoaDon))]
-        public IHttpActionResult DeleteHoaDon(int id)
-        {
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/HoaDons/5
+        //[ResponseType(typeof(HoaDon))]
+        //public IHttpActionResult DeleteHoaDon(int id)
+        //{
+        //    HoaDon hoaDon = db.HoaDons.Find(id);
+        //    if (hoaDon == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.HoaDons.Remove(hoaDon);
-            db.SaveChanges();
+        //    db.HoaDons.Remove(hoaDon);
+        //    db.SaveChanges();
 
-            return Ok(hoaDon);
-        }
+        //    return Ok(hoaDon);
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
-        private bool HoaDonExists(int id)
-        {
-            return db.HoaDons.Count(e => e.Id_HoaDon == id) > 0;
-        }
+        //private bool HoaDonExists(int id)
+        //{
+        //    return db.HoaDons.Count(e => e.Id_HoaDon == id) > 0;
+        //}
     }
 }

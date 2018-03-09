@@ -19,8 +19,8 @@ namespace DoAn.API.Controllers
 	[EnableCors("*","*","*")]
     public class HoaDonSanPhamsController : ApiController
     {
-	
-	//	[EnableCors("*", "*", "*")]
+		private sHoaDon hd = new sHoaDon();
+		//	[EnableCors("*", "*", "*")]
 		[ActionName("GetSanPham")]
 		public JToken GetSanPham(int id)
 		{
@@ -30,117 +30,20 @@ namespace DoAn.API.Controllers
 		}
 
 
-		//public IQueryable<HoaDonSanPham> GetHoaDonSanPhams()
+		//[EnableCors("*", "*", "*")]
+		//[HttpGet]
+		//public IHttpActionResult GetAll(int pageNo)
 		//{
-
+		//	int pageSize = 10;
+		//	var value = hd.GetAllSP(pageNo, pageSize);
+		//	return Ok(value);
 		//}
-
-		//// GET: api/HoaDonSanPhams/5
-		//[ResponseType(typeof(HoaDonSanPham))]
-		//public IHttpActionResult GetHoaDonSanPham(int id)
+		//[EnableCors("*", "*", "*")]
+		//[HttpGet]
+		//public IHttpActionResult count()
 		//{
-		//    HoaDonSanPham hoaDonSanPham = db.HoaDonSanPhams.Find(id);
-		//    if (hoaDonSanPham == null)
-		//    {
-		//        return NotFound();
-		//    }
-
-		//    return Ok(hoaDonSanPham);
-		//}
-
-		//// PUT: api/HoaDonSanPhams/5
-		//[ResponseType(typeof(void))]
-		//public IHttpActionResult PutHoaDonSanPham(int id, HoaDonSanPham hoaDonSanPham)
-		//{
-		//    if (!ModelState.IsValid)
-		//    {
-		//        return BadRequest(ModelState);
-		//    }
-
-		//    if (id != hoaDonSanPham.Id)
-		//    {
-		//        return BadRequest();
-		//    }
-
-		//    db.Entry(hoaDonSanPham).State = EntityState.Modified;
-
-		//    try
-		//    {
-		//        db.SaveChanges();
-		//    }
-		//    catch (DbUpdateConcurrencyException)
-		//    {
-		//        if (!HoaDonSanPhamExists(id))
-		//        {
-		//            return NotFound();
-		//        }
-		//        else
-		//        {
-		//            throw;
-		//        }
-		//    }
-
-		//    return StatusCode(HttpStatusCode.NoContent);
-		//}
-
-		//// POST: api/HoaDonSanPhams
-		//[ResponseType(typeof(HoaDonSanPham))]
-		//public IHttpActionResult PostHoaDonSanPham(HoaDonSanPham hoaDonSanPham)
-		//{
-		//    if (!ModelState.IsValid)
-		//    {
-		//        return BadRequest(ModelState);
-		//    }
-
-		//    db.HoaDonSanPhams.Add(hoaDonSanPham);
-
-		//    try
-		//    {
-		//        db.SaveChanges();
-		//    }
-		//    catch (DbUpdateException)
-		//    {
-		//        if (HoaDonSanPhamExists(hoaDonSanPham.Id))
-		//        {
-		//            return Conflict();
-		//        }
-		//        else
-		//        {
-		//            throw;
-		//        }
-		//    }
-
-		//    return CreatedAtRoute("DefaultApi", new { id = hoaDonSanPham.Id }, hoaDonSanPham);
-		//}
-
-		//// DELETE: api/HoaDonSanPhams/5
-		//[ResponseType(typeof(HoaDonSanPham))]
-		//public IHttpActionResult DeleteHoaDonSanPham(int id)
-		//{
-		//    HoaDonSanPham hoaDonSanPham = db.HoaDonSanPhams.Find(id);
-		//    if (hoaDonSanPham == null)
-		//    {
-		//        return NotFound();
-		//    }
-
-		//    db.HoaDonSanPhams.Remove(hoaDonSanPham);
-		//    db.SaveChanges();
-
-		//    return Ok(hoaDonSanPham);
-		//}
-
-		//protected override void Dispose(bool disposing)
-		//{
-		//    if (disposing)
-		//    {
-		//        db.Dispose();
-		//    }
-		//    base.Dispose(disposing);
-		//}
-
-		//private bool HoaDonSanPhamExists(int id)
-		//{
-		//    return db.HoaDonSanPhams.Count(e => e.Id == id) > 0;
+		//	var value = hd.select();
+		//	return Ok(value);
 		//}
 	}
 }

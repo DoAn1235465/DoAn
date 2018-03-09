@@ -23,42 +23,53 @@ namespace DoAn.Entity.Service
 			return false;
 		}
 
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+		public bool Delete(int id)
+		{
+			throw new NotImplementedException();
+		}
+		public bool Delete(string id)
+		{
+			if (string.IsNullOrEmpty(id))
+				return false;
+			//  db.Entry(db.TaiKhoans).State = System.Data.Entity.EntityState.Deleted;
+			db.TaiKhoans.Remove(db.TaiKhoans.Find(id));
+			db.SaveChanges();
+			return true;
+		}
 
-        public TaiKhoan Get(int id)
-        {
-            throw new NotImplementedException();
-        }
+		public TaiKhoan Get(int id)
+		{
+			throw new NotImplementedException();
+		}
 
-        public IEnumerable<TaiKhoan> GetAll(int id = 0)
-        {
-            throw new NotImplementedException();
-        }
+		public IEnumerable<TaiKhoan> GetAll(int id = 0)
+		{
+			throw new NotImplementedException();
+		}
 
-        public bool Insert(TaiKhoan item)
-        {
-            throw new NotImplementedException();
-        }
+		public bool Insert(TaiKhoan item)
+		{
+			if (item == null) return false;
+			db.TaiKhoans.Add(item);
+			db.SaveChanges();
+			return true;
+		}
 
-        public bool UpDate(TaiKhoan item)
-        {
-            throw new NotImplementedException();
-        }
-        //Sử dụng làm pagelist
-        public IEnumerable<TaiKhoan> select()
-        {
-
-            var value = db.TaiKhoans;
-            return value;
-        }
-        public IQueryable GetAllSP(int pageNo, int PageSize)
-        {
-            int skip = (pageNo - 1) * PageSize;
-            var value = db.TaiKhoans.OrderBy(c => c.Name).Skip(skip).Take(PageSize);
-            return value;
-        }
-    }
+		public bool UpDate(TaiKhoan item)
+		{
+			throw new NotImplementedException();
+		}
+		//Sử dụng làm pagelist
+		public IEnumerable<TaiKhoan> select()
+		{
+			var value = db.TaiKhoans;
+			return value;
+		}
+		public IQueryable GetAllSP(int pageNo, int PageSize)
+		{
+			int skip = (pageNo - 1) * PageSize;
+			var value = db.TaiKhoans.OrderBy(c => c.Name).Skip(skip).Take(PageSize);
+			return value;
+		}
+	}
 }

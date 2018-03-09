@@ -18,21 +18,25 @@ namespace DoAn.API.Service
 			db = new Model.DBSanPhamDAEntities();
 		}
 
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+		public bool Delete(int id)
+		{
+			if (id == null)
+				return false;
+			//  db.Entry(db.TaiKhoans).State = System.Data.Entity.EntityState.Deleted;
+			db.NhomSanPhams.Remove(db.NhomSanPhams.Find(id));
+			db.SaveChanges();
+			return true;
+		}
 
 
-        public IEnumerable<NhomSanPham> GetAll()
+		public IEnumerable<NhomSanPham> GetAll()
 		{
 			var lNSP = db.NhomSanPhams;
 			return lNSP;
 		}
 
-      
 
-        public bool Insert(SanPham item)
+		public bool Insert(SanPham item)
 		{
 			if(item != null)
             {

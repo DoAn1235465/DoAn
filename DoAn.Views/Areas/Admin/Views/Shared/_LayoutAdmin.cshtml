@@ -17,6 +17,7 @@
     <link href="~/Areas/Admin/Content/vendor/morrisjs/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="~/Areas/Admin/Content/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    @RenderSection("style", required:false)
 </head>
 <body>
     <div id="wrapper">
@@ -75,6 +76,7 @@
     <script src="~/Areas/Admin/Content/dist/js/sb-admin-2.js"></script>
     <script src="~/Areas/Admin/Content/jquery.twbsPagination.js"></script>
     <script src="~/Areas/Admin/Content/jquery.twbsPagination.min.js"></script>
+    <script src="~/Areas/Admin/Content/vendor/jquery-validation/js/jquery.validate.min.js"></script>
     @RenderSection("script",required:false)
 </body>
 </html>
