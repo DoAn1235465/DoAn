@@ -5,24 +5,102 @@
 }
 <style>
 	div.content div.col-md-3,div.content div.shoe{display:none;}
+	div.content tbody tr td{
+		line-height:150px;
+		font-size:20px;
+	}
+	div.content tbody tr input{height:50px;width:50%;}
+	div#TiepTuc a{font-size:30px;}
 </style>
 <div class="content">
-	<div class="check-out">
-		<h4 class="title">Shopping cart is empty</h4>
-		<p class="cart-out">You have no items in your shopping cart.<br>Click<a href="index.html"> here</a> to continue shopping</p>
-	</div>
-
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Tên sản phẩm</th>
+				<th>Giá</th>
+				<th>Số lượng</th>
+				<th>Thành tiền</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>Tổng tiền</td>
+				<td id="TongTien"></td>
+				<td></td>
+			</tr>
+		</tfoot>
+	</table>
+	
+	
 </div>
-<!---->
-<div class="footer">
-	<p class="footer-class">© 2015 Mihstore All Rights Reserved | Template by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-
-	<a href="#home" class="scroll to-Top">  GO TO TOP!</a>
-	<div class="clearfix"> </div>
+<div style="clear:both;width:100%" id="TiepTuc">
+	<a href="@Url.Action("Index","Home")" style="float:left;"> Tiếp tục mua</a>
+	<a href="" style="float:right;">Thanh toán</a>
 </div>
 @section scripts{
 	<script>
 		$('div.content div.col-md-9').removeClass('col-md-9');
+		LoadDSGioHang();
+		function LoadDSGioHang() {
+			//$('div.content tbody').html(' ');
+			var chuoi = '';
+			if (sessionStorage["GioHang"].length > 2) {
+				ShoppingCartItem = JSON.parse(sessionStorage["GioHang"].toString());
+				var tongtien = 0;
+				$.each(ShoppingCartItem, function (k, v) {
+					tongtien += v.Gia * v.SoLuong;
+					chuoi += '<tr>';
+					chuoi += '<td class="col-md-5"><img src="' + v.HinhAnhSPs[0].DiaChi + '" height="150" width="150" />&nbsp;&nbsp;&nbsp;' + v.TenSp + '</td>';
+					chuoi += '<td class="col-md-1">' + v.Gia + '</td>';
+					chuoi += '<td class="col-md-1"><input id="SoLuong" type="number" value="' + v.SoLuong + '" min="0" onchange="ChangeSL(' + v.Id + ',this);"/></td>';
+					chuoi += '<td class="col-md-1">' + v.Gia * v.SoLuong + '</td>';
+					chuoi += '<td class="col-md-2"><a href="javascript:void(0);" onclick="XoaSPGioHang(' + v.Id + ')">Xóa</a></td>';
+					chuoi += '</tr>';
+				});
+				$('div.content tfoot #TongTien').html(tongtien);
+				$('div.content tbody').html(chuoi);
+			} else {
+				chuoi += '<div class="check-out">';
+				chuoi += '<h4 class="title">Shopping cart is empty</h4>';
+				chuoi += '<p class="cart-out">You have no items in your shopping cart.<br>Click<a href="@Url.Action("Index","Home")"> here</a> to continue shopping</p>';
+				chuoi += '</div>';
+				$('div.content').html(chuoi);
+			}
+		};
+		function ChangeSL(id,e) {
+			var sl = $(e).val();
+			ShoppingCartItem = JSON.parse(sessionStorage["GioHang"].toString());
+			for (var i = 0; i < ShoppingCartItem.length; i++) {
+				if (ShoppingCartItem[i].Id == id) {
+					if (sl == 0)
+						ShoppingCartItem.splice(i, 1);
+					else
+						ShoppingCartItem[i].SoLuong = sl;
+				}
+			}
+			sessionStorage["GioHang"] = JSON.stringify(ShoppingCartItem);
+			HienThi();
+			LoadDSGioHang();
+		};
+
+		function XoaSPGioHang(id) {
+			ShoppingCartItem = JSON.parse(sessionStorage["GioHang"].toString());
+			for (var i = 0; i < ShoppingCartItem.length; i++) {
+				if (ShoppingCartItem[i].Id == id) {
+					ShoppingCartItem.splice(i, 1);
+				}
+			}
+			sessionStorage["GioHang"] = JSON.stringify(ShoppingCartItem);
+			HienThi();
+			LoadDSGioHang();
+		};
 	</script>
 	
 }

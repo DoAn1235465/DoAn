@@ -22,9 +22,9 @@ namespace DoAn.API.Service
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		public IQueryable Get(int id)
+		public IQueryable GetOne(int id)
 		{
-			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
+			var spn = db.SanPhams.Include(x => x.LoaiSanPham.NhomSanPham);
 			var onesp = from sp in spn
 						select new
 						{
@@ -49,37 +49,62 @@ namespace DoAn.API.Service
 
 
 
-        /// <summary>
-        /// Lấy tất cả sản phẩm theo loại sản phẩm hoặc theo nhóm sản phẩm
-        /// </summary>
-        /// <param name="id">Mã loại sản phẩm</param>
-        /// <param name="id1">Mã nhóm sản phẩm</param>GetAll
-        /// <returns></returns>
+		/// <summary>
+		/// Lấy tất cả sản phẩm theo loại sản phẩm hoặc theo nhóm sản phẩm
+		/// </summary>
+		/// <param name="id">Mã loại sản phẩm</param>
+		/// <param name="id1">Mã nhóm sản phẩm</param>GetAll
+		/// <returns></returns>
+		public IQueryable GetAllSP(int pageNo, int PageSize, int id = 0, int id1=0)
+		{
+			int skip = (pageNo - 1) * PageSize;
+			var spn = db.SanPhams.Include(x => x.LoaiSanPham.NhomSanPham);
+			var hasp = from sp in spn
+					   select new
+					   {
+						   Id = sp.Id,
+						   Id_Loai = sp.Id_Loai,
+						   TenSp = sp.TenSp,
+						   MauMuc = sp.MauMuc,
+						   KichThuoc = sp.KichThuoc,
+						   Gia = sp.Gia,
+						   GhiChu = sp.GhiChu,
+						   SoLuongBan = sp.SoLuongBan,
+						   NgayCapNhat = sp.NgayCapNhat,
+						   HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha,
+						   LoaiSanPham = sp.LoaiSanPham,
+						   TenNhom = sp.LoaiSanPham.NhomSanPham.TenNhom
+					   };
+			if (id > 0)
+				hasp = hasp.Where(x => x.Id_Loai == id);
+			else if (id1 > 0)
+				hasp = hasp.Where(x => x.LoaiSanPham.Id_Nhom == id1);
+			return hasp.OrderBy(c => c.Id).Skip(skip).Take(PageSize);
+		}
 
-
-
-
-        public IEnumerable<SanPham> select()
+		/// <summary>
+		/// Đếm số lượng sản phẩm
+		/// </summary>
+		/// <param name="id">Mã Loại Sản Phẩm</param>
+		/// <param name="id1">Mã Nhóm Sản phẩm</param>
+		/// <returns></returns>
+        public IEnumerable<SanPham> select(int id=0,int id1=0)
         {
-           
-            var value = db.SanPhams;
-            return value;
+            var value = db.SanPhams.Include(x=>x.LoaiSanPham);
+			if (id > 0)
+				value = value.Where(x => x.Id_Loai == id);
+			else if (id1 > 0)
+				value = value.Where(x => x.LoaiSanPham.Id_Nhom == id1);
+			return value;
         }
-        public IQueryable GetAllSP(int pageNo, int PageSize)
-        {
-            int skip = (pageNo - 1) * PageSize;
-            var value = db.SanPhams.OrderBy(c => c.Id).Skip(skip).Take(PageSize);
-            return value;
-        }
-
-
         /// <summary>
         /// Lấy tất cả sản phẩm mới nhất
         /// </summary>
         /// <returns></returns>
-        public IQueryable GetNewAllId()
+        public IQueryable GetNewAllId(int pageNo, int PageSize)
 		{
-			var spn = db.SanPhams.Include(x => x.LoaiSanPham);
+			int skip = (pageNo - 1) * PageSize;
+			var spn = db.SanPhams.Include(x => x.LoaiSanPham.NhomSanPham);
 			var hasp = from sp in spn
 					   select new
 					   {
@@ -95,7 +120,7 @@ namespace DoAn.API.Service
 						   HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha,
 						   LoaiSanPham = sp.LoaiSanPham
 					   };
-			return hasp.OrderByDescending(x => x.NgayCapNhat);
+			return hasp.OrderBy(c => Guid.NewGuid()).Skip(skip).Take(PageSize);;
 		}
 		/// <summary>
 		/// Sắp xếp tất cả sản phẩm theo điều kiện
@@ -114,16 +139,6 @@ namespace DoAn.API.Service
 			return spo;
 		}
 
-        SanPham Pros<SanPham>.Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<SanPham> GetAll(int id = 0)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Insert(SanPham item)
         {
             throw new NotImplementedException();
@@ -138,7 +153,16 @@ namespace DoAn.API.Service
         {
             throw new NotImplementedException();
         }
-      
-    }
+		// 2 thang duoi k dung den
+		SanPham Pros<SanPham>.Get(int id)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<SanPham> GetAll(int id = 0)
+		{
+			throw new NotImplementedException();
+		}
+	}
 
 }

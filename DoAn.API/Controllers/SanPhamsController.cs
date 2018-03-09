@@ -21,29 +21,44 @@ namespace DoAn.API.Controllers
     {
         sSanPham sp = new sSanPham();
 
-        // GET: api/SanPhams/
-     //   [ActionName("GetLoaiSP")]
-  //      public JToken GetLoaiSP(int id)
-  //      {
-  //          var request = sp.GetAll(id, 0);
-  //          return JToken.FromObject(request);
-  //      }
-		//[ActionName("GetNhomSP")]
-		//public JToken GetNhomSP(int id)
-		//{
-		//	var request = sp.GetAll(0,id);
-		//	return JToken.FromObject(request);
-		//}
-		[ActionName("GetNewSP")]
-		public JToken GetNewSP()
+		// GET: api/SanPhams/
+		[ActionName("GetLoaiSP")]
+		public JToken GetLoaiSP(int id,int page)
 		{
-			var request = sp.GetNewAllId();
+			int pageSize = 6;
+			var request = sp.GetAllSP(page,pageSize,id,0);
+			return JToken.FromObject(request);
+		}
+		[ActionName("GetCountLoaiSP")]
+		public IHttpActionResult GetCountLoaiSP(int id)
+		{
+			var value = sp.select(id);
+			return Ok(value);
+		}
+		[ActionName("GetNhomSP")]
+		public JToken GetNhomSP(int id,int page)
+		{
+			int pageSize = 6;
+			var request = sp.GetAllSP(page, pageSize, 0, id);
+			return JToken.FromObject(request);
+		}
+		[ActionName("GetCountNhomSP")]
+		public IHttpActionResult GetCountNhomSP(int id)
+		{
+			var value = sp.select(0,id);
+			return Ok(value);
+		}
+		[ActionName("GetNewSP")]
+		public JToken GetNewSP(int page)
+		{
+			int pageSize = 6;
+			var request = sp.GetNewAllId(page,pageSize);
 			return JToken.FromObject(request);
 		}
 		[ActionName("GetDetails")]
 		public JToken GetDetails(int id)
 		{
-			var request = sp.Get(id);
+			var request = sp.GetOne(id);
 			return JToken.FromObject(request);
 		}
 		// GET: api/SanPhams/5
@@ -56,17 +71,15 @@ namespace DoAn.API.Controllers
 		//        return NotFound();
 		//    }
 
-        [EnableCors("*", "*", "*")]
-        [HttpGet]
+        [ActionName("GetAll")]
         public IHttpActionResult GetAll(int pageNo)
         {
             int pageSize = 10;
             var value = sp.GetAllSP(pageNo, pageSize);
             return Ok(value);
         }
-        [EnableCors("*", "*", "*")]
-        [HttpGet]
-        public IHttpActionResult count()
+        [ActionName("GetCount")]
+		public IHttpActionResult GetCount()
         {
             var value = sp.select();
             return Ok(value);

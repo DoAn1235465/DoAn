@@ -13,10 +13,10 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             DBSanPhamDAEntities db = new DBSanPhamDAEntities();
-            var value = db.SanPhams;
+            var value = db.HinhAnhSPs;
             foreach (var item in value)
             {
-                Console.WriteLine(item.TenSp);
+                Console.WriteLine(item.DiaChi);
             }
             Console.ReadKey();
 			// cách púh

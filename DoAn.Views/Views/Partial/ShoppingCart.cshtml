@@ -6,39 +6,50 @@
 		<li>
 			<a href="#" class="round"> </a>
 			<ul class="sub-icon1 list">
-				<div class="check_button"><a href="@Url.Action("GetDonHang","SanPham")">View Cart</a></div>
-				<div class="clearfix"></div>
+				
 			</ul>
 		</li>
 	</h6>
-
 </div>
 <script>
-	var chuoi = '';
-	var arr = JSON.parse(localStorage.getItem("GioHang"), []);
-	console.log(arr);
-	if (arr) {
-		chuoi += '<h3>Số lượng sản phẩm(' + arr.length + ')</h3>';
-		chuoi += '<div class="shopping_cart">';
-		for (var i = 0; i < arr.length; i++) {
-			var v = arr[i];
-			chuoi += '<div class="cart_box">';
-			chuoi += '<div class="message">';
-			chuoi += '<div class="alert-close"> </div>';
-			chuoi += '<div class="list_img"><img src="' + v.HinhAnhSPs[0].DiaChi + '" class="img-responsive" alt=""></div>';
-			chuoi += '<div class="list_desc">';
-			chuoi += '<h4><a href="#">' + v.TenSp + '</a></h4>';
-			chuoi += '<a href="#" class="offer">' + v.Gia + '</a>';
-			chuoi += '</div>';
-			chuoi += '	<div class="clearfix"></div>';
-			chuoi += '</div></div></div>';
+	function HienThi() {
+		var chuoi = '';
+		if (sessionStorage["GioHang"].length > 2) {
+			ShoppingCartItem = JSON.parse(sessionStorage["GioHang"].toString());
+			var tongtien = 0;
+			chuoi += '<h3>Số lượng sản phẩm(' + ShoppingCartItem.length + ')</h3>';
+			chuoi += '<div class="shopping_cart">';
+			$.each(ShoppingCartItem, function (k, v) {
+				tongtien += v.Gia * v.SoLuong;
+				chuoi += '<div class="cart_box">';
+				chuoi += '<div class="message">';
+				chuoi += '<div class="alert-close" onclick="XoaSPGioHang(' + v.Id + ')"> </div>';
+				chuoi += '<div class="list_img"><img src="' + v.HinhAnhSPs[0].DiaChi + '" class="img-responsive" alt=""></div>';
+				chuoi += '<div class="list_desc">';
+				chuoi += '<h4><a href="@Url.Action("GetDetailsSP", "SanPham")" onclick="DetailsSP(' + v.Id + ')">' + v.TenSp.slice(0, 15) + ' ...</a></h4>';
+				chuoi += '<p>' + v.Gia + ' x '+v.SoLuong+'</p>';
+				chuoi += '</div>';
+				chuoi += '	<div class="clearfix" ></div>';
+				chuoi += '</div></div></div>';
+			});
+			$('div.cart span.item').html(ShoppingCartItem.length + ' items');
+			$('div.cart span.rate').html(tongtien + ' vnd');
+		} else {
+			$('div.cart span.item').html('0 items');
+			$('div.cart span.rate').html('0 vnd');
 		}
-		$('div.cart ul.list').append(chuoi);
-		$('div.cart span.item').append(arr.length + ' items');
-		$('div.cart span.rate').append('0 vnd');
-	}
-	else {
-		$('div.cart span.item').append('0 items');
-		$('div.cart span.rate').append('0 vnd');
+		chuoi += '<div class="check_button"><a href="@Url.Action("GetDonHang","SanPham")">View Cart</a></div>';
+		chuoi += '<div class="clearfix"></div>';
+		$('div.cart ul.list').html(chuoi);
+	};
+	function DetailsSP(id) {
+		if (typeof (Storage) !== 'undefined') {
+			localStorage.setItem("idSP", id);
+		} else {
+			alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
+		}
+	};
+	function XoaSPGioHang(id) {
+
 	}
 </script>
