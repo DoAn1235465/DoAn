@@ -37,10 +37,3 @@ E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\System.Web.Http.Cors.dll
 E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\System.Web.Http.dll
 E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\System.Web.Http.xml
 E:\DoAn\New folder\DoAn\ConsoleApplication1\bin\Debug\System.Web.Http.Cors.xml
-D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\System.Net.Http.Formatting.dll
-D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\System.Web.Cors.dll
-D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\System.Web.Http.Cors.dll
-D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\System.Web.Http.dll
-D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\System.Net.Http.Formatting.xml
-D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\System.Web.Http.xml
-D:\hoc\T3h asp\DoAn\DoAn\ConsoleApplication1\bin\Debug\System.Web.Http.Cors.xml

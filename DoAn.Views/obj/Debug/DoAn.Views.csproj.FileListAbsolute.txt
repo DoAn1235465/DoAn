@@ -117,8 +117,3 @@ E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Web.Http.Cors.dll
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Web.Http.dll
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Web.Http.xml
 E:\DoAn\New folder\DoAn\DoAn.Views\bin\System.Web.Http.Cors.xml
-D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\System.Web.Cors.dll
-D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\System.Web.Http.Cors.dll
-D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\System.Web.Http.dll
-D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\System.Web.Http.xml
-D:\hoc\T3h asp\DoAn\DoAn\DoAn.Views\bin\System.Web.Http.Cors.xml
