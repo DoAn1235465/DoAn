@@ -58,14 +58,19 @@
 	<div class="container">
 		<div class="header-top">
 			<div class="logo">
-				<a href="https://lamwebthenao.com"><img src="~/images/logo.png" alt=""></a>
+				<a href="https://lamwebthenao.com">
+					<img src="~/HinhAnh/logo.jpg" style="height:40px"/></a>
+				
 			</div>
 			<div class="header-top-on">
 				<ul class="social-in">
 					
 				</ul>
 			</div>
-			<div class="clearfix"> </div>
+			<div class="clearfix"> <div style="float:right; margin-top:20px;">
+				<a href="@Url.Action("Login","Home",new {area="Admin" })">Đăng nhập</a>
+				<a href="">Đăng ký</a>
+</div></div>
 		</div>
 		<div class="header-bottom">
 			<div class="top-nav">
@@ -81,7 +86,7 @@
 
 			<div class="col-md-9">
 				@Html.Partial("~/Views/Partial/NivoSlider.cshtml")
-				@RenderBody();
+				@RenderBody()
 			</div>
 
 		

@@ -5,8 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using DoAn.API.IDB;
 using DoAn.Entity;
+using System.Web.Http.Cors;
+
 namespace DoAn.Entity.Service
 {
+	[EnableCors("*","*","*")]
 	public class sAdmin:  API.IDB.Pros<TaiKhoan>
 	{
 		Model.DBSanPhamDAEntities db;
@@ -17,12 +20,12 @@ namespace DoAn.Entity.Service
 
 		public bool CheckLogin(TaiKhoan tk)
 		{
-			var result = db.TaiKhoans.Count(x => x.Username == tk.Username && x.Password == tk.Password);
+			string quyen = db.TaiKhoans.Find(tk.Username).Quyen;
+			var result = db.TaiKhoans.Count(x => x.Username == tk.Username && x.Password == tk.Password && x.Quyen == quyen);
 			if (result > 0)
 				return true;
 			return false;
 		}
-
 		public bool Delete(int id)
 		{
 			throw new NotImplementedException();

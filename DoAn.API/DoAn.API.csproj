@@ -201,6 +201,7 @@
     </Compile>
     <Compile Include="IDB\Pros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\GioHang.cs" />
     <Compile Include="Service\sAdmin.cs" />
     <Compile Include="Service\sHoaDon.cs" />
     <Compile Include="Service\sLoaiSanPham.cs" />

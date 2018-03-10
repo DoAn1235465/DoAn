@@ -14,7 +14,7 @@
 <script>
 	function HienThi() {
 		var chuoi = '';
-		if (sessionStorage["GioHang"].length > 2) {
+		if (sessionStorage["GioHang"].length > 2 && sessionStorage["GioHang"]!='undefined') {
 			ShoppingCartItem = JSON.parse(sessionStorage["GioHang"].toString());
 			var tongtien = 0;
 			chuoi += '<h3>Số lượng sản phẩm(' + ShoppingCartItem.length + ')</h3>';
@@ -26,7 +26,7 @@
 				chuoi += '<div class="alert-close" onclick="XoaSPGioHang(' + v.Id + ')"> </div>';
 				chuoi += '<div class="list_img"><img src="' + v.HinhAnhSPs[0].DiaChi + '" class="img-responsive" alt=""></div>';
 				chuoi += '<div class="list_desc">';
-				chuoi += '<h4><a href="@Url.Action("GetDetailsSP", "SanPham")" onclick="DetailsSP(' + v.Id + ')">' + v.TenSp.slice(0, 15) + ' ...</a></h4>';
+				chuoi += '<h4><a href="@Url.Action("GetDetailsSP", "SanPham")" onclick="DetailsSP(' + v.Id + ')" title="' + v.TenSp + '">' + v.TenSp.slice(0, 15) + ' ...</a></h4>';
 				chuoi += '<p>' + v.Gia + ' x '+v.SoLuong+'</p>';
 				chuoi += '</div>';
 				chuoi += '	<div class="clearfix" ></div>';

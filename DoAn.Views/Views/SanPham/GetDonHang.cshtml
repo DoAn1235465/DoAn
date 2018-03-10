@@ -37,12 +37,73 @@
 			</tr>
 		</tfoot>
 	</table>
-	
-	
 </div>
 <div style="clear:both;width:100%" id="TiepTuc">
 	<a href="@Url.Action("Index","Home")" style="float:left;"> Tiếp tục mua</a>
-	<a href="" style="float:right;">Thanh toán</a>
+	<a href="javascript:void(0);" style="float:right;" data-toggle="modal" data-target="#myModal" onclick="LoadFormThanhToan()">Thanh toán</a>
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Thông tin đặt hàng</h4>
+			</div>
+			<div class="modal-body">
+				<form id="HoaDonSP">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Email<span style="color:red;">*</span></label>
+							<input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Phường/xã<span style="color:red;">*</span></label>
+							<select class="form-control" id="PhuongXa" required>
+								<option selected>Lựu chọn</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="">Tên<span style="color:red;">*</span></label>
+							<input type="text" class="form-control" placeholder="Họ và Tên" id="HoTen" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Địa chỉ nhận hàng(tầng, số, nhà, đường)</label>
+							<input type="text" class="form-control" placeholder="Địa chỉ nhận hàng(tầng, số, nhà, đường)" id="SoNha" required>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Tỉnh/thành phố</label>
+							<select type="text" class="form-control" id="TinhTP" onchange="LoadHuyen();" required>
+								<option value="">Lựu chọn</option>
+							</select>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Số điện thoại<span style="color:red;">*</span></label>
+							<input type="text" pattern="[0][0-9]{8,12}" class="form-control" placeholder="Số điện thoại" id="SDT" required>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Quận/huyện<span style="color:red;">*</span></label>
+							<select class="form-control" id="QuanHuyen" onchange="LoadXa();" required>
+								<option selected>Lựu chọn</option>
+							</select>
+						</div>
+						<div class="form-group col-md-6">
+						</div>
+					</div>
+					<div style="clear:both;">
+						<button type="submit" class="btn btn-primary">Đặt hàng</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 @section scripts{
 	<script>
@@ -101,6 +162,108 @@
 			HienThi();
 			LoadDSGioHang();
 		};
+		var cors= "https://cors-anywhere.herokuapp.com/"
+		function LoadFormThanhToan() {
+			$.ajax({
+				url: cors+"https://thongtindoanhnghiep.co/api/city/",
+				type: 'GET',
+				dataType: 'json',
+				success: function (data) {
+					var v = data.LtsItem;
+					var chuoi = '';
+					$.each(v, function (k, v) {
+						chuoi += '<option selected value="' + v.ID + '">' + v.Title + '</option>';
+					});
+					$('div.form-row select#TinhTP').append(chuoi);
+				}
+			});
+		};
+		function LoadHuyen() {
+			var idTinh = $('div.form-row select#TinhTP').val();
+			$.ajax({
+				url: cors + "https://thongtindoanhnghiep.co/api/city/" + idTinh + "/district/",
+				type: 'GET',
+				dataType: 'json',
+				success: function (data) {
+					var v = data;
+					var chuoi = '';
+					$.each(v, function (k, v) {
+						chuoi += '<option selected value="' + v.ID + '">' + v.Title + '</option>';
+					});
+					$('div.form-row select#QuanHuyen').append(chuoi);
+				}
+			});
+		};
+		function LoadXa() {
+			var idhuyen = $('div.form-row select#QuanHuyen').val();
+			$.ajax({
+				url: cors + "https://thongtindoanhnghiep.co/api/district/" + idhuyen + "/ward",
+				type: 'GET',
+				dataType: 'json',
+				success: function (data) {
+					var v = data;
+					var chuoi = '';
+					$.each(v, function (k, v) {
+						chuoi += '<option selected value="' + v.ID + '">' + v.Title + '</option>';
+					});
+					$('div.form-row select#PhuongXa').append(chuoi);
+				}
+			});
+		}
+
+		$('form#HoaDonSP').submit(function (e) {
+			e.preventDefault();
+			var r = confirm("Bạn xác nhận thanh toán");
+			ShoppingCartItem = JSON.parse(sessionStorage["GioHang"].toString());
+			var giohang = [];
+			for (i in ShoppingCartItem) {
+				var item = {
+					Id: ShoppingCartItem[i].Id,
+					SoLuong: ShoppingCartItem[i].SoLuong,
+					DonGia: ShoppingCartItem[i].SoLuong * ShoppingCartItem[i].Gia,
+					Email: $('form#HoaDonSP #inputEmail').val(),
+					TrangThai: 'Đặt hàng'
+				};
+				giohang.push(item);
+			}
+			if (r) {
+				var User = {
+					HoTen: $('form#HoaDonSP #HoTen').val(),
+					DiaChi: $('form#HoaDonSP #SoNha').val() + ' ' + $('form#HoaDonSP #PhuongXa option:selected').text() + ' ' + $('form#HoaDonSP #QuanHuyen option:selected').text() + ' ' + $('form#HoaDonSP #TinhTP option:selected').text(),
+					Email: $('form#HoaDonSP #inputEmail').val(),
+					DienThoai: $('form#HoaDonSP #SDT').val()
+				};
+				//$.post(urlRoot + 'HoaDons/PostHoaDon/', { "giohang":giohang,"hoaDon":User }, function () {
+				//	console.log('Đặt hàng thành công');
+				//	$('div#myModal').modal('hide');
+				//	sessionStorage["GioHang"] = JSON.stringify([]);
+				//	LoadDSGioHang();
+				//}, function (data) {
+				//	console.log(data);
+				//});
+				$.ajax({
+					url: urlRoot + 'HoaDons/PostHoaDon/',
+					type: 'Post',
+					dataType: 'json',
+					data: { "giohang": giohang, "hoaDon": User },
+					success: function (data) {
+						alert("Đặt hàng thành công");
+						window.location='@Url.Action("Index","Home")'
+						sessionStorage["GioHang"] = JSON.stringify([]);
+						LoadDSGioHang();
+						HienThi();
+					},
+					error: function (data) {
+						alert("Đặt hàng thất bại");
+					}
+				});
+			}
+			else {
+				window.location = '@Url.Action("GetDonHang","SanPham")';
+			}
+
+		});
+
 	</script>
 	
 }

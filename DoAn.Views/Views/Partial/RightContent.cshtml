@@ -218,66 +218,35 @@
 	</div>
 
 	<div class="content-bottom-grid">
-		<h3>Best Sellers</h3>
-		<div class="latest-grid">
-			<div class="news">
-				<a href="single.html"><img class="img-responsive" src="~/images/si.jpg" title="name" alt=""></a>
-			</div>
-			<div class="news-in">
-				<h6><a href="single.html">Product name here</a></h6>
-				<p>Description Lorem ipsum </p>
-				<ul>
-					<li>Price: <span>$110</span> </li>
-					<b>|</b>
-					<li>Country: <span>US</span></li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="latest-grid">
-			<div class="news">
-				<a href="single.html"><img class="img-responsive" src="~/images/si1.jpg" title="name" alt=""></a>
-			</div>
-			<div class="news-in">
-				<h6><a href="single.html">Product name here</a></h6>
-				<p>Description Lorem ipsum </p>
-				<ul>
-					<li>Price: <span>$110</span> </li>
-					<b>|</b>
-					<li>Country: <span>US</span></li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="latest-grid">
-			<div class="news">
-				<a href="single.html"><img class="img-responsive" src="~/images/si.jpg" title="name" alt=""></a>
-			</div>
-			<div class="news-in">
-				<h6><a href="single.html">Product name here</a></h6>
-				<p>Description Lorem ipsum</p>
-				<ul>
-					<li>Price: <span>$110</span><b>|</b> </li>
-					<li>Country: <span>US</span></li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="latest-grid">
-			<div class="news">
-				<a href="single.html"><img class="img-responsive" src="~/images/si1.jpg" title="name" alt=""></a>
-			</div>
-			<div class="news-in">
-				<h6><a href="single.html">Product name here</a></h6>
-				<p>Description Lorem ipsum </p>
-				<ul>
-					<li>Price: <span>$110</span> </li>
-					<b>|</b>
-					<li>Country: <span>US</span></li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
+		<h3>Sản phẩm mua nhiều</h3>
 	</div>
 	<!---->
 </div>
+<script>
+	$.ajax({
+		url: urlRoot + 'SanPhams/GetMaxSP/',
+		dataType: 'Json',
+		type: 'Get',
+		success: function (data) {
+			var chuoi = '';
+			$.each(data, function (k, v) {
+				console.log(v);
+				chuoi += '<div class="latest-grid">';
+				chuoi += '<div class="news">';
+				chuoi += '<a href="@Url.Action("GetDetailsSP", "SanPham")" onclick="DetailsSP(' + v.Id + ')"><img class="img-responsive" src="' + v.HinhAnhSPs[0].DiaChi + '" title="' + v.TenSp + '" alt=""></a>';
+				chuoi += '</div>';
+				chuoi += '<div class="news-in">';
+				chuoi += '<h6><a href="@Url.Action("GetDetailsSP", "SanPham")" onclick="DetailsSP(' + v.Id + ')"><span title="' + v.TenSp + '">' + v.TenSp.slice(0, 15) + '</span></a></h6>';
+				chuoi += '<p>  </p>';
+				chuoi += '<ul>';
+				chuoi += '	<li>Price: <span>' + v.Gia + ' vnd</span> </li>';
+				chuoi += '</ul>';
+				chuoi += '</div>';
+				chuoi += '<div class="clearfix">  </div>';
+				chuoi += '</div>';
+			});
+			console.log(chuoi);
+			$('div.content-bottom-grid').append(chuoi);
+		}
+	});
+</script>

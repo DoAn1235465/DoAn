@@ -84,5 +84,16 @@ namespace DoAn.API.Controllers
             var value = sp.select();
             return Ok(value);
         }
-    }
+		[ActionName("GetMaxSP")]
+		public IHttpActionResult GetMaxSP()
+		{
+			var value = sp.GetSPMax();
+			if (value == null)
+			{
+				return StatusCode(HttpStatusCode.BadRequest);
+			}
+			return Ok(value);
+		}
+
+	}
 }

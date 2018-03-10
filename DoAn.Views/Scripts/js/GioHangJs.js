@@ -4,10 +4,13 @@ $(document).ready(function () {
 	//kiểm tra nếu đã có sessionStorage["GioHang"] đã có hay chưa
 	if (sessionStorage["GioHang"] != null)
 		ShoppingCartItem = JSON.parse(sessionStorage["GioHang"].toString());
-	//hiển thị
+		//hiển thị
+	else
+		sessionStorage["GioHang"] = JSON.stringify([]);
 	HienThi();
 });
 function ThemVaoGioHang(id) {
+	//ShoppingCartItem = JSON.parse(sessionStorage["GioHang"].toString());
 	$.ajax({
 		url: urlRoot + 'HoaDonSanPhams/GetSanPham/' + id,
 		type: 'Get',
@@ -22,7 +25,7 @@ function ThemVaoGioHang(id) {
 				Gia:data[0].Gia,
 				HinhAnhSPs:data[0].HinhAnhSPs
 			}
-			if (ShoppingCartItem.length > 0) {
+			if (ShoppingCartItem.length != null) {
 				$.each(ShoppingCartItem, function (k, v) {
 					//Nếu mặt hàng đã tồn tại thì chỉ cần tăng số lượng
 					if(v.Id==data[0].Id)

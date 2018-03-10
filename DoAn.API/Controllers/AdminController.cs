@@ -56,5 +56,20 @@ namespace DoAn.API.Controllers
 			//}
 			//return NotFound();
 		}
+		[ActionName("CheckLogin")]
+		[HttpPost]
+		public IHttpActionResult CheckLogin(TaiKhoan tk)
+		{
+			string quyen = db.TaiKhoans.Find(tk.Username).Quyen;
+			if (sa.CheckLogin(tk))
+			{
+				if (quyen == "admin")
+				{
+					return Ok("Admin");
+				}
+				return Ok("User");
+			}
+			return StatusCode(HttpStatusCode.BadRequest);
+		}
 	}
 }

@@ -42,23 +42,23 @@ namespace DoAn.API.Service
 			return hoaDon;
 		}
 
-		public bool Insert(HoaDonSanPham[] dhssp,HoaDon hd)
+		public bool Insert(List<HoaDonSanPham> dhssp,HoaDon hd)
 		{
-			if (dhssp == null || hd == null||dhssp.Length<=0)
+			if (dhssp == null || hd == null||dhssp.Count<=0)
 				return false;
 			HoaDon hoadon = new HoaDon()
 			{
-				Cty = hd.Cty,
+				Cty = "Không rõ",
 				DiaChi = hd.DiaChi,
 				DienThoai = hd.DienThoai,
 				Email = hd.Email,
 				fax = hd.fax,
 				HoTen = hd.HoTen,
-				Id_HoaDon = hd.Id_HoaDon,
-				NgayDat = hd.NgayDat,
+				NgayDat = DateTime.Now,
 				HoaDonSanPhams = dhssp
 			};
 			db.HoaDons.Add(hoadon);
+			db.SaveChanges();
 			return true;
 		}
 		public IEnumerable<HoaDon> select()

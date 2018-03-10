@@ -11,9 +11,11 @@ using System.Web.Http.Description;
 using DoAn.Entity;
 using DoAn.Model;
 using DoAn.API.Service;
+using System.Web.Http.Cors;
 
 namespace DoAn.API.Controllers
 {
+	[EnableCors("*","*","*")]
     public class HoaDonsController : ApiController
     {
 		sHoaDon hd = new sHoaDon();
@@ -64,19 +66,19 @@ namespace DoAn.API.Controllers
 
         // POST: api/HoaDons
         [ActionName("PostHoaDon")]
-        public IHttpActionResult PostHoaDon(HoaDonSanPham[] giohang,HoaDon hoaDon)
+        public IHttpActionResult PostHoaDon(GioHang GioHang)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-			if (hd.Insert(giohang, hoaDon))
+			if (hd.Insert(GioHang.giohang,GioHang.hoaDon))
 			{
-
+				return Ok("Thành công");
 			}
 
-            return CreatedAtRoute("DefaultApi", new { id = hoaDon.Id_HoaDon }, hoaDon);
+			return Content(HttpStatusCode.BadRequest,GioHang.hoaDon);
         }
 
         //// DELETE: api/HoaDons/5

@@ -139,6 +139,36 @@ namespace DoAn.API.Service
 			return spo;
 		}
 
+		/// <summary>
+		/// Lấy danh sách sản phẩm mua nhiều
+		/// </summary>
+		/// <returns></returns>
+		public IQueryable GetSPMax()
+		{
+			var dsdh = db.HoaDonSanPhams.Include(x => x.HoaDon);
+			if (dsdh == null)
+				return null;
+			var ds = dsdh.GroupBy(x => x.Id).Select(a => new { Id = a.Key, SoLuong = a.Sum(b => b.SoLuong) })
+				.OrderByDescending(a => a.SoLuong).Take(4);
+			var dssp = from sp in db.SanPhams.Include(x => x.LoaiSanPham)
+					   join dd in ds on sp.Id equals dd.Id
+					  select new
+					  {
+						  Id = sp.Id,
+						  Id_Loai = sp.Id_Loai,
+						  TenSp = sp.TenSp,
+						  MauMuc = sp.MauMuc,
+						  KichThuoc = sp.KichThuoc,
+						  Gia = sp.Gia,
+						  GhiChu = sp.GhiChu,
+						  SoLuongBan = sp.SoLuongBan,
+						  NgayCapNhat = sp.NgayCapNhat,
+						  HinhAnhSPs = from ha in db.HinhAnhSPs where ha.Id == sp.Id select ha,
+						  LoaiSanPham = sp.LoaiSanPham
+					  };
+			return dssp;
+		}
+
         public bool Insert(SanPham item)
         {
             throw new NotImplementedException();
